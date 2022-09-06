@@ -1,0 +1,40 @@
+dataset: xnli
+subset: ar
+templates:
+  102f9922-82f6-4e43-9487-99307ef90875: !Template
+    answer_choices: "\u0635\u062D\u064A\u062D ||| \u063A\u064A\u0631 \u062D\u0627\u0633\
+      \u0645 ||| \u063A\u064A\u0631 \u0635\u062D\u064A\u062D"
+    id: 102f9922-82f6-4e43-9487-99307ef90875
+    jinja: "{{premise}} \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\
+      \u0648\u0635\u0641 \u0623\u0639\u0644\u0627\u0647 \u0641\u0642\u0637 \u0648\u0645\
+      \u0627 \u062A\u0639\u0631\u0641\u0647 \u0639\u0646 \u0627\u0644\u0639\u0627\u0644\
+      \u0645\u060C \"{{hypothesis}}\" \u0647\u0644 \u0647\u064A \u0628\u0627\u0644\
+      \u062A\u0623\u0643\u064A\u062F \u0635\u062D\u064A\u062D\u0629 \u0623\u0645 \u062E\
+      \u0627\u0637\u0626\u0629 \u0623\u0645 \u063A\u064A\u0631 \u062D\u0627\u0633\u0645\
+      \u0629\u061F ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  400d859f-98da-45b6-b4c9-3816ac1db67b: !Template
+    answer_choices: "\u0635\u062D\u064A\u062D ||| \u0648\u0644\u0627 ||| \u062E\u0637\
+      \u0623 \u0634\u0646\u064A\u0639"
+    id: 400d859f-98da-45b6-b4c9-3816ac1db67b
+    jinja: "{{premise}}\n\u0633\u0624\u0627\u0644: {{hypothesis}} \u0635\u062D \u0623\
+      \u0645 \u062E\u0637\u0623 \u0623\u0645 \u0644\u0627\u061F||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
