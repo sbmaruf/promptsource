@@ -1,0 +1,14 @@
+dataset: xnli
+subset: sw
+templates:
+  2ed89ea5-937c-4cdc-bf93-34473077cbdf: !Template
+    answer_choices: null
+    id: 2ed89ea5-937c-4cdc-bf93-34473077cbdf
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: GPT-3 style
+    reference: ''
