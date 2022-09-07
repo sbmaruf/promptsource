@@ -1,0 +1,222 @@
+dataset: xnli
+subset: de
+templates:
+  0962a119-8e28-4d1d-9227-fe4820220145: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: 0962a119-8e28-4d1d-9227-fe4820220145
+    jinja: 'Gegeben {{premise}} Sollen wir davon ausgehen "{{hypothesis}}" ist wahr?
+      Ja, nein, oder vielleicht? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: should assume
+    reference: Webson & Pavlick 2021
+  0bd06f17-5e99-4bae-99ad-2226af352003: !Template
+    answer_choices: Immer ||| Manchmal ||| Niemals
+    id: 0bd06f17-5e99-4bae-99ad-2226af352003
+    jinja: Angenommen, das stimmt {{premise}} Dann ist "{{hypothesis}}" {{"always"}},
+      {{"sometimes"}}, oder {{"never"}} Stimmt? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: always/sometimes/never
+    reference: Sanh et al. 2021
+  16a84726-3e74-47fb-8863-f5bf35503166: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: 16a84726-3e74-47fb-8863-f5bf35503166
+    jinja: "Vermuten {{premise}} K\xF6nnen wir darauf schlie\xDFen \"{{hypothesis}}\"\
+      ? Ja, nein, oder vielleicht? ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: can we infer
+    reference: Webson & Pavlick 2021
+  3cdb9ef2-c5ae-4d6b-9d40-a4c0f9fb16f0: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: 3cdb9ef2-c5ae-4d6b-9d40-a4c0f9fb16f0
+    jinja: 'Angesichts dessen {{premise}} Daher muss das stimmen "{{hypothesis}}"?
+      Ja, nein, oder vielleicht? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: must be true
+    reference: Sanh et al. 2021
+  411b3943-0fe3-47d1-8f97-cf60a50ac8db: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: 411b3943-0fe3-47d1-8f97-cf60a50ac8db
+    jinja: 'Gegeben {{premise}} Stimmt das garantiert "{{hypothesis}}"? Ja, nein,
+      oder vielleicht? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed true
+    reference: Webson & Pavlick 2021
+  62bbabe0-dc01-4364-bf2a-c6c9f2b970e0: !Template
+    answer_choices: Immer ||| Manchmal ||| Niemals
+    id: 62bbabe0-dc01-4364-bf2a-c6c9f2b970e0
+    jinja: "{{premise}} \n\nBeachten Sie den obigen Text und \xFCberlegen Sie: {{hypothesis}}\
+      \ Ist das {{\"always\"}}, {{\"sometimes\"}}, oder {{\"never\"}} Korrekt? |||\
+      \ {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: consider always/sometimes/never
+    reference: Sanh et al. 2021
+  81b8f792-7cf6-41af-9c34-2b391731c15d: !Template
+    answer_choices: "Garantiert ||| M\xF6glich ||| Unm\xF6glich"
+    id: 81b8f792-7cf6-41af-9c34-2b391731c15d
+    jinja: "Gehe davon aus, dass das stimmt {{premise}} \n\nDeswegen, \"{{hypothesis}}\"\
+      \ ist {{\"guaranteed\"}}, {{\"possible\"}}, oder {{\"impossible\"}}? ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed/possible/impossible
+    reference: Sanh et al. 2021
+  87465211-e571-43e1-9b30-adc1a80b300f: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: 87465211-e571-43e1-9b30-adc1a80b300f
+    jinja: '{{premise}} Stimmt das nach der vorherigen Passage? "{{hypothesis}}"?
+      Ja, nein, oder vielleicht? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the previous passage
+    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+  a0871ad9-7a66-4ea1-89e3-32477f667648: !Template
+    answer_choices: Wahr ||| Weder ||| FALSCH
+    id: a0871ad9-7a66-4ea1-89e3-32477f667648
+    jinja: '{{premise}}
+
+      Frage: {{hypothesis}} Wahr, falsch oder keins von beidem? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
+  b74f1689-8921-4d90-b9c6-d05f69918352: !Template
+    answer_choices: "Richtig ||| Nicht schl\xFCssig ||| Falsch"
+    id: b74f1689-8921-4d90-b9c6-d05f69918352
+    jinja: "{{premise}} Verwenden Sie nur die obige Beschreibung und das, was Sie\
+      \ \xFCber die Welt wissen, \"{{hypothesis}}\" ist definitiv richtig, falsch\
+      \ oder nicht schl\xFCssig? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  b7b1dd39-0c23-4a4f-8ff6-312a720a58e1: !Template
+    answer_choices: "Wahr ||| Nicht schl\xFCssig ||| FALSCH"
+    id: b7b1dd39-0c23-4a4f-8ff6-312a720a58e1
+    jinja: 'Nimm folgendes als Wahrheit: {{premise}}
+
+      Dann folgende Aussage: "{{hypothesis}}" ist {{"true"}}, {{"false"}}, oder {{"inconclusive"}}?
+      ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: take the following as truth
+    reference: Sanh et al. 2021
+  bb582899-5959-4c9b-9c92-ab8c79909e67: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: bb582899-5959-4c9b-9c92-ab8c79909e67
+    jinja: "{{premise}} \n\nFrage: Bedeutet dies das \"{{hypothesis}}\"? Ja, nein,\
+      \ oder vielleicht? ||| {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does this imply
+    reference: Sanh et al. 2021
+  c66f56d1-a55b-4d8a-9524-672877d92c60: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: c66f56d1-a55b-4d8a-9524-672877d92c60
+    jinja: '{{premise}} Sind wir berechtigt, das zu sagen "{{hypothesis}}"? Ja, nein,
+      oder vielleicht? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: justified in saying
+    reference: Webson & Pavlick 2021
+  c88f8f6f-fe89-4e95-a078-87e3a73da13a: !Template
+    answer_choices: Ja ||| Vielleicht ||| Nein
+    id: c88f8f6f-fe89-4e95-a078-87e3a73da13a
+    jinja: Angesichts dessen {{premise}} Folgt das {{hypothesis}} Ja, nein, oder vielleicht?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does it follow that
+    reference: Sanh et al. 2021
+  d545e857-2378-46c9-ad64-f4d29c8689a1: !Template
+    answer_choices: "Wahr ||| Nicht schl\xFCssig ||| FALSCH"
+    id: d545e857-2378-46c9-ad64-f4d29c8689a1
+    jinja: '{{premise}} Basierend auf diesen Informationen lautet die Behauptung:
+      "{{hypothesis}}" {{"true"}}, {{"false"}}, oder {{"inconclusive"}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - de
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true/false/inconclusive
+    reference: Sanh et al. 2021
