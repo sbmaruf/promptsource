@@ -32,10 +32,11 @@ templates:
     reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
       is no task identifying tokens like "anli R1: ".'
   5f77d6eb-4093-40c5-aac7-29c348f4e677: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: 5f77d6eb-4093-40c5-aac7-29c348f4e677
-    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
-      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    jinja: "{{premise}} D\u1EF1a tr\xEAn \u0111o\u1EA1n v\u0103n tr\u01B0\u1EDBc,\
+      \ c\xF3 \u0111\xFAng l\xE0 \"{{hypothesis}}\"? C\xF3, kh\xF4ng, ho\u1EB7c c\xF3\
+      \ th\u1EC3? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -48,9 +49,9 @@ templates:
   6dc4f371-6850-4085-a9f4-3bef7cb50892: !Template
     answer_choices: True ||| Inconclusive ||| False
     id: 6dc4f371-6850-4085-a9f4-3bef7cb50892
-    jinja: '{{premise}} Based on that information, is the claim: "{{hypothesis}}"
-      {{"true"}}, {{"false"}}, or {{"inconclusive"}}? ||| {{ answer_choices[label]
-      }}'
+    jinja: "{{premise}} D\u1EF1a tr\xEAn th\xF4ng tin \u0111\xF3, x\xE1c nh\u1EAD\
+      n quy\u1EC1n s\u1EDF h\u1EEFu l\xE0: \"{{hypothesis}}\" {{\"true\"}}, {{\"false\"\
+      }}, ho\u1EB7c {{\"inconclusive\"}}? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -61,11 +62,12 @@ templates:
     name: claim true/false/inconclusive
     reference: Sanh et al. 2021
   6e491403-5eb4-4154-87b2-d333e5d5d4a7: !Template
-    answer_choices: Guaranteed ||| Possible ||| Impossible
+    answer_choices: "\u0110\u1EA3m b\u1EA3o ||| C\xF3 th\u1EC3 c\xF3 ||| Kh\xF4ng\
+      \ th\u1EC3 n\xE0o"
     id: 6e491403-5eb4-4154-87b2-d333e5d5d4a7
-    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is\
-      \ {{\"guaranteed\"}}, {{\"possible\"}}, or {{\"impossible\"}}? ||| {{ answer_choices[label]\
-      \ }}"
+    jinja: "Gi\u1EA3 s\u1EED n\xF3 l\xE0 s\u1EF1 th\u1EADt r\u1EB1ng {{premise}} \n\
+      \nV\xEC v\u1EADy, \"{{hypothesis}}\" L\xE0 {{\"guaranteed\"}}, {{\"possible\"\
+      }}, ho\u1EB7c {{\"impossible\"}}? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -76,10 +78,11 @@ templates:
     name: guaranteed/possible/impossible
     reference: Sanh et al. 2021
   77e31e65-c22c-47a2-ad0b-1dfec5c8e838: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: 77e31e65-c22c-47a2-ad0b-1dfec5c8e838
-    jinja: 'Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Yes, no,
-      or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "\u0110\u01B0\u1EE3c {{premise}} C\xF3 \u0111\u1EA3m b\u1EA3o \u0111\xFA\
+      ng r\u1EB1ng \"{{hypothesis}}\"? C\xF3, kh\xF4ng, ho\u1EB7c c\xF3 th\u1EC3?\
+      \ ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -121,10 +124,11 @@ templates:
     name: does this imply
     reference: Sanh et al. 2021
   9a4bf55e-9e46-4df8-a667-4be00329acff: !Template
-    answer_choices: Always ||| Sometimes ||| Never
+    answer_choices: "Lu\xF4n lu\xF4n ||| \u0110\xF4i khi ||| Kh\xF4ng bao gi\u1EDD"
     id: 9a4bf55e-9e46-4df8-a667-4be00329acff
-    jinja: Suppose it's true that {{premise}} Then, is "{{hypothesis}}" {{"always"}},
-      {{"sometimes"}}, or {{"never"}} true? ||| {{ answer_choices[label] }}
+    jinja: "Gi\u1EA3 s\u1EED n\xF3 \u0111\xFAng l\xE0 {{premise}} Sau \u0111\xF3 \"\
+      {{hypothesis}}\" {{\"always\"}}, {{\"sometimes\"}}, ho\u1EB7c {{\"never\"}}\
+      \ th\u1EADt? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -166,11 +170,12 @@ templates:
     name: take the following as truth
     reference: take the following as truth
   aac76138-eb78-42c5-b907-32c7df12a2e7: !Template
-    answer_choices: Always ||| Sometimes ||| Never
+    answer_choices: "Lu\xF4n lu\xF4n ||| \u0110\xF4i khi ||| Kh\xF4ng bao gi\u1EDD"
     id: aac76138-eb78-42c5-b907-32c7df12a2e7
-    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\
-      \ Is this {{\"always\"}}, {{\"sometimes\"}}, or {{\"never\"}} correct? ||| {{\
-      \ answer_choices[label] }}"
+    jinja: "{{premise}} \n\nH\xE3y ghi nh\u1EDB v\u0103n b\u1EA3n tr\xEAn, h\xE3y\
+      \ xem x\xE9t: {{hypothesis}} C\xF3 pha\u0309i \u0111\xE2y l\xE0 {{\"always\"\
+      }}, {{\"sometimes\"}}, ho\u1EB7c {{\"never\"}} Ch\xEDnh x\xE1c? ||| {{ answer_choices[label]\
+      \ }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -196,10 +201,11 @@ templates:
     name: must be true
     reference: Sanh et al. 2021
   db051a0a-7932-477d-8d57-23578b6f9127: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: db051a0a-7932-477d-8d57-23578b6f9127
-    jinja: Given that {{premise}} Does it follow that {{hypothesis}} Yes, no, or maybe?
-      ||| {{ answer_choices[label] }}
+    jinja: "Cho r\u1EB1ng {{premise}} N\xF3 c\xF3 tu\xE2n theo \u0111i\u1EC1u \u0111\
+      \xF3 kh\xF4ng {{hypothesis}} C\xF3, kh\xF4ng, ho\u1EB7c c\xF3 th\u1EC3? |||\
+      \ {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -210,10 +216,11 @@ templates:
     name: does it follow that
     reference: Sanh et al. 2021
   ff43ebc9-cc6c-441d-b256-a36ebab363fd: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: ff43ebc9-cc6c-441d-b256-a36ebab363fd
-    jinja: 'Suppose {{premise}} Can we infer that "{{hypothesis}}"? Yes, no, or maybe?
-      ||| {{ answer_choices[label] }} '
+    jinja: "Gi\u1EA3 s\u1EED {{premise}} Ch\xFAng ta c\xF3 th\u1EC3 suy lu\u1EADn\
+      \ r\u1EB1ng \"{{hypothesis}}\"? C\xF3, kh\xF4ng, ho\u1EB7c c\xF3 th\u1EC3? |||\
+      \ {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
