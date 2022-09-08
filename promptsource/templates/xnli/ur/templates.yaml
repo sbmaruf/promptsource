@@ -1,0 +1,222 @@
+dataset: xnli
+subset: ur
+templates:
+  1a1c0e82-e477-499c-93d8-2d68bfda757a: !Template
+    answer_choices: Guaranteed ||| Possible ||| Impossible
+    id: 1a1c0e82-e477-499c-93d8-2d68bfda757a
+    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is\
+      \ {{\"guaranteed\"}}, {{\"possible\"}}, or {{\"impossible\"}}? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed/possible/impossible
+    reference: Sanh et al. 2021
+  1b6a37a0-1ab4-4ba3-b96b-4afe2eda4013: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: 1b6a37a0-1ab4-4ba3-b96b-4afe2eda4013
+    jinja: 'Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: must be true
+    reference: Sanh et al. 2021
+  25105464-ef13-4b76-a005-ce54ac2d5853: !Template
+    answer_choices: True ||| Neither ||| False
+    id: 25105464-ef13-4b76-a005-ce54ac2d5853
+    jinja: '{{premise}}
+
+      Question: {{hypothesis}} True, False, or Neither? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
+  2d91b6e3-22c5-443b-9570-1c1a80cfc1f8: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: 2d91b6e3-22c5-443b-9570-1c1a80cfc1f8
+    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? Yes,\
+      \ no, or maybe? ||| {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does this imply
+    reference: Sanh et al. 2021
+  332164b5-e51a-406c-b787-5c016982b641: !Template
+    answer_choices: Correct ||| Inconclusive ||| Incorrect
+    id: 332164b5-e51a-406c-b787-5c016982b641
+    jinja: '{{premise}} Using only the above description and what you know about the
+      world, "{{hypothesis}}" is definitely correct, incorrect, or inconclusive? |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  3b702fea-bea0-4f81-8c32-fee9f95b836c: !Template
+    answer_choices: Always ||| Sometimes ||| Never
+    id: 3b702fea-bea0-4f81-8c32-fee9f95b836c
+    jinja: Suppose it's true that {{premise}} Then, is "{{hypothesis}}" {{"always"}},
+      {{"sometimes"}}, or {{"never"}} true? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: always/sometimes/never
+    reference: Sanh et al. 2021
+  40ef5e30-228e-4a76-bc01-0a968b3281e2: !Template
+    answer_choices: Always ||| Sometimes ||| Never
+    id: 40ef5e30-228e-4a76-bc01-0a968b3281e2
+    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\
+      \ Is this {{\"always\"}}, {{\"sometimes\"}}, or {{\"never\"}} correct? ||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: consider always/sometimes/never
+    reference: Sanh et al. 2021
+  54216265-9639-4080-833f-4dd3d80ee8ff: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: 54216265-9639-4080-833f-4dd3d80ee8ff
+    jinja: 'Given {{premise}} Should we assume that "{{hypothesis}}" is true? Yes,
+      no, or maybe? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: should assume
+    reference: Webson & Pavlick 2021
+  544e986f-9d43-427d-a449-6f3e70ced3ed: !Template
+    answer_choices: True ||| Inconclusive ||| False
+    id: 544e986f-9d43-427d-a449-6f3e70ced3ed
+    jinja: '{{premise}} Based on that information, is the claim: "{{hypothesis}}"
+      {{"true"}}, {{"false"}}, or {{"inconclusive"}}? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true/false/inconclusive
+    reference: Sanh et al. 2021
+  851d58c8-ad01-47c7-8bef-580be47a1ac2: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: 851d58c8-ad01-47c7-8bef-580be47a1ac2
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the previous passage
+    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+  889eb691-bc88-47cd-a7c6-564bdb9bf3fb: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: 889eb691-bc88-47cd-a7c6-564bdb9bf3fb
+    jinja: 'Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Yes, no,
+      or maybe? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed true
+    reference: Webson & Pavlick 2021
+  89aa2100-881d-471c-b2e7-75a3bc73a38a: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: 89aa2100-881d-471c-b2e7-75a3bc73a38a
+    jinja: 'Suppose {{premise}} Can we infer that "{{hypothesis}}"? Yes, no, or maybe?
+      ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: can we infer
+    reference: Webson & Pavlick 2021
+  a8a4d337-3a40-4e64-895d-e5663a235d53: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: a8a4d337-3a40-4e64-895d-e5663a235d53
+    jinja: '{{premise}} Are we justified in saying that "{{hypothesis}}"? Yes, no,
+      or maybe? ||| {{ answer_choices[label] }} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: justified in saying
+    reference: Webson & Pavlick 2021
+  c8f97196-9a9c-4dbe-850b-6d9abaad3e85: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: c8f97196-9a9c-4dbe-850b-6d9abaad3e85
+    jinja: Given that {{premise}} Does it follow that {{hypothesis}} Yes, no, or maybe?
+      ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does it follow that
+    reference: Sanh et al. 2021
+  da5ba681-9b8c-4d5d-bbf4-988f2d6c256c: !Template
+    answer_choices: True ||| Inconclusive ||| False
+    id: da5ba681-9b8c-4d5d-bbf4-988f2d6c256c
+    jinja: 'Take the following as truth: {{premise}}
+
+      Then the following statement: "{{hypothesis}}" is {{"true"}}, {{"false"}}, or
+      {{"inconclusive"}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ur
+      metrics:
+      - Accuracy
+      original_task: true
+    name: take the following as truth
+    reference: Sanh et al. 2021
