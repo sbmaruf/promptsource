@@ -2,10 +2,11 @@ dataset: xnli
 subset: zh
 templates:
   02a46efa-60ea-4c70-8aa2-c1d69d94e259: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 02a46efa-60ea-4c70-8aa2-c1d69d94e259
-    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
-      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    jinja: "{{premise}} \u6839\u64DA\u524D\u9762\u7684\u6BB5\u843D\uFF0C\u662F\u4E0D\
+      \u662F\u771F\u7684 \"{{hypothesis}}\"? \u662F\u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\
+      \u6216\u8005\u4E5F\u8A31\uFF1F ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -16,10 +17,11 @@ templates:
     name: based on the previous passage
     reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
   2d8e5f35-27c0-42e6-8815-2679ab1c1dbc: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 2d8e5f35-27c0-42e6-8815-2679ab1c1dbc
-    jinja: '{{premise}} Are we justified in saying that "{{hypothesis}}"? Yes, no,
-      or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "{{premise}} \u6211\u5011\u9019\u6A23\u8AAA\u6709\u9053\u7406\u55CE \"\
+      {{hypothesis}}\"? \u662F\u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\u6216\u8005\u4E5F\
+      \u8A31\uFF1F ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -30,10 +32,11 @@ templates:
     name: justified in saying
     reference: Webson & Pavlick 2021
   55608ee1-1824-43ba-b764-4bef81e6e102: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 55608ee1-1824-43ba-b764-4bef81e6e102
-    jinja: 'Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
-      Yes, no, or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "\u9451\u65BC {{premise}} \u56E0\u6B64\uFF0C\u5FC5\u9808\u662F\u771F\u7684\
+      \ \"{{hypothesis}}\"? \u662F\u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\u6216\u8005\
+      \u4E5F\u8A31\uFF1F ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -44,10 +47,11 @@ templates:
     name: must be true
     reference: Sanh et al. 2021
   559c00de-1ffb-4a17-b693-10f876a77b69: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 559c00de-1ffb-4a17-b693-10f876a77b69
-    jinja: 'Given {{premise}} Should we assume that "{{hypothesis}}" is true? Yes,
-      no, or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "\u7D66\u5B9A {{premise}} \u6211\u5011\u662F\u5426\u61C9\u8A72\u5047\u8A2D\
+      \ \"{{hypothesis}}\" \u662F\u771F\u7684\uFF1F \u662F\u7684\uFF0C\u4E0D\u662F\
+      \u7684\uFF0C\u6216\u8005\u4E5F\u8A31\uFF1F ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -58,12 +62,11 @@ templates:
     name: should assume
     reference: Webson & Pavlick 2021
   67bb77dc-dc64-4f9d-a421-47acf757b20f: !Template
-    answer_choices: True ||| Inconclusive ||| False
+    answer_choices: "\u771F||| \u4E0D\u78BA\u5B9A||| \u932F\u8AA4\u7684"
     id: 67bb77dc-dc64-4f9d-a421-47acf757b20f
-    jinja: 'Take the following as truth: {{premise}}
-
-      Then the following statement: "{{hypothesis}}" is {{"true"}}, {{"false"}}, or
-      {{"inconclusive"}}? ||| {{ answer_choices[label] }}'
+    jinja: "\u4EE5\u4E0B\u5217\u70BA\u771F\uFF1A {{premise}}\n\u7136\u5F8C\u662F\u4E0B\
+      \u9762\u7684\u8A9E\u53E5\uFF1A\n\"{{hypothesis}}\" \u662F{{\"true\"}}, {{\"\
+      false\"}}, \u6216\u8005 {{\"inconclusive\"}}? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -74,11 +77,12 @@ templates:
     name: take the following as truth
     reference: Sanh et al. 2021
   6c263f4c-aec3-4cdc-ac9c-946bcba0f3ee: !Template
-    answer_choices: Correct ||| Inconclusive ||| Incorrect
+    answer_choices: "\u6B63\u78BA ||| \u4E0D\u78BA\u5B9A||| \u4E0D\u6B63\u78BA"
     id: 6c263f4c-aec3-4cdc-ac9c-946bcba0f3ee
-    jinja: '{{premise}} Using only the above description and what you know about the
-      world, "{{hypothesis}}" is definitely correct, incorrect, or inconclusive? |||
-      {{ answer_choices[label] }}'
+    jinja: "{{premise}} \u50C5\u4F7F\u7528\u4E0A\u8FF0\u63CF\u8FF0\u548C\u60A8\u5C0D\
+      \u4E16\u754C\u7684\u4E86\u89E3\uFF0C \"{{hypothesis}}\" \u662F\u7D55\u5C0D\u6B63\
+      \u78BA\u7684\u3001\u4E0D\u6B63\u78BA\u7684\u9084\u662F\u4E0D\u78BA\u5B9A\u7684\
+      \uFF1F||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -89,10 +93,11 @@ templates:
     name: MNLI crowdsource
     reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
   6cb210ed-8bec-42a5-87ca-adb5e82a2e89: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 6cb210ed-8bec-42a5-87ca-adb5e82a2e89
-    jinja: "{{premise}} \n\nQuestion: Does this imply that \"{{hypothesis}}\"? Yes,\
-      \ no, or maybe? ||| {{answer_choices[label]}}"
+    jinja: "{{premise}} \n\n\u554F\uFF1A\u9019\u662F\u5426\u610F\u5473\u8457 \"{{hypothesis}}\"\
+      ? \u662F\u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\u6216\u8005\u4E5F\u8A31\uFF1F |||\
+      \ {{answer_choices[label]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -103,10 +108,11 @@ templates:
     name: does this imply
     reference: Sanh et al. 2021
   7c3bbac9-bde0-4638-ba69-aac271aaa9a7: !Template
-    answer_choices: Always ||| Sometimes ||| Never
+    answer_choices: "\u7E3D\u662F||| \u6709\u6642||| \u7D55\u4E0D"
     id: 7c3bbac9-bde0-4638-ba69-aac271aaa9a7
-    jinja: Suppose it's true that {{premise}} Then, is "{{hypothesis}}" {{"always"}},
-      {{"sometimes"}}, or {{"never"}} true? ||| {{ answer_choices[label] }}
+    jinja: "\u5047\u8A2D\u9019\u662F\u771F\u7684 {{premise}} \u90A3\u9EBC\uFF0C\u662F\
+      \ \"{{hypothesis}}\" {{\"always\"}}, {{\"sometimes\"}}, \u6216\u8005 {{\"never\"\
+      }} \u771F\u7684\uFF1F ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -117,11 +123,12 @@ templates:
     name: always/sometimes/never
     reference: Sanh et al. 2021
   88d96080-0b04-4470-837d-39ca554df1c1: !Template
-    answer_choices: Always ||| Sometimes ||| Never
+    answer_choices: "\u7E3D\u662F||| \u6709\u6642||| \u7D55\u4E0D"
     id: 88d96080-0b04-4470-837d-39ca554df1c1
-    jinja: "{{premise}} \n\nKeeping in mind the above text, consider: {{hypothesis}}\
-      \ Is this {{\"always\"}}, {{\"sometimes\"}}, or {{\"never\"}} correct? ||| {{\
-      \ answer_choices[label] }}"
+    jinja: "{{premise}} \n\n\u8A18\u4F4F\u4E0A\u9762\u7684\u6587\u5B57\uFF0C\u8003\
+      \u616E\uFF1A {{hypothesis}} \u9019\u662F {{\"always\"}}, {{\"sometimes\"}},\
+      \ \u6216\u8005 {{\"never\"}} \u6B63\u78BA\u7684\uFF1F ||| {{ answer_choices[label]\
+      \ }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -132,11 +139,11 @@ templates:
     name: consider always/sometimes/never
     reference: Sanh et al. 2021
   89d7d36e-4705-4d56-ac81-a4e726967430: !Template
-    answer_choices: Guaranteed ||| Possible ||| Impossible
+    answer_choices: "\u4FDD\u8B49 ||| \u53EF\u80FD\u7684||| \u4E0D\u53EF\u80FD\u7684"
     id: 89d7d36e-4705-4d56-ac81-a4e726967430
-    jinja: "Assume it is true that {{premise}} \n\nTherefore, \"{{hypothesis}}\" is\
-      \ {{\"guaranteed\"}}, {{\"possible\"}}, or {{\"impossible\"}}? ||| {{ answer_choices[label]\
-      \ }}"
+    jinja: "\u5047\u8A2D\u9019\u662F\u771F\u7684 {{premise}} \n\n\u6240\u4EE5\uFF0C\
+      \ \"{{hypothesis}}\"\u662F {{\"guaranteed\"}}, {{\"possible\"}}, \u6216\u8005\
+      \ {{\"impossible\"}}? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -147,10 +154,11 @@ templates:
     name: guaranteed/possible/impossible
     reference: Sanh et al. 2021
   90639a17-329d-459f-892c-0bb7b1cc97f2: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 90639a17-329d-459f-892c-0bb7b1cc97f2
-    jinja: Given that {{premise}} Does it follow that {{hypothesis}} Yes, no, or maybe?
-      ||| {{ answer_choices[label] }}
+    jinja: "\u9451\u65BC {{premise}} \u662F\u5426\u9075\u5FAA {{hypothesis}} \u662F\
+      \u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\u6216\u8005\u4E5F\u8A31\uFF1F ||| {{ answer_choices[label]\
+      \ }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -161,10 +169,11 @@ templates:
     name: does it follow that
     reference: Sanh et al. 2021
   96ee13e4-6b63-4487-9006-7298219b1e51: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 96ee13e4-6b63-4487-9006-7298219b1e51
-    jinja: 'Given {{premise}} Is it guaranteed true that "{{hypothesis}}"? Yes, no,
-      or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "\u7D66\u5B9A {{premise}} \u662F\u5426\u4FDD\u8B49\u771F\u5BE6 \"{{hypothesis}}\"\
+      ? \u662F\u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\u6216\u8005\u4E5F\u8A31\uFF1F |||\
+      \ {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -175,10 +184,11 @@ templates:
     name: guaranteed true
     reference: Webson & Pavlick 2021
   9dfbaf58-7ad3-47c5-8c4f-412573470b87: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "\u662F\u7684||| \u4E5F\u8A31||| \u4E0D"
     id: 9dfbaf58-7ad3-47c5-8c4f-412573470b87
-    jinja: 'Suppose {{premise}} Can we infer that "{{hypothesis}}"? Yes, no, or maybe?
-      ||| {{ answer_choices[label] }} '
+    jinja: "\u8A8D\u70BA {{premise}} \u6211\u5011\u53EF\u4EE5\u63A8\u65B7\u51FA \"\
+      {{hypothesis}}\"? \u662F\u7684\uFF0C\u4E0D\u662F\u7684\uFF0C\u6216\u8005\u4E5F\
+      \u8A31\uFF1F ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -189,23 +199,26 @@ templates:
     name: can we infer
     reference: Webson & Pavlick 2021
   b495005e-59a8-4a53-a527-c678b1139d9c: !Template
-    answer_choices: null
+    answer_choices: "\u771F||| \u4E0D\u78BA\u5B9A||| \u932F\u8AA4\u7684"
     id: b495005e-59a8-4a53-a527-c678b1139d9c
-    jinja: ''
+    jinja: "{{premise}} \u6839\u64DA\u8A72\u4FE1\u606F\uFF0C\u7D22\u8CE0\u662F\uFF1A\
+      \ \"{{hypothesis}}\" {{\"true\"}}, {{\"false\"}}, \u6216\u8005 {{\"inconclusive\"\
+      }}? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
-      choices_in_prompt: null
-      languages: null
-      metrics: null
-      original_task: null
+      choices_in_prompt: true
+      languages:
+      - zh
+      metrics:
+      - Accuracy
+      original_task: true
     name: claim true/false/inconclusive
-    reference: ''
+    reference: Sanh et al. 2021
   c55b8b13-7218-4095-88b2-dbf80cc27cc9: !Template
-    answer_choices: True ||| Neither ||| False
+    answer_choices: "\u771F||| \u90FD\u4E0D\u662F||| \u932F\u8AA4\u7684"
     id: c55b8b13-7218-4095-88b2-dbf80cc27cc9
-    jinja: '{{premise}}
-
-      Question: {{hypothesis}} True, False, or Neither? ||| {{ answer_choices[label]
-      }}'
+    jinja: "{{premise}}\n\u554F\u984C\uFF1A {{hypothesis}} \u5C0D\uFF0C\u932F\uFF0C\
+      \u9084\u662F\u5169\u8005\u90FD\u4E0D\u662F\uFF1F ||| {{ answer_choices[label]\
+      \ }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
