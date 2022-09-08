@@ -1,0 +1,222 @@
+dataset: xnli
+subset: tr
+templates:
+  245677f6-1e44-406d-948e-cf13b8667ebf: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: 245677f6-1e44-406d-948e-cf13b8667ebf
+    jinja: "{{premise}} \n\nSoru: Bu \u015Fu anlama m\u0131 geliyor? \"{{hypothesis}}\"\
+      ? Evet, hay\u0131r, ya da belki?||| {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does this imply
+    reference: Sanh et al. 2021
+  2821aa80-ab0b-4fc4-9923-2614f2a5f4ee: !Template
+    answer_choices: "Do\u011Fru ||| Sonu\xE7suz ||| Yanl\u0131\u015F"
+    id: 2821aa80-ab0b-4fc4-9923-2614f2a5f4ee
+    jinja: "A\u015Fa\u011F\u0131dakileri ger\xE7ek olarak kabul edin: {{premise}}\n\
+      Ard\u0131ndan a\u015Fa\u011F\u0131daki ifade: \"{{hypothesis}}\" d\u0131r-dir\
+      \ {{\"true\"}}, {{\"false\"}}, veya {{\"inconclusive\"}}? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: take the following as truth
+    reference: Sanh et al. 2021
+  337d5d58-0d19-4798-a410-364ea804deee: !Template
+    answer_choices: "Do\u011Fru ||| Sonu\xE7suz ||| Yanl\u0131\u015F"
+    id: 337d5d58-0d19-4798-a410-364ea804deee
+    jinja: "{{premise}} Yaln\u0131zca yukar\u0131daki a\xE7\u0131klamay\u0131 ve d\xFC\
+      nya hakk\u0131nda bildiklerinizi kullanarak, \"{{hypothesis}}\" kesinlikle do\u011F\
+      ru, yanl\u0131\u015F veya sonu\xE7suz mu? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  345f6d68-c68e-444a-9f9c-cded31337b79: !Template
+    answer_choices: "Do\u011Fru ||| Hi\xE7biri ||| Yanl\u0131\u015F"
+    id: 345f6d68-c68e-444a-9f9c-cded31337b79
+    jinja: "{{premise}}\nSoru: {{hypothesis}} Do\u011Fru, Yanl\u0131\u015F veya Hi\xE7\
+      biri? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
+  3641bf07-67b6-43a9-a1f4-65e863f8568d: !Template
+    answer_choices: "Her zaman ||| Bazen ||| Hi\xE7bir zaman"
+    id: 3641bf07-67b6-43a9-a1f4-65e863f8568d
+    jinja: "Diyelim ki bu do\u011Fru {{premise}} Daha sonra \"{{hypothesis}}\" {{\"\
+      always\"}}, {{\"sometimes\"}}, veya {{\"never\"}} do\u011Fru? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: always/sometimes/never
+    reference: Sanh et al. 2021
+  743ccece-a1d6-4cb1-8cf3-1a4668ae0123: !Template
+    answer_choices: "Her zaman ||| Bazen ||| Hi\xE7bir zaman"
+    id: 743ccece-a1d6-4cb1-8cf3-1a4668ae0123
+    jinja: "{{premise}} \n\nYukar\u0131daki metni g\xF6z \xF6n\xFCnde bulundurarak\
+      \ \u015Funlar\u0131 g\xF6z \xF6n\xFCnde bulundurun: {{hypothesis}} Bu {{\"always\"\
+      }}, {{\"sometimes\"}}, veya {{\"never\"}} do\u011Fru? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: consider always/sometimes/never
+    reference: Sanh et al. 2021
+  7df473e1-dc97-4a81-8b38-7710540ac76b: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: 7df473e1-dc97-4a81-8b38-7710540ac76b
+    jinja: "verilen {{premise}} do\u011Fru oldu\u011Fu garanti mi \"{{hypothesis}}\"\
+      ? Evet, hay\u0131r, ya da belki? ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed true
+    reference: Webson & Pavlick 2021
+  84ef1641-ff33-475a-b2d8-8bb4877a80a1: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: 84ef1641-ff33-475a-b2d8-8bb4877a80a1
+    jinja: "{{premise}} bunu s\xF6ylemekte hakl\u0131 m\u0131y\u0131z \"{{hypothesis}}\"\
+      ? Evet, hay\u0131r, ya da belki? ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: justified in saying
+    reference: Webson & Pavlick 2021
+  8f2ed909-b136-4ffd-a137-1e786a5f1da2: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: 8f2ed909-b136-4ffd-a137-1e786a5f1da2
+    jinja: "Verilen {{premise}} Bu nedenle, do\u011Fru olmal\u0131 ki \"{{hypothesis}}\"\
+      ? Evet, hay\u0131r, ya da belki? ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: must be true
+    reference: Sanh et al. 2021
+  92ce7f29-cad5-41e9-a5e7-9ecf51923c7b: !Template
+    answer_choices: "Do\u011Fru ||| Sonu\xE7suz ||| Yanl\u0131\u015F"
+    id: 92ce7f29-cad5-41e9-a5e7-9ecf51923c7b
+    jinja: "{{premise}} Bu bilgilere dayanarak iddia \u015Fudur: \"{{hypothesis}}\"\
+      \ {{\"true\"}}, {{\"false\"}}, veya {{\"inconclusive\"}}? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true/false/inconclusive
+    reference: Sanh et al. 2021
+  b3eee4fd-ec00-4b4e-b2a6-66d29fbc3d0a: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: b3eee4fd-ec00-4b4e-b2a6-66d29fbc3d0a
+    jinja: "Verilen {{premise}} bunu takip ediyor mu {{hypothesis}} Evet, hay\u0131\
+      r, ya da belki? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does it follow that
+    reference: Sanh et al. 2021
+  bf465f75-fb5c-4a2f-b9e8-e3bc5aed0f62: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: bf465f75-fb5c-4a2f-b9e8-e3bc5aed0f62
+    jinja: "verilen {{premise}} bunu varsaymal\u0131 m\u0131y\u0131z \"{{hypothesis}}\"\
+      \ do\u011Fru? Evet, hay\u0131r, ya da belki? ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: should assume
+    reference: Webson & Pavlick 2021
+  cecf553e-84c3-4855-91a1-f8e92dcfcfe9: !Template
+    answer_choices: "Garantili ||| Olas\u0131 ||| \u0130mkans\u0131z"
+    id: cecf553e-84c3-4855-91a1-f8e92dcfcfe9
+    jinja: "Bunun do\u011Fru oldu\u011Funu varsayal\u0131m {{premise}} \n\n\xD6yleyse,\
+      \ \"{{hypothesis}}\" d\u0131r-dir {{\"guaranteed\"}}, {{\"possible\"}}, veya\
+      \ {{\"impossible\"}}? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed/possible/impossible
+    reference: Sanh et al. 2021
+  e158c409-c86a-4325-9022-d962aec3c7c1: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: e158c409-c86a-4325-9022-d962aec3c7c1
+    jinja: "{{premise}} Bir \xF6nceki pasaja g\xF6re, bu do\u011Fru mu? \"{{hypothesis}}\"\
+      ? Evet, hay\u0131r, ya da belki? ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the previous passage
+    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+  e6b437a0-8ad0-438b-a3d2-a956eb66aa80: !Template
+    answer_choices: Evet ||| Belki ||| Numara
+    id: e6b437a0-8ad0-438b-a3d2-a956eb66aa80
+    jinja: "Sanmak {{premise}} bunu \xE7\u0131karabilir miyiz \"{{hypothesis}}\"?\
+      \ Evet, hay\u0131r, ya da belki? ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - tr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: can we infer
+    reference: Webson & Pavlick 2021
