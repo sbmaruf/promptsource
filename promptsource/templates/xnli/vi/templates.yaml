@@ -16,12 +16,10 @@ templates:
     name: justified in saying
     reference: Webson & Pavlick 2021
   3f2a5a2f-6435-4858-90d9-849978548bd0: !Template
-    answer_choices: True ||| Neither ||| False
+    answer_choices: "\u0110\xFAng ||| C\u0169ng kh\xF4ng ||| Sai"
     id: 3f2a5a2f-6435-4858-90d9-849978548bd0
-    jinja: '{{premise}}
-
-      Question: {{hypothesis}} True, False, or Neither? ||| {{ answer_choices[label]
-      }}'
+    jinja: "{{premise}}\nC\xE2u h\u1ECFi: {{hypothesis}} \u0110\xFAng, Sai hay Kh\xF4\
+      ng? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -91,11 +89,13 @@ templates:
     name: guaranteed true
     reference: Webson & Pavlick 2021
   7a8836de-5d30-4e07-8ddc-74f4ee056fa6: !Template
-    answer_choices: Correct ||| Inconclusive ||| Incorrect
+    answer_choices: "\u0110\xFAng ||| Kh\xF4ng \u0111\u1ED9c quy\u1EC1n ||| Kh\xF4\
+      ng \u0111\xFAng"
     id: 7a8836de-5d30-4e07-8ddc-74f4ee056fa6
-    jinja: '{{premise}} Using only the above description and what you know about the
-      world, "{{hypothesis}}" is definitely correct, incorrect, or inconclusive? |||
-      {{ answer_choices[label] }}'
+    jinja: "{{premise}} Ch\u1EC9 s\u1EED d\u1EE5ng m\xF4 t\u1EA3 \u1EDF tr\xEAn v\xE0\
+      \ nh\u1EEFng g\xEC b\u1EA1n bi\u1EBFt v\u1EC1 th\u1EBF gi\u1EDBi, \"{{hypothesis}}\"\
+      \ ch\u1EAFc ch\u1EAFn l\xE0 ch\xEDnh x\xE1c, kh\xF4ng ch\xEDnh x\xE1c, ho\u1EB7\
+      c kh\xF4ng th\u1EC3 k\u1EBFt lu\u1EADn? ||| {{ answer_choices[label] }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
