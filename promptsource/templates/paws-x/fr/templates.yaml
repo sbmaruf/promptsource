@@ -1,0 +1,171 @@
+dataset: paws-x
+subset: fr
+templates:
+  12ee213c-2f6c-4d83-a340-3aff58af393a: !Template
+    answer_choices: No ||| Yes
+    id: 12ee213c-2f6c-4d83-a340-3aff58af393a
+    jinja: "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Does Sentence\
+      \ 1 paraphrase Sentence 2? Yes or No? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation
+    reference: Concatenation of sentence 1 and sentence 2
+  2791712a-2a43-424b-af07-676240464226: !Template
+    answer_choices: False ||| True
+    id: 2791712a-2a43-424b-af07-676240464226
+    jinja: "{{sentence1}} Question: {{sentence2}} True or False? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3
+    reference: ANLI prompt format from Table G7 in the GPT3 paper
+  45651068-078d-43e1-84aa-656ce933bd5c: !Template
+    answer_choices: 'No ||| Yes '
+    id: 45651068-078d-43e1-84aa-656ce933bd5c
+    jinja: "Determine if the following two sentences paraphrase each other or not.\n\
+      Sent 1: {{sentence1}}\nSent 2: {{sentence2}}\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: task_description-no-label
+    reference: Generalized prompt format, task_description-input.
+  4675a59a-8937-49ad-a22a-0e4d6bc276ea: !Template
+    answer_choices: No ||| Yes
+    id: 4675a59a-8937-49ad-a22a-0e4d6bc276ea
+    jinja: "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Do Sentence\
+      \ 1 and Sentence 2 express the same meaning? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning-no-label
+    reference: Natural question without label
+  60ce3baf-d73d-4c41-be32-02fd7fe4c932: !Template
+    answer_choices: No ||| Yes
+    id: 60ce3baf-d73d-4c41-be32-02fd7fe4c932
+    jinja: "{{sentence1}}\nIs that a paraphrase of the following sentence?\n{{sentence2}}?\n\
+      ||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question-no-label
+    reference: Generalized prompt format, context-question without any label
+  84f07a83-df21-49f3-87bc-5ae160133e5d: !Template
+    answer_choices: No ||| Yes
+    id: 84f07a83-df21-49f3-87bc-5ae160133e5d
+    jinja: "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Do Sentence\
+      \ 1 and Sentence 2 express the same meaning? Yes or No? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning
+    reference: Natural question
+  8b533f07-46e1-4350-a5e2-263bff91dd1a: !Template
+    answer_choices: null
+    id: 8b533f07-46e1-4350-a5e2-263bff91dd1a
+    jinja: "{% if label == 1 %} \nParaphrase the sentence: {{sentence1}} \n||| \n\
+      {{sentence2}} \n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: paraphrase-task
+    reference: Create a generative paraphrase task
+  9a5cdf0c-62b3-4fb1-b7b7-952edda6ad48: !Template
+    answer_choices: No ||| Yes
+    id: 9a5cdf0c-62b3-4fb1-b7b7-952edda6ad48
+    jinja: "{{sentence1}}\nIs that a paraphrase of the following sentence?\n{{sentence2}}?\n\
+      Yes or No.\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question
+    reference: Generalized prompt format, context-question
+  acf1cc41-5a89-42c0-b0fe-e91d765d6d49: !Template
+    answer_choices: No ||| Yes
+    id: acf1cc41-5a89-42c0-b0fe-e91d765d6d49
+    jinja: "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Does Sentence\
+      \ 1 paraphrase Sentence 2? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation-no-label
+    reference: Concatenation of sentence 1 and sentence 2 without any label
+  b2fc1731-d51b-4bbb-a9ee-771c686bca3a: !Template
+    answer_choices: No ||| Yes
+    id: b2fc1731-d51b-4bbb-a9ee-771c686bca3a
+    jinja: "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Can we\
+      \ rewrite Sentence 1 to Sentence 2? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite-no-label
+    reference: Natural Question without label
+  e10254c9-9722-4fad-9128-686d54058117: !Template
+    answer_choices: No ||| Yes
+    id: e10254c9-9722-4fad-9128-686d54058117
+    jinja: "{{sentence1}} Question: {{sentence2}} Paraphrase or not?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3-no-label
+    reference: ANLI prompt format from Table G7 in the GPT3 paper. Additionally added
+      task information without any label.
+  e5322a50-9649-42a2-837b-a7d4bf640fd9: !Template
+    answer_choices: No ||| Yes
+    id: e5322a50-9649-42a2-837b-a7d4bf640fd9
+    jinja: "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Can we\
+      \ rewrite Sentence 1 to Sentence 2? Yes or No? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite
+    reference: Natural Question
