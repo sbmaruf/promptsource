@@ -2,10 +2,11 @@ dataset: xnli
 subset: vi
 templates:
   268458b2-9217-4337-ab1b-9f62a2f781ae: !Template
-    answer_choices: Webson & Pavlick 2021
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: 268458b2-9217-4337-ab1b-9f62a2f781ae
-    jinja: '{{premise}} Are we justified in saying that "{{hypothesis}}"? Yes, no,
-      or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "{{premise}} Ch\xFAng ta c\xF3 ch\xEDnh \u0111\xE1ng khi n\xF3i \u0111\
+      i\u1EC1u \u0111\xF3 kh\xF4ng \"{{hypothesis}}\"? C\xF3, kh\xF4ng, ho\u1EB7c\
+      \ c\xF3 th\u1EC3? ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -134,10 +135,11 @@ templates:
     name: always/sometimes/never
     reference: Sanh et al. 2021
   9c2a6e97-4677-4993-9e92-58712dc796a0: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: 9c2a6e97-4677-4993-9e92-58712dc796a0
-    jinja: 'Given {{premise}} Should we assume that "{{hypothesis}}" is true? Yes,
-      no, or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "\u0110\u01B0\u1EE3c {{premise}} Ch\xFAng ta c\xF3 n\xEAn cho r\u1EB1ng\
+      \ \"{{hypothesis}}\" l\xE0 \u0111\xFAng? C\xF3, kh\xF4ng, ho\u1EB7c c\xF3 th\u1EC3\
+      ?||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -148,12 +150,12 @@ templates:
     name: should assume
     reference: Webson & Pavlick 2021
   a9c8a4ad-6aa3-4b1b-9a22-41286ca5b8ee: !Template
-    answer_choices: True ||| Inconclusive ||| False
+    answer_choices: "\u0110\xFAng ||| Kh\xF4ng \u0111\u1ED9c quy\u1EC1n ||| Sai"
     id: a9c8a4ad-6aa3-4b1b-9a22-41286ca5b8ee
-    jinja: 'Take the following as truth: {{premise}}
-
-      Then the following statement: "{{hypothesis}}" is {{"true"}}, {{"false"}}, or
-      {{"inconclusive"}}? ||| {{ answer_choices[label] }}'
+    jinja: "H\xE3y coi nh\u1EEFng \u0111i\u1EC1u sau \u0111\xE2y l\xE0 s\u1EF1 th\u1EAD\
+      t: {{premise}}\nSau \u0111\xF3, c\xE2u l\u1EC7nh sau: \"{{hypothesis}}\" L\xE0\
+      \ {{\"true\"}}, {{\"false\"}}, ho\u1EB7c {{\"inconclusive\"}}? ||| {{ answer_choices[label]\
+      \ }}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -179,10 +181,11 @@ templates:
     name: consider always/sometimes/never
     reference: Sanh et al. 2021
   cdeef86c-0710-4512-951b-911253d77d36: !Template
-    answer_choices: Yes ||| Maybe ||| No
+    answer_choices: "C\xF3 ||| C\xF3 th\u1EC3 ||| Kh\xF4ng"
     id: cdeef86c-0710-4512-951b-911253d77d36
-    jinja: 'Given that {{premise}} Therefore, it must be true that "{{hypothesis}}"?
-      Yes, no, or maybe? ||| {{ answer_choices[label] }} '
+    jinja: "Cho r\u1EB1ng {{premise}} V\xEC v\u1EADy, n\xF3 ph\u1EA3i l\xE0 s\u1EF1\
+      \ th\u1EADt r\u1EB1ng\"{{hypothesis}}\"? C\xF3, kh\xF4ng, ho\u1EB7c c\xF3 th\u1EC3\
+      ? ||| {{ answer_choices[label] }} "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
