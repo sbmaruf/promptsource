@@ -23,10 +23,7 @@ templates:
   730d5e28-af54-408d-8aef-2c33208d780a: !Template
     answer_choices: null
     id: 730d5e28-af54-408d-8aef-2c33208d780a
-    jinja: '{{context}}
-
-
-      Generate a question from the above passage : ||| {{question}}'
+    jinja: "{{context}}\n\nYukar\u0131daki pasajdan bir soru olu\u015Fturun: ||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -40,8 +37,8 @@ templates:
   810f2857-560b-47c6-8087-0c15cb665193: !Template
     answer_choices: null
     id: 810f2857-560b-47c6-8087-0c15cb665193
-    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
-      \n{{answers.text[0]}}"
+    jinja: "{{context}}\n\nYukar\u0131daki ba\u011Flama at\u0131fta bulunarak, {{question}}\
+      \ ||| \n\n{{answers.text[0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -54,17 +51,9 @@ templates:
   b0a8cc27-8e22-4a13-8914-479e7a5d6682: !Template
     answer_choices: null
     id: b0a8cc27-8e22-4a13-8914-479e7a5d6682
-    jinja: 'Refer to the passage below and answer the following question:
-
-
-      Passage: {{context}}
-
-
-      Question: {{question}}
-
-      |||
-
-      {{answers["text"][0]}}'
+    jinja: "A\u015Fa\u011F\u0131daki par\xE7aya bak\u0131n ve a\u015Fa\u011F\u0131\
+      daki soruyu cevaplay\u0131n:\n\nGe\xE7it: {{context}}\n\nSoru: {{question}}\n\
+      |||\n{{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -77,11 +66,8 @@ templates:
   d81f39c0-63f8-4b4c-87ed-fbb15e54d421: !Template
     answer_choices: null
     id: d81f39c0-63f8-4b4c-87ed-fbb15e54d421
-    jinja: '{{context}}
-
-
-      From the above passage, a reasonable question with "{{answers["text"][0]}}"
-      as the answer would be: ||| {{question}}'
+    jinja: "{{context}}\n\nYukar\u0131daki pasajdan, makul bir soru \"{{answers[\"\
+      text\"][0]}}\" cevap \u015F\xF6yle olurdu: ||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -95,14 +81,8 @@ templates:
   f8d0382f-5db3-4dcb-8de1-f532b899e9bc: !Template
     answer_choices: null
     id: f8d0382f-5db3-4dcb-8de1-f532b899e9bc
-    jinja: '{{context}}
-
-
-      Q: {{question}}
-
-
-      Referring to the passage above, the correct answer to the given question is
-      ||| {{answers["text"][0]}}'
+    jinja: "{{context}}\n\nQ: {{question}}\n\nYukar\u0131daki par\xE7aya istinaden\
+      \ verilen sorunun do\u011Fru cevab\u0131; ||| {{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
