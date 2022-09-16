@@ -1,0 +1,114 @@
+dataset: xquad
+subset: xquad.de
+templates:
+  337f874b-a923-4612-ae69-0c8f3ba8b131: !Template
+    answer_choices: null
+    id: 337f874b-a923-4612-ae69-0c8f3ba8b131
+    jinja: '{{context}}
+
+
+      Q: {{question}}
+
+
+      A: ||| {{answers["text"][0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: given_context_answer_question_variation
+    reference: ''
+  7c2fc335-41e3-4019-96ab-124af96d5823: !Template
+    answer_choices: null
+    id: 7c2fc335-41e3-4019-96ab-124af96d5823
+    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
+      \n{{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_the_question
+    reference: ''
+  7c744525-7d3d-4820-b4d0-e73362d61c52: !Template
+    answer_choices: null
+    id: 7c744525-7d3d-4820-b4d0-e73362d61c52
+    jinja: '{{context}}
+
+
+      Generate a question from the above passage : ||| {{question}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: given_context_generate_question
+    reference: ''
+  95b713a2-702d-483b-a46e-d1c14c01dd63: !Template
+    answer_choices: null
+    id: 95b713a2-702d-483b-a46e-d1c14c01dd63
+    jinja: 'Refer to the passage below and answer the following question:
+
+
+      Passage: {{context}}
+
+
+      Question: {{question}}
+
+      |||
+
+      {{answers["text"][0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_question_given_context
+    reference: ''
+  aec9d249-d679-4414-a931-7e57a0413cc1: !Template
+    answer_choices: null
+    id: aec9d249-d679-4414-a931-7e57a0413cc1
+    jinja: '{{context}}
+
+
+      From the above passage, a reasonable question with "{{answers["text"][0]}}"
+      as the answer would be: ||| {{question}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: jeopardy
+    reference: ''
+  dc948a31-4a92-47b0-9c1c-8476aab988a3: !Template
+    answer_choices: null
+    id: dc948a31-4a92-47b0-9c1c-8476aab988a3
+    jinja: '{{context}}
+
+
+      Q: {{question}}
+
+
+      Referring to the passage above, the correct answer to the given question is
+      ||| {{answers["text"][0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_given_context_and_question
+    reference: ''
