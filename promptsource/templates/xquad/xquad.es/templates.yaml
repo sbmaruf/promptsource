@@ -4,17 +4,8 @@ templates:
   4c5dc6a4-3114-4656-afc5-867678847686: !Template
     answer_choices: null
     id: 4c5dc6a4-3114-4656-afc5-867678847686
-    jinja: 'Refer to the passage below and answer the following question:
-
-
-      Passage: {{context}}
-
-
-      Question: {{question}}
-
-      |||
-
-      {{answers["text"][0]}}'
+    jinja: "Refi\xE9rase al siguiente pasaje y responda la siguiente pregunta:\n\n\
+      Paso: {{context}}\n\nPregunta: {{question}}\n|||\n{{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -30,7 +21,7 @@ templates:
     jinja: '{{context}}
 
 
-      Generate a question from the above passage : ||| {{question}}'
+      Genere una pregunta del pasaje anterior: ||| {{question}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -47,8 +38,8 @@ templates:
     jinja: '{{context}}
 
 
-      From the above passage, a reasonable question with "{{answers["text"][0]}}"
-      as the answer would be: ||| {{question}}'
+      Del pasaje anterior, una pregunta razonable con "{{answers["text"][0]}}" pues
+      la respuesta seria: ||| {{question}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -65,10 +56,9 @@ templates:
     jinja: '{{context}}
 
 
-      Q: {{question}}
+      q: {{question}}
 
-
-      Referring to the passage above, the correct answer to the given question is
+      En referencia al pasaje anterior, la respuesta correcta a la pregunta dada es
       ||| {{answers["text"][0]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -85,10 +75,10 @@ templates:
     jinja: '{{context}}
 
 
-      Q: {{question}}
+      q: {{question}}
 
 
-      A: ||| {{answers["text"][0]}}'
+      UNA: ||| {{answers["text"][0]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -101,7 +91,7 @@ templates:
   fb51bd5a-175b-47e1-80aa-b9b125ab2300: !Template
     answer_choices: null
     id: fb51bd5a-175b-47e1-80aa-b9b125ab2300
-    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
+    jinja: "{{context}}\n\nCon referencia al contexto anterior, {{question}} ||| \n\
       \n{{answers.text[0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
