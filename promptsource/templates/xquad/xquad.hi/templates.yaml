@@ -4,13 +4,8 @@ templates:
   031d5dd5-fb8c-42e0-abaf-03ba9c3f5946: !Template
     answer_choices: null
     id: 031d5dd5-fb8c-42e0-abaf-03ba9c3f5946
-    jinja: '{{context}}
-
-
-      Q: {{question}}
-
-
-      A: ||| {{answers["text"][0]}}'
+    jinja: "{{context}}\n\n\u0915\u094D\u092F\u0942:{{question}}\n\n\u090F:||| {{answers[\"\
+      text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -23,11 +18,11 @@ templates:
   11ccb2f1-242f-4d08-9bb6-408990634f88: !Template
     answer_choices: null
     id: 11ccb2f1-242f-4d08-9bb6-408990634f88
-    jinja: '{{context}}
-
-
-      From the above passage, a reasonable question with "{{answers["text"][0]}}"
-      as the answer would be: ||| {{question}}'
+    jinja: "{{context}}\n\n\u0909\u092A\u0930\u094B\u0915\u094D\u0924 \u092A\u0930\
+      \u093F\u091A\u094D\u091B\u0947\u0926 \u0938\u0947, \"{{answers[\"text\"][0]}}\"\
+      \ \u0915\u0947 \u0938\u093E\u0925 \u090F\u0915 \u0909\u091A\u093F\u0924 \u092A\
+      \u094D\u0930\u0936\u094D\u0928 \u0915\u093E \u0909\u0924\u094D\u0924\u0930 \u0939\
+      \u094B\u0917\u093E:||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -41,17 +36,12 @@ templates:
   21bbfc51-db24-4401-99f7-cea50ec1aa50: !Template
     answer_choices: null
     id: 21bbfc51-db24-4401-99f7-cea50ec1aa50
-    jinja: 'Refer to the passage below and answer the following question:
-
-
-      Passage: {{context}}
-
-
-      Question: {{question}}
-
-      |||
-
-      {{answers["text"][0]}}'
+    jinja: "\u0928\u0940\u091A\u0947 \u0926\u093F\u090F \u0917\u090F \u0917\u0926\u094D\
+      \u092F\u093E\u0902\u0936 \u0915\u094B \u0926\u0947\u0916\u0947\u0902 \u0914\u0930\
+      \ \u0928\u093F\u092E\u094D\u0928\u0932\u093F\u0916\u093F\u0924 \u092A\u094D\u0930\
+      \u0936\u094D\u0928 \u0915\u093E \u0909\u0924\u094D\u0924\u0930 \u0926\u0947\u0902\
+      :\n\u0930\u093E\u0938\u094D\u0924\u093E: {{context}}\n\n\u092A\u094D\u0930\u0936\
+      \u094D\u0928:{{question}}\n|||\n{{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -64,8 +54,9 @@ templates:
   3b99a5c2-5da1-46c4-85e8-86891cdc9fd2: !Template
     answer_choices: null
     id: 3b99a5c2-5da1-46c4-85e8-86891cdc9fd2
-    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
-      \n{{answers.text[0]}}"
+    jinja: "{{context}}\n\n\u0909\u092A\u0930\u094B\u0915\u094D\u0924 \u0938\u0902\
+      \u0926\u0930\u094D\u092D \u0915\u0947 \u0938\u0902\u0926\u0930\u094D\u092D \u092E\
+      \u0947\u0902, {{question}} ||| \n\n{{answers.text[0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -78,10 +69,10 @@ templates:
   78535d89-4680-4e71-8b57-3e32b4cdfa1e: !Template
     answer_choices: null
     id: 78535d89-4680-4e71-8b57-3e32b4cdfa1e
-    jinja: '{{context}}
-
-
-      Generate a question from the above passage : ||| {{question}}'
+    jinja: "{{context}}\n\n\u0909\u092A\u0930\u094B\u0915\u094D\u0924 \u0917\u0926\
+      \u094D\u092F\u093E\u0902\u0936 \u0938\u0947 \u090F\u0915 \u092A\u094D\u0930\u0936\
+      \u094D\u0928 \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0930\u0947\u0902\
+      : ||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -95,14 +86,12 @@ templates:
   b09c865d-455f-4bf9-890a-305d9125242e: !Template
     answer_choices: null
     id: b09c865d-455f-4bf9-890a-305d9125242e
-    jinja: '{{context}}
-
-
-      Q: {{question}}
-
-
-      Referring to the passage above, the correct answer to the given question is
-      ||| {{answers["text"][0]}}'
+    jinja: "{{context}}\n\n\u0915\u094D\u092F\u0942:{{question}}\n\n\u0909\u092A\u0930\
+      \u094B\u0915\u094D\u0924 \u0917\u0926\u094D\u092F\u093E\u0902\u0936 \u0915\u093E\
+      \ \u0909\u0932\u094D\u0932\u0947\u0916 \u0915\u0930\u0924\u0947 \u0939\u0941\
+      \u090F, \u0926\u093F\u090F \u0917\u090F \u092A\u094D\u0930\u0936\u094D\u0928\
+      \ \u0915\u093E \u0938\u0939\u0940 \u0909\u0924\u094D\u0924\u0930 \u0939\u0948\
+      \ ||| {{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
