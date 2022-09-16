@@ -10,7 +10,7 @@ templates:
       Q: {{question}}
 
 
-      A: ||| {{answers["text"][0]}}'
+      EIN: ||| {{answers["text"][0]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -23,8 +23,8 @@ templates:
   7c2fc335-41e3-4019-96ab-124af96d5823: !Template
     answer_choices: null
     id: 7c2fc335-41e3-4019-96ab-124af96d5823
-    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
-      \n{{answers.text[0]}}"
+    jinja: "{{context}}\n\nUnter Bezugnahme auf den obigen Zusammenhang,{{question}}\
+      \ ||| \n\n{{answers.text[0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -40,7 +40,7 @@ templates:
     jinja: '{{context}}
 
 
-      Generate a question from the above passage : ||| {{question}}'
+      Generieren Sie eine Frage aus der obigen Passage:||| {{question}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -54,13 +54,13 @@ templates:
   95b713a2-702d-483b-a46e-d1c14c01dd63: !Template
     answer_choices: null
     id: 95b713a2-702d-483b-a46e-d1c14c01dd63
-    jinja: 'Refer to the passage below and answer the following question:
+    jinja: 'Lesen Sie den folgenden Abschnitt und beantworten Sie die folgende Frage:
 
 
       Passage: {{context}}
 
 
-      Question: {{question}}
+      Frage: {{question}}
 
       |||
 
@@ -77,11 +77,8 @@ templates:
   aec9d249-d679-4414-a931-7e57a0413cc1: !Template
     answer_choices: null
     id: aec9d249-d679-4414-a931-7e57a0413cc1
-    jinja: '{{context}}
-
-
-      From the above passage, a reasonable question with "{{answers["text"][0]}}"
-      as the answer would be: ||| {{question}}'
+    jinja: "{{context}}\n\nAus der obigen Passage eine vern\xFCnftige Frage mit\"\
+      {{answers[\"text\"][0]}}\"denn die antwort w\xE4re:||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -101,8 +98,8 @@ templates:
       Q: {{question}}
 
 
-      Referring to the passage above, the correct answer to the given question is
-      ||| {{answers["text"][0]}}'
+      Unter Bezugnahme auf den Abschnitt oben lautet die richtige Antwort auf die
+      gegebene Frage ||| {{answers["text"][0]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
