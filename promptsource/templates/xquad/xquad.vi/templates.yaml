@@ -4,14 +4,9 @@ templates:
   275b0c14-e769-42bc-886e-1899cc334897: !Template
     answer_choices: null
     id: 275b0c14-e769-42bc-886e-1899cc334897
-    jinja: '{{context}}
-
-
-      Q: {{question}}
-
-
-      Referring to the passage above, the correct answer to the given question is
-      ||| {{answers["text"][0]}}'
+    jinja: "{{context}}\n\nQ: {{question}}\n\n\u0110\u1EC1 c\u1EADp \u0111\u1EBFn\
+      \ \u0111o\u1EA1n v\u0103n tr\xEAn, c\xE2u tr\u1EA3 l\u1EDDi \u0111\xFAng cho\
+      \ c\xE2u h\u1ECFi \u0111\xE3 cho l\xE0 ||| {{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -24,17 +19,9 @@ templates:
   485dd194-ead7-4f30-9863-8adda80c2308: !Template
     answer_choices: null
     id: 485dd194-ead7-4f30-9863-8adda80c2308
-    jinja: 'Refer to the passage below and answer the following question:
-
-
-      Passage: {{context}}
-
-
-      Question: {{question}}
-
-      |||
-
-      {{answers["text"][0]}}'
+    jinja: "Tham kh\u1EA3o \u0111o\u1EA1n v\u0103n d\u01B0\u1EDBi \u0111\xE2y v\xE0\
+      \ tr\u1EA3 l\u1EDDi c\xE2u h\u1ECFi sau:\n\n\u0110o\u1EA1n v\u0103n: {{context}}\n\
+      \nC\xE2u h\u1ECFi: {{question}}\n|||\n{{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -66,7 +53,7 @@ templates:
   826af118-1e7c-465a-abf7-eac864830e09: !Template
     answer_choices: null
     id: 826af118-1e7c-465a-abf7-eac864830e09
-    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
+    jinja: "{{context}}\n\nV\u1EDBi b\u1ED1i c\u1EA3nh tr\xEAn, {{question}} ||| \n\
       \n{{answers.text[0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -80,10 +67,8 @@ templates:
   94574ca2-1726-42ee-ad74-0600c19580b2: !Template
     answer_choices: null
     id: 94574ca2-1726-42ee-ad74-0600c19580b2
-    jinja: '{{context}}
-
-
-      Generate a question from the above passage : ||| {{question}}'
+    jinja: "{{context}}\n\nT\u1EA1o m\u1ED9t c\xE2u h\u1ECFi t\u1EEB \u0111o\u1EA1\
+      n v\u0103n tr\xEAn: ||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -97,11 +82,9 @@ templates:
   c11a1a45-b51e-45b7-b15b-d1992d8ab238: !Template
     answer_choices: null
     id: c11a1a45-b51e-45b7-b15b-d1992d8ab238
-    jinja: '{{context}}
-
-
-      From the above passage, a reasonable question with "{{answers["text"][0]}}"
-      as the answer would be: ||| {{question}}'
+    jinja: "{{context}}\n\nT\u1EEB \u0111o\u1EA1n v\u0103n tr\xEAn, m\u1ED9t c\xE2\
+      u h\u1ECFi h\u1EE3p l\xFD v\u1EDBi \"{{answers[\"text\"][0]}}\" nh\u01B0 c\xE2\
+      u tr\u1EA3 l\u1EDDi s\u1EBD l\xE0: ||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
