@@ -4,11 +4,11 @@ templates:
   48555eea-5084-463c-887a-dbaae8ffa222: !Template
     answer_choices: null
     id: 48555eea-5084-463c-887a-dbaae8ffa222
-    jinja: '{{context}}
-
-
-      From the above passage, a reasonable question with "{{answers["text"][0]}}"
-      as the answer would be: ||| {{question}}'
+    jinja: "{{context}}\n\n\u0E08\u0E32\u0E01\u0E02\u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\
+      \u0E02\u0E49\u0E32\u0E07\u0E1A\u0E19\u0E19\u0E35\u0E49 \u0E40\u0E1B\u0E47\u0E19\
+      \u0E04\u0E33\u0E16\u0E32\u0E21\u0E17\u0E35\u0E48\u0E2A\u0E21\u0E40\u0E2B\u0E15\
+      \u0E38\u0E2A\u0E21\u0E1C\u0E25\u0E01\u0E31\u0E1A \"{{answers[\"text\"][0]}}\"\
+      \u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E08\u0E30\u0E40\u0E1B\u0E47\u0E19: ||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -22,14 +22,11 @@ templates:
   70fce877-9d2e-4136-8f9f-7dc1b0188009: !Template
     answer_choices: null
     id: 70fce877-9d2e-4136-8f9f-7dc1b0188009
-    jinja: '{{context}}
-
-
-      Q: {{question}}
-
-
-      Referring to the passage above, the correct answer to the given question is
-      ||| {{answers["text"][0]}}'
+    jinja: "{{context}}\n\n\u0E16\u0E32\u0E21:{{question}}\n\n\u0E08\u0E32\u0E01\u0E02\
+      \u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E02\u0E49\u0E32\u0E07\u0E1A\u0E19\u0E19\
+      \u0E35\u0E49 \u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\
+      \u0E15\u0E49\u0E2D\u0E07\u0E02\u0E2D\u0E07\u0E04\u0E33\u0E16\u0E32\u0E21\u0E04\
+      \u0E37\u0E2D ||| {{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -42,8 +39,9 @@ templates:
   a3959697-598d-4113-aa14-8f15d6e97349: !Template
     answer_choices: null
     id: a3959697-598d-4113-aa14-8f15d6e97349
-    jinja: "{{context}}\n\nWith reference to the above context, {{question}} ||| \n\
-      \n{{answers.text[0]}}"
+    jinja: "{{context}}\n\n\u0E42\u0E14\u0E22\u0E2D\u0E49\u0E32\u0E07\u0E2D\u0E34\u0E07\
+      \u0E1A\u0E23\u0E34\u0E1A\u0E17\u0E02\u0E49\u0E32\u0E07\u0E15\u0E49\u0E19 {{question}}\
+      \ ||| \n\n{{answers.text[0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -56,13 +54,8 @@ templates:
   a4e97a82-8187-4a79-b76e-139dcab7423b: !Template
     answer_choices: null
     id: a4e97a82-8187-4a79-b76e-139dcab7423b
-    jinja: '{{context}}
-
-
-      Q: {{question}}
-
-
-      A: ||| {{answers["text"][0]}}'
+    jinja: "{{context}}\n\n\u0E16\u0E32\u0E21:{{question}}\n\n\u0E15\u0E2D\u0E1A:|||\
+      \ {{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -75,17 +68,12 @@ templates:
   d539d2a1-ec33-4fb9-ac3c-31bd5c5f42c9: !Template
     answer_choices: null
     id: d539d2a1-ec33-4fb9-ac3c-31bd5c5f42c9
-    jinja: 'Refer to the passage below and answer the following question:
-
-
-      Passage: {{context}}
-
-
-      Question: {{question}}
-
-      |||
-
-      {{answers["text"][0]}}'
+    jinja: "\u0E2D\u0E49\u0E32\u0E07\u0E16\u0E36\u0E07\u0E02\u0E49\u0E2D\u0E1E\u0E23\
+      \u0E30\u0E04\u0E31\u0E21\u0E20\u0E35\u0E23\u0E4C\u0E14\u0E49\u0E32\u0E19\u0E25\
+      \u0E48\u0E32\u0E07\u0E41\u0E25\u0E30\u0E15\u0E2D\u0E1A\u0E04\u0E33\u0E16\u0E32\
+      \u0E21\u0E15\u0E48\u0E2D\u0E44\u0E1B\u0E19\u0E35\u0E49:\n\n\u0E17\u0E32\u0E07\
+      \u0E40\u0E14\u0E34\u0E19:{{context}}\n\n\u0E04\u0E33\u0E16\u0E32\u0E21: {{question}}\n\
+      |||\n{{answers[\"text\"][0]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -98,10 +86,9 @@ templates:
   fae08c61-2b31-4de7-a14b-6777f5824d73: !Template
     answer_choices: null
     id: fae08c61-2b31-4de7-a14b-6777f5824d73
-    jinja: '{{context}}
-
-
-      Generate a question from the above passage : ||| {{question}}'
+    jinja: "{{context}}\n\n\u0E2A\u0E23\u0E49\u0E32\u0E07\u0E04\u0E33\u0E16\u0E32\u0E21\
+      \u0E08\u0E32\u0E01\u0E02\u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E02\u0E49\u0E32\
+      \u0E07\u0E15\u0E49\u0E19:||| {{question}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
