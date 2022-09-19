@@ -1,0 +1,187 @@
+dataset: xcopa
+subset: id
+templates:
+  1174f025-ce6d-4698-9526-5ea018d10127: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 1174f025-ce6d-4698-9526-5ea018d10127
+    jinja: "{{ premise }}Saya ragu-ragu di antara dua pilihan. Bantu saya memilih\n\
+      \      semakin mungkin {% if question == \"cause\" %}sebab:{% else %}memengaruhi:\
+      \ {%\n      endif %}\\n- {{choice1}}\\n- {{choice2}} ||| {% if label != -1 %}{{\
+      \ answer_choices[label]\n      }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  38d0a7b9-1119-48c6-a052-9ae2317cb460: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 38d0a7b9-1119-48c6-a052-9ae2317cb460
+    jinja: "{{ premise }}\n      Pilih yang paling masuk akal {% if question == \"\
+      cause\" %}sebab: {% else %}memengaruhi:\n      {% endif %}\n      - {{choice1}}\n\
+      \      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  5528fbcc-a259-40db-a187-b2eacddd64c3: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5528fbcc-a259-40db-a187-b2eacddd64c3
+    jinja: "{{ premise }}Apa pilihan terbaik?-{{choice1}}- {{choice2}}\n     Kami\
+      \ sedang mencari {% if question == \"cause\" %}penyebab {% else %}sebuah efek\n\
+      \       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  76f4b47f-a7e4-4318-94f3-b47dc748cce8: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 76f4b47f-a7e4-4318-94f3-b47dc748cce8
+    jinja: "{% if question == \"effect\" %} {{ premise }} Apa yang bisa terjadi selanjutnya,\n\
+      \      \"{{ answer_choices[0] }}\"atau \"{{ answer_choices[1] }}\"? ||| {% if\
+      \ label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next, C1 or C2?
+    reference: ''
+  820a4bc6-2491-4fcb-915e-835b0f8264e0: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 820a4bc6-2491-4fcb-915e-835b0f8264e0
+    jinja: "{{ premise }} {% if question == \"cause\" %}karena... {% else %}jadi...\n\
+      \      {% endif %}\n     Pilih diantara:\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  825ac151-d653-4036-a7d5-48f43e6d209f: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 825ac151-d653-4036-a7d5-48f43e6d209f
+    jinja: "Pilih kelanjutan yang lebih mungkin untuk kalimat berikut:\n      {{ premise\
+      \ }} {% if question == \"cause\" %}sebagai hasil dari: {% else %}sebagai konsekuensi:\n\
+      \      {% endif %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label\
+      \ != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''
+  8b9a7940-ac42-461d-8437-5b08fab28f3d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 8b9a7940-ac42-461d-8437-5b08fab28f3d
+    jinja: "{{ premise }} {% if question == \"cause\" %} Hal ini terjadi karena...{%\n\
+      \      else %} As a consequence... {% endif %}\n      Bantu saya memilih opsi\
+      \ yang lebih masuk akal:\n      - {{choice1}}\n      - {{choice2}} ||| {% if\
+      \ label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  a3e55d0c-2a31-4dd4-8a74-939c79744c7f: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a3e55d0c-2a31-4dd4-8a74-939c79744c7f
+    jinja: "{% if question == \"effect\" %} {{ premise }} Hasil dari, \"{{ answer_choices[0]\n\
+      \       }}\"atau\"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}\\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result, C1 or C2?
+    reference: ''
+  a78619d3-d032-4dba-977d-b82b2528b807: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a78619d3-d032-4dba-977d-b82b2528b807
+    jinja: "{{ premise }} Apa pilihan terbaik?-{{choice1}}- {{choice2}}\n      Kami\
+      \ sedang mencari{% if question == \"cause\" %}penyebab{% else %}sebuah efek\n\
+      \       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  b6c47b44-f144-473c-9da1-cb009f1bc3e2: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b6c47b44-f144-473c-9da1-cb009f1bc3e2
+    jinja: "\"{{ answer_choices[0] }}\" atau\"{{ answer_choices[1] }}\"? {{ premise\
+      \ }}\n      {% if question == \"cause\" %}karena {% else %}jadi {% endif %}\
+      \ ||| {% if label\n      != -1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise, so/because
+    reference: ''
+  c7a45c28-e3fa-430c-b52e-b82cfe7b9a1f: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c7a45c28-e3fa-430c-b52e-b82cfe7b9a1f
+    jinja: "{% if question == \"cause\" %} {{ premise }}Yang mungkin disebabkan oleh\n\
+      \      \"{{ answer_choices[0] }}\" atau \"{{ answer_choices[1] }}\"? ||| {%\
+      \ if label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  d71b4979-c007-452f-83c9-854a40102edb: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: d71b4979-c007-452f-83c9-854a40102edb
+    jinja: "Latihan: pilih alternatif yang paling masuk akal.\n      {{ premise }}\
+      \ {% if question == \"cause\" %}karena... {% else %}jadi... {% endif\n     \
+      \ %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''

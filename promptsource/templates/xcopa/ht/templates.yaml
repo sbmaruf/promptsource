@@ -1,0 +1,187 @@
+dataset: xcopa
+subset: ht
+templates:
+  0bc1af8a-3a7c-4ab9-9a64-9ebeef3351d3: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 0bc1af8a-3a7c-4ab9-9a64-9ebeef3351d3
+    jinja: "{{ premise }} Mwen ezite ant de opsyon. Ede m chwazi\n      plis chans\
+      \ {% if question == \"cause\" %}koz: {% else %}effect: {%\n      endif %}\\\
+      n- {{choice1}}\\n- {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  0c34ff50-7748-4fd0-a74f-d5903958a560: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 0c34ff50-7748-4fd0-a74f-d5903958a560
+    jinja: "{% if question == \"cause\" %} {{ premise }} Ki ka koze pa\n      \"{{\
+      \ answer_choices[0] }}\" oswa \"{{ answer_choices[1] }}\"? ||| {% if label\n\
+      \      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  5af3422e-2378-47ff-bfe4-64eee5c51e10: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5af3422e-2378-47ff-bfe4-64eee5c51e10
+    jinja: "{{ premise }}\n     Chwazi ki pi posib{% if question == \"cause\" %}koz:{%\
+      \ else %}ef\xE8:\n      {% endif %}\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  5c42c70a-313d-4b3d-b7de-ac3c7eaef714: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5c42c70a-313d-4b3d-b7de-ac3c7eaef714
+    jinja: "{% if question == \"effect\" %} {{ premise }} K\xF2m yon rezilta,\"{{\
+      \ answer_choices[0]\n       }}\"oswa\"{{ answer_choices[1] }}\"? ||| {% if label\
+      \ != -1 %}{{ answer_choices[label]\n      }}{%endif%}\\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result, C1 or C2?
+    reference: ''
+  5d53bec9-6625-4e93-9c2c-43f571cf4d04: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5d53bec9-6625-4e93-9c2c-43f571cf4d04
+    jinja: "{% if question == \"cause\" %} \\n{{ premise }} Poukisa?\"{{ answer_choices[0]\n\
+      \      }}\"oswa\"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}\\n{% endif %}\"\n    metadata: !TemplateMetadata"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  a25c3f79-fbfa-44d4-b415-f98b43244f15: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a25c3f79-fbfa-44d4-b415-f98b43244f15
+    jinja: "{{ premise }}Ki pi bon opsyon? - {{choice1}}- {{choice2}}\n      Nou ap\
+      \ chache {% if question == \"cause\" %}yon k\xF2z{% else %}yon ef\xE8\n    \
+      \   {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  aee2a7da-18e2-4cbf-ab0c-b2d5767b1710: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: aee2a7da-18e2-4cbf-ab0c-b2d5767b1710
+    jinja: "{% if question == \"effect\" %} {{ premise }} Kisa ki ka rive apre,\n\
+      \      \"{{ answer_choices[0] }}\"oswa \"{{ answer_choices[1] }}\"? ||| {% if\
+      \ label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next, C1 or C2?
+    reference: ''
+  b85a544d-fe5f-47c3-819f-83353c3188e7: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b85a544d-fe5f-47c3-819f-83353c3188e7
+    jinja: "{{ premise }} {% if question == \"cause\" %}because... {% else %}so...\n\
+      \      {% endif %}\n      Chwazi ant:\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  bde2a49d-6489-4f06-b633-3b35eb93cf36: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: bde2a49d-6489-4f06-b633-3b35eb93cf36
+    jinja: "\"{{ answer_choices[0] }}\" oswa \"{{ answer_choices[1] }}\"? {{ premise\
+      \ }}\n      {% if question == \"cause\" %} paske{% else %}konsa {% endif %}\
+      \ ||| {% if label\n      != -1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise, so/because
+    reference: Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021.
+  cd61a846-a75a-4796-98a9-73062e1c4a4a: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: cd61a846-a75a-4796-98a9-73062e1c4a4a
+    jinja: "Egz\xE8sis: chwazi alt\xE8natif ki pi posib.\n      {{ premise }} {% if\
+      \ question == \"cause\" %} paske... {% else %} konsa...{% endif\n      %}\n\
+      \      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  db131be3-a908-4b05-9775-4380b90b999c: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: db131be3-a908-4b05-9775-4380b90b999c
+    jinja: "{{ premise }} {% if question == \"cause\" %} Sa rive paske... {%\n   \
+      \   else %} As a consequence... {% endif %}\n    Ede m chwazi opsyon ki pi posib:\n\
+      \      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  f4d24c31-0ac1-42b9-8704-91a89afa6a7d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f4d24c31-0ac1-42b9-8704-91a89afa6a7d
+    jinja: "Chwazi kontinyasyon ki gen plis chans nan fraz sa a:      {{ premise }}\
+      \ {% if question == \"cause\" %} k\xF2m yon rezilta:{% else %} k\xF2m yon konsekans:\n\
+      \      {% endif %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label\
+      \ != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ht
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''

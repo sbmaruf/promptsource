@@ -1,0 +1,198 @@
+dataset: xcopa
+subset: vi
+templates:
+  15c015cf-1043-43fe-8c8a-1fea3d18aeb4: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 15c015cf-1043-43fe-8c8a-1fea3d18aeb4
+    jinja: "{{ premise }}\n      Ch\u1ECDn nh\u1EEFng g\xEC h\u1EE3p l\xFD nh\u1EA5\
+      t {% if question == \"cause\" %}g\xE2y ra: {% else %}hi\u1EC7u \u1EE9ng:\n \
+      \     {% endif %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label\
+      \ != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  62f3112c-def0-4333-b538-5b6820cf2eb1: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 62f3112c-def0-4333-b538-5b6820cf2eb1
+    jinja: "{{ premise }} L\u1EF1a ch\u1ECDn t\u1ED1t nh\u1EA5t l\xE0 g\xEC?- {{choice1}}-\
+      \ {{choice2}}\n      Ch\xFAng t\xF4i \u0111ang t\xECm ki\u1EBFm {% if question\
+      \ == \"cause\" %}m\u1ED9t nguy\xEAn nh\xE2n {% else %}m\u1ED9t hi\u1EC7u \u1EE9\
+      ng\n       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  755032f8-226a-4a45-9456-d071aecfffe8: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 755032f8-226a-4a45-9456-d071aecfffe8
+    jinja: "{{ premise }} T\xF4i \u0111ang l\u01B0\u1EE1ng l\u1EF1 gi\u1EEFa hai l\u1EF1\
+      a ch\u1ECDn. Gi\xFAp t\xF4i l\u1EF1a ch\u1ECDn\n      nhi\u1EC1u kh\u1EA3 n\u0103\
+      ng {% if question == \"cause\" %}g\xE2y ra: {% else %}hi\u1EC7u \u1EE9ng: {%\n\
+      \      endif %}- {{choice1}}\\n- {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  7a13bd6d-0201-49d1-bd8e-fb04e2a75fc0: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 7a13bd6d-0201-49d1-bd8e-fb04e2a75fc0
+    jinja: "B\xE0i t\u1EADp: ch\u1ECDn ph\u01B0\u01A1ng \xE1n h\u1EE3p l\xFD nh\u1EA5\
+      t.\n      {{ premise }} {% if question == \"cause\" %} t\u1EA1i v\xEC... {%\
+      \ else %} v\xEC th\u1EBF... {% endif\n      %}\n      - {{choice1}}\n      -\
+      \ {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  7e86d5ea-287f-4a83-b79a-740d18513c20: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 7e86d5ea-287f-4a83-b79a-740d18513c20
+    jinja: "{{ premise }} L\u1EF1a ch\u1ECDn t\u1ED1t nh\u1EA5t l\xE0 g\xEC?- {{choice1}}-\
+      \ {{choice2}}\n      Ch\xFAng t\xF4i \u0111ang t\xECm ki\u1EBFm {% if question\
+      \ == \"cause\" %}m\u1ED9t nguy\xEAn nh\xE2n {% else %}m\u1ED9t hi\u1EC7u \u1EE9\
+      ng\n       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  9115b863-e253-4fff-945a-cf3a9b0eaa46: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 9115b863-e253-4fff-945a-cf3a9b0eaa46
+    jinja: "{% if question == \"effect\" %} {{ premise }} K\u1EBFt qu\u1EA3 l\xE0\
+      , \"{{ answer_choices[0]\n       }}\" ho\u1EB7c \"{{ answer_choices[1] }}\"\
+      ? ||| {% if label != -1 %}{{ answer_choices[label]\n      }}{%endif%}{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result, C1 or C2?
+    reference: ''
+  91f6c060-9a4c-481b-8451-7bda37ab7ff5: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 91f6c060-9a4c-481b-8451-7bda37ab7ff5
+    jinja: "{% if question == \"cause\" %} {{ premise }} \u0110i\u1EC1u n\xE0y c\xF3\
+      \ th\u1EC3 \u0111\u01B0\u1EE3c g\xE2y ra b\u1EDFi\n      \"{{ answer_choices[0]\
+      \ }}\" ho\u1EB7c \"{{ answer_choices[1] }}\"? ||| {% if label\n      != -1 %}{{\
+      \ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  9d34d311-7364-4702-b052-77c9ca984598: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 9d34d311-7364-4702-b052-77c9ca984598
+    jinja: "{% if question == \"effect\" %} {{ premise }} \u0110i\u1EC1u g\xEC c\xF3\
+      \ th\u1EC3 x\u1EA3y ra ti\u1EBFp theo,\n      \"{{ answer_choices[0] }}\" ho\u1EB7\
+      c \"{{ answer_choices[1] }}\"? ||| {% if label\n      != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next, C1 or C2?
+    reference: ''
+  cc86f552-19f0-4885-ab88-bdca690db3a5: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: cc86f552-19f0-4885-ab88-bdca690db3a5
+    jinja: "{{ premise }} {% if question == \"cause\" %} \u0110i\u1EC1u n\xE0y x\u1EA3\
+      y ra b\u1EDFi v\xEC ... {%\n      else %} H\u1EC7 qu\u1EA3 l\xE0 ... {% endif\
+      \ %}\n      Gi\xFAp t\xF4i ch\u1ECDn t\xF9y ch\u1ECDn h\u1EE3p l\xFD h\u01A1\
+      n:\n      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  f0be03c4-3783-46f0-838e-f5c3d329554f: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f0be03c4-3783-46f0-838e-f5c3d329554f
+    jinja: "Ch\u1ECDn c\xE2u ti\u1EBFp theo c\xF3 nhi\u1EC1u kh\u1EA3 n\u0103ng h\u01A1\
+      n cho c\xE2u sau:\n      {{ premise }} {% if question == \"cause\" %} b\u1EDF\
+      i v\xEC: {% else %} nh\u01B0 m\u1ED9t h\u1EC7 qu\u1EA3:\n      {% endif %}\n\
+      \      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''
+  f6e6a395-a379-48d9-a641-ea51f95af289: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: f6e6a395-a379-48d9-a641-ea51f95af289
+    jinja: "{{ premise }} {% if question == \"cause\" %}t\u1EA1i v\xEC... {% else\
+      \ %}v\xEC th\u1EBF...\n      {% endif %}\n      Ch\u1ECDn gi\u1EEFa:\n     \
+      \ - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  fdb04ac5-8f09-4127-8651-a1c83a291232: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: fdb04ac5-8f09-4127-8651-a1c83a291232
+    jinja: "\"{{ answer_choices[0] }}\" ho\u1EB7c \"{{ answer_choices[1] }}\"? {{\
+      \ premise }}\n      {% if question == \"cause\" %} t\u1EA1i v\xEC {% else %}\
+      \ v\xEC th\u1EBF {% endif %} ||| {% if label\n      != -1 %}{{ answer_choices[label]\
+      \ }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - vi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise, so/because
+    reference: Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021.
