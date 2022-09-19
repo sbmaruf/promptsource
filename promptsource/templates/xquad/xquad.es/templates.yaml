@@ -1,0 +1,104 @@
+dataset: xquad
+subset: xquad.es
+templates:
+  4c5dc6a4-3114-4656-afc5-867678847686: !Template
+    answer_choices: null
+    id: 4c5dc6a4-3114-4656-afc5-867678847686
+    jinja: "Refi\xE9rase al siguiente pasaje y responda la siguiente pregunta:\n\n\
+      Paso: {{context}}\n\nPregunta: {{question}}\n|||\n{{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_question_given_context
+    reference: ''
+  791e8e3e-da86-48dd-b062-491c6856ed9a: !Template
+    answer_choices: null
+    id: 791e8e3e-da86-48dd-b062-491c6856ed9a
+    jinja: '{{context}}
+
+
+      Genere una pregunta del pasaje anterior: ||| {{question}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: given_context_generate_question
+    reference: ''
+  9c6e2f94-d814-4725-929a-080e901c3a67: !Template
+    answer_choices: null
+    id: 9c6e2f94-d814-4725-929a-080e901c3a67
+    jinja: '{{context}}
+
+
+      Del pasaje anterior, una pregunta razonable con "{{answers["text"][0]}}" pues
+      la respuesta seria: ||| {{question}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: jeopardy
+    reference: jeopardy style- wiki_qa
+  bdaae2ae-38fc-4ffc-b6f7-273cb0519327: !Template
+    answer_choices: null
+    id: bdaae2ae-38fc-4ffc-b6f7-273cb0519327
+    jinja: '{{context}}
+
+
+      q: {{question}}
+
+      En referencia al pasaje anterior, la respuesta correcta a la pregunta dada es
+      ||| {{answers["text"][0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_given_context_and_question
+    reference: ''
+  e8dbffe7-b85e-4176-9a00-93ed58fa099c: !Template
+    answer_choices: null
+    id: e8dbffe7-b85e-4176-9a00-93ed58fa099c
+    jinja: '{{context}}
+
+
+      q: {{question}}
+
+
+      UNA: ||| {{answers["text"][0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: given_context_answer_question_variation
+    reference: ''
+  fb51bd5a-175b-47e1-80aa-b9b125ab2300: !Template
+    answer_choices: null
+    id: fb51bd5a-175b-47e1-80aa-b9b125ab2300
+    jinja: "{{context}}\n\nCon referencia al contexto anterior, {{question}} ||| \n\
+      \n{{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_the_question
+    reference: ''

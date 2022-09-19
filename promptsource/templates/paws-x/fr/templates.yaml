@@ -1,0 +1,171 @@
+dataset: paws-x
+subset: fr
+templates:
+  12ee213c-2f6c-4d83-a340-3aff58af393a: !Template
+    answer_choices: Non ||| Oui
+    id: 12ee213c-2f6c-4d83-a340-3aff58af393a
+    jinja: "Phrase 1: {{sentence1}}\nPhrase 2: {{sentence2}}\nQuestion : Est-ce que\
+      \ la phrase 1 paraphrase la phrase 2 ? Oui ou non?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation
+    reference: Concatenation of sentence 1 and sentence 2
+  2791712a-2a43-424b-af07-676240464226: !Template
+    answer_choices: Faux ||| Vrai
+    id: 2791712a-2a43-424b-af07-676240464226
+    jinja: "{{sentence1}} Question: {{sentence2}} Vrai ou faux? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3
+    reference: ANLI prompt format from Table G7 in the GPT3 paper
+  45651068-078d-43e1-84aa-656ce933bd5c: !Template
+    answer_choices: Non ||| Oui
+    id: 45651068-078d-43e1-84aa-656ce933bd5c
+    jinja: "D\xE9terminez si les deux phrases suivantes se paraphrasent ou non.\n\
+      Phrase 1: {{sentence1}}\nPhrase 2: {{sentence2}}\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: task_description-no-label
+    reference: Generalized prompt format, task_description-input.
+  4675a59a-8937-49ad-a22a-0e4d6bc276ea: !Template
+    answer_choices: Non ||| Oui
+    id: 4675a59a-8937-49ad-a22a-0e4d6bc276ea
+    jinja: "Phrase 1: {{sentence1}}\nPhrase 2: {{sentence2}}\nQuestion : La phrase\
+      \ 1 et la phrase 2 expriment-elles le m\xEAme sens ?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning-no-label
+    reference: Natural question without label
+  60ce3baf-d73d-4c41-be32-02fd7fe4c932: !Template
+    answer_choices: Non ||| Oui
+    id: 60ce3baf-d73d-4c41-be32-02fd7fe4c932
+    jinja: "{{sentence1}}\nEst-ce une paraphrase de la phrase suivante\_?\n{{sentence2}}?\n\
+      ||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question-no-label
+    reference: Generalized prompt format, context-question without any label
+  84f07a83-df21-49f3-87bc-5ae160133e5d: !Template
+    answer_choices: Non ||| Oui
+    id: 84f07a83-df21-49f3-87bc-5ae160133e5d
+    jinja: "Phrase 1\_: {{sentence1}}\nPhrase 2\_: {{sentence2}}\nQuestion : La phrase\
+      \ 1 et la phrase 2 expriment-elles le m\xEAme sens ? Oui ou non?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning
+    reference: Natural question
+  8b533f07-46e1-4350-a5e2-263bff91dd1a: !Template
+    answer_choices: null
+    id: 8b533f07-46e1-4350-a5e2-263bff91dd1a
+    jinja: "{% if label == 1 %} \nParaphrasez la phrase : {{sentence1}} \n||| \n{{sentence2}}\
+      \ \n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: paraphrase-task
+    reference: Create a generative paraphrase task
+  9a5cdf0c-62b3-4fb1-b7b7-952edda6ad48: !Template
+    answer_choices: Non ||| Oui
+    id: 9a5cdf0c-62b3-4fb1-b7b7-952edda6ad48
+    jinja: "{{sentence1}}\nEst-ce une paraphrase de la phrase suivante\_?\n{{sentence2}}?\n\
+      Oui ou non.\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question
+    reference: Generalized prompt format, context-question
+  acf1cc41-5a89-42c0-b0fe-e91d765d6d49: !Template
+    answer_choices: Non ||| Oui
+    id: acf1cc41-5a89-42c0-b0fe-e91d765d6d49
+    jinja: "Phrase 1 : {{sentence1}}\nPhrase 2 : {{sentence2}}\nQuestion : Est-ce\
+      \ que la phrase 1 paraphrase la phrase 2 ?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation-no-label
+    reference: Concatenation of sentence 1 and sentence 2 without any label
+  b2fc1731-d51b-4bbb-a9ee-771c686bca3a: !Template
+    answer_choices: Non ||| Oui
+    id: b2fc1731-d51b-4bbb-a9ee-771c686bca3a
+    jinja: "Phrase 1: {{sentence1}}\nPhrase 2: {{sentence2}}\nQuestion : Peut-on r\xE9\
+      \xE9crire la Phrase 1 en Phrase 2 ? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite-no-label
+    reference: Natural Question without label
+  e10254c9-9722-4fad-9128-686d54058117: !Template
+    answer_choices: Non ||| Oui
+    id: e10254c9-9722-4fad-9128-686d54058117
+    jinja: "{{sentence1}} Question: {{sentence2}} Paraphraser ou pas ?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3-no-label
+    reference: ANLI prompt format from Table G7 in the GPT3 paper. Additionally added
+      task information without any label.
+  e5322a50-9649-42a2-837b-a7d4bf640fd9: !Template
+    answer_choices: Non ||| Oui
+    id: e5322a50-9649-42a2-837b-a7d4bf640fd9
+    jinja: "Phrase 1\_: {{sentence1}}\nPhrase 2\_: {{sentence2}}\nQuestion : Peut-on\
+      \ r\xE9\xE9crire la Phrase 1 en Phrase 2 ? Oui ou non? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite
+    reference: Natural Question

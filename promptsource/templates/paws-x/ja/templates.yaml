@@ -1,0 +1,182 @@
+dataset: paws-x
+subset: ja
+templates:
+  09ce9b6e-46c2-4666-80dd-694448059021: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 09ce9b6e-46c2-4666-80dd-694448059021
+    jinja: "Determine if the following two sentences paraphrase each other or not.\n\
+      \u6587 1: {{sentence1}}\n\u6587 2: {{sentence2}}\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: task_description-no-label
+    reference: Generalized prompt format, task_description-input.
+  258e40ac-85ae-4dbe-9f49-266b23d59116: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 258e40ac-85ae-4dbe-9f49-266b23d59116
+    jinja: "\u6587 1: {{sentence1}}\n\u6587 2: {{sentence2}}\n\u8CEA\u554F: \u6587\
+      \ 1 \u3068\u6587 2 \u306F\u540C\u3058\u610F\u5473\u3067\u3059\u304B? \u306F\u3044\
+      \u3001\u3082\u3057\u304F\u306F\u3001\u3044\u3044\u3048\uFF1F \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning
+    reference: Natural question
+  352d717a-918e-4db0-b5c4-9bae45c4cdc6: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 352d717a-918e-4db0-b5c4-9bae45c4cdc6
+    jinja: "{{sentence1}}\n\u305D\u308C\u306F\u6B21\u306E\u6587\u306E\u8A00\u3044\u63DB\
+      \u3048\u3067\u3059\u304B\uFF1F\n{{sentence2}}?\n\u306F\u3044\u3001\u3082\u3057\
+      \u304F\u306F\u3001\u3044\u3044\u3048\u3002\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question
+    reference: Generalized prompt format, context-question
+  5da3613b-6771-465c-8057-27e80ee42d31: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 5da3613b-6771-465c-8057-27e80ee42d31
+    jinja: "\u65871: {{sentence1}}\n\u65872: {{sentence2}}\n\u8CEA\u554F: \u6587 1\
+      \ \u3092\u6587 2 \u306B\u66F8\u304D\u63DB\u3048\u308B\u3053\u3068\u306F\u3067\
+      \u304D\u307E\u3059\u304B?||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite-no-label
+    reference: Natural Question without label
+  5da8a24e-88df-41f4-a9ae-8386988c2b39: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 5da8a24e-88df-41f4-a9ae-8386988c2b39
+    jinja: "\u6587 1: {{sentence1}}\n\u6587 2: {{sentence2}}\n\u8CEA\u554F: \u6587\
+      \ 1 \u3068\u6587 2 \u306F\u540C\u3058\u610F\u5473\u3067\u3059\u304B? \n||| \n\
+      {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning-no-label
+    reference: Natural question without label
+  660aeeac-2000-4479-907e-580b545d55a7: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 660aeeac-2000-4479-907e-580b545d55a7
+    jinja: "\u6587 1: {{sentence1}}\n\u6587 2: {{sentence2}}\n\u8CEA\u554F: \u6587\
+      \ 1 \u306F\u6587 2 \u3092\u8A00\u3044\u63DB\u3048\u3066\u3044\u307E\u3059\u304B\
+      ?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation-no-label
+    reference: Concatenation of sentence 1 and sentence 2 without any label
+  74e251c3-f448-4327-b9f4-8a475704a4b2: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 74e251c3-f448-4327-b9f4-8a475704a4b2
+    jinja: "{{sentence1}} \u8CEA\u554F\uFF1A {{sentence2}} \u8A00\u3044\u63DB\u3048\
+      \u308B\u304B\u3069\u3046\u304B\uFF1F\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3-no-label
+    reference: ANLI prompt format from Table G7 in the GPT3 paper. Additionally added
+      task information without any label.
+  76baa206-a367-421a-af66-d98ab2cc9084: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 76baa206-a367-421a-af66-d98ab2cc9084
+    jinja: "{{sentence1}}\n\u305D\u308C\u306F\u6B21\u306E\u6587\u306E\u8A00\u3044\u63DB\
+      \u3048\u3067\u3059\u304B\uFF1F\n{{sentence2}}?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question-no-label
+    reference: Generalized prompt format, context-question without any label
+  794834cf-e4e6-48a1-95ac-f873e6680b54: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: 794834cf-e4e6-48a1-95ac-f873e6680b54
+    jinja: "\u6587 1: {{sentence1}}\n\u6587 2: {{sentence2}}\n\u8CEA\u554F: \u6587\
+      \ 1 \u3092\u6587 2 \u306B\u66F8\u304D\u63DB\u3048\u308B\u3053\u3068\u306F\u3067\
+      \u304D\u307E\u3059\u304B? \u306F\u3044\u3001\u3082\u3057\u304F\u306F\u3001\u3044\
+      \u3044\u3048\uFF1F\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite
+    reference: Natural Question
+  c8d9ece1-eea8-4b2e-91ad-c01ca7c600e6: !Template
+    answer_choices: "||| \u507D ||| \u771F\u5B9F"
+    id: c8d9ece1-eea8-4b2e-91ad-c01ca7c600e6
+    jinja: "{{sentence1}} \u8CEA\u554F\uFF1A {{sentence2}} \u6B63\u3057\u3044\u304B\
+      \u9593\u9055\u3063\u3066\u3044\u308B\u304B\uFF1F\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3
+    reference: ANLI prompt format from Table G7 in the GPT3 paper
+  ee7708fa-c070-439c-aee4-2116a0095c27: !Template
+    answer_choices: null
+    id: ee7708fa-c070-439c-aee4-2116a0095c27
+    jinja: "{% if label == 1 %} \n\u6587\u3092\u8A00\u3044\u63DB\u3048\u3066\u304F\
+      \u3060\u3055\u3044\uFF1A {{sentence1}} \n||| \n{{sentence2}} \n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ja
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: paraphrase-task
+    reference: Create a generative paraphrase task
+  f70fb714-88fa-4e63-9720-c3dac33941f1: !Template
+    answer_choices: "\u3044\u3044\u3048||| \u306F\u3044"
+    id: f70fb714-88fa-4e63-9720-c3dac33941f1
+    jinja: "\u6587 1: {{sentence1}}\n\u6587 2: {{sentence2}}\n\u8CEA\u554F: \u6587\
+      \ 1 \u306F\u6587 2 \u3092\u8A00\u3044\u63DB\u3048\u3066\u3044\u307E\u3059\u304B\
+      ? \u306F\u3044\u3001\u3082\u3057\u304F\u306F\u3001\u3044\u3044\u3048\uFF1F \n\
+      ||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ja
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation
+    reference: Concatenation of sentence 1 and sentence 2

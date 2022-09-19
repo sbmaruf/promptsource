@@ -1,0 +1,92 @@
+dataset: xquad
+subset: xquad.zh
+templates:
+  1a5c548c-618f-4e2f-9ce6-25120d4b199c: !Template
+    answer_choices: null
+    id: 1a5c548c-618f-4e2f-9ce6-25120d4b199c
+    jinja: "{{context}}\n\n\u554F\uFF1A {{question}}\n\nA\uFF1A ||| {{answers[\"text\"\
+      ][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: given_context_answer_question_variation
+    reference: ''
+  99dff706-4b35-42b1-ac62-85086d6d6758: !Template
+    answer_choices: null
+    id: 99dff706-4b35-42b1-ac62-85086d6d6758
+    jinja: "{{context}}\n\n\u5F9E\u4E0A\u9762\u7684\u6BB5\u843D\u4E2D\uFF0C\u4E00\u500B\
+      \u5408\u7406\u7684\u554F\u984C\u8207 \"{{answers[\"text\"][0]}}\" \u56E0\u70BA\
+      \u7B54\u6848\u662F\uFF1A ||| {{question}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: jeopardy
+    reference: jeopardy style- wiki_qa
+  a3504f0a-1b6d-41e5-8ce5-6321273f8e71: !Template
+    answer_choices: null
+    id: a3504f0a-1b6d-41e5-8ce5-6321273f8e71
+    jinja: "{{context}}\n\n\u554F: {{question}}\n\n\u53C3\u8003\u4E0A\u9762\u7684\u6BB5\
+      \u843D\uFF0C\u7D66\u5B9A\u554F\u984C\u7684\u6B63\u78BA\u7B54\u6848\u662F |||\
+      \ {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_given_context_and_question
+    reference: ''
+  afabbce9-aa8d-4adf-a5eb-9f96185e03cf: !Template
+    answer_choices: null
+    id: afabbce9-aa8d-4adf-a5eb-9f96185e03cf
+    jinja: "{{context}}\n\n\u5F9E\u4E0A\u9762\u7684\u6BB5\u843D\u4E2D\u7522\u751F\u4E00\
+      \u500B\u554F\u984C\uFF1A ||| {{question}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: given_context_generate_question
+    reference: ''
+  c4586668-b6cf-4790-90eb-884b85e1b7d7: !Template
+    answer_choices: null
+    id: c4586668-b6cf-4790-90eb-884b85e1b7d7
+    jinja: "{{context}}\n\n\u53C3\u8003\u4E0A\u8FF0\u4E0A\u4E0B\u6587\uFF0C {{question}}\
+      \ ||| \n\n{{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_the_question
+    reference: ''
+  cf8eff1c-3705-48ee-a418-9e37b2921896: !Template
+    answer_choices: null
+    id: cf8eff1c-3705-48ee-a418-9e37b2921896
+    jinja: "\u53C3\u8003\u4E0B\u9762\u7684\u77ED\u6587\uFF0C\u56DE\u7B54\u4E0B\u5217\
+      \u554F\u984C\uFF1A\n\n\u901A\u9053\uFF1A {{context}}\n\n\u554F\u984C\uFF1A {{question}}\n\
+      |||\n{{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: answer_question_given_context
+    reference: ''

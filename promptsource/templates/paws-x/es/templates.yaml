@@ -1,0 +1,172 @@
+dataset: paws-x
+subset: es
+templates:
+  27bda3f7-cfb7-4f23-9761-ed52bd37f8aa: !Template
+    answer_choices: "No ||| S\xED"
+    id: 27bda3f7-cfb7-4f23-9761-ed52bd37f8aa
+    jinja: "Oraci\xF3n 1: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\nPregunta: \xBF\
+      La oraci\xF3n 1 parafrasea la oraci\xF3n 2? \xBFSi o no? \n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation
+    reference: Concatenation of sentence 1 and sentence 2
+  28ec147e-4792-4fa2-b6cd-eefb334b9d6f: !Template
+    answer_choices: "No ||| S\xED"
+    id: 28ec147e-4792-4fa2-b6cd-eefb334b9d6f
+    jinja: "Oraci\xF3n 1: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\nPregunta: \xBF\
+      La oraci\xF3n 1 parafrasea la oraci\xF3n 2?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Concatenation-no-label
+    reference: Concatenation of sentence 1 and sentence 2 without any label
+  39d21625-a84f-4ab6-a472-06d50cf7f0c8: !Template
+    answer_choices: null
+    id: 39d21625-a84f-4ab6-a472-06d50cf7f0c8
+    jinja: "{% if label == 1 %} \nParafrasear la oraci\xF3n: {{sentence1}} \n||| \n\
+      {{sentence2}} \n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: paraphrase-task
+    reference: Create a generative paraphrase task
+  6a8bf373-a3b6-434f-9236-0c64ad0cb70b: !Template
+    answer_choices: No ||| Yes
+    id: 6a8bf373-a3b6-434f-9236-0c64ad0cb70b
+    jinja: "Determina si las siguientes dos oraciones se parafrasean entre s\xED o\
+      \ no.\nOraci\xF3n 1: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: task_description-no-label
+    reference: Generalized prompt format, task_description-input.
+  77901833-5042-4b0c-9f99-1e73222c8928: !Template
+    answer_choices: "No ||| S\xED"
+    id: 77901833-5042-4b0c-9f99-1e73222c8928
+    jinja: "Oraci\xF3n 1: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\nPregunta: \xBF\
+      Podemos reescribir la Oraci\xF3n 1 a la Oraci\xF3n 2? \xBFSi o no?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite
+    reference: Natural Question
+  7f553ff8-43ed-48d2-9ee8-53f1692859ad: !Template
+    answer_choices: "No ||| S\xED"
+    id: 7f553ff8-43ed-48d2-9ee8-53f1692859ad
+    jinja: "{{sentence1}}\n\xBFEs una par\xE1frasis de la siguiente oraci\xF3n?\n\
+      {{sentence2}}?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question-no-label
+    reference: Generalized prompt format, context-question without any label
+  98b2ee68-ddf7-403d-8a0b-c21522f92795: !Template
+    answer_choices: "No ||| S\xED"
+    id: 98b2ee68-ddf7-403d-8a0b-c21522f92795
+    jinja: "Oraci\xF3n 2: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\nPregunta: \xBF\
+      La Oraci\xF3n 1 y la Oraci\xF3n 2 expresan el mismo significado? \xBFSi o no?\n\
+      ||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning
+    reference: Natural question
+  bdb212cf-73d9-487b-8926-66e40f1513ed: !Template
+    answer_choices: Falso ||| Verdadero
+    id: bdb212cf-73d9-487b-8926-66e40f1513ed
+    jinja: "{{sentence1}} Pregunta: {{sentence2}} \xBFVerdadero o falso?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3
+    reference: ANLI prompt format from Table G7 in the GPT3 paper
+  c3afeee2-8565-4f47-8c79-d1414a8444ec: !Template
+    answer_choices: "No ||| S\xED"
+    id: c3afeee2-8565-4f47-8c79-d1414a8444ec
+    jinja: "{{sentence1}} Pregunta: {{sentence2}} \xBFParafrasear o no?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: PAWS-ANLI GPT3-no-label
+    reference: ANLI prompt format from Table G7 in the GPT3 paper. Additionally added
+      task information without any label.
+  dd83db54-058d-40c4-9c22-e6c1acc3bb57: !Template
+    answer_choices: "No ||| S\xED"
+    id: dd83db54-058d-40c4-9c22-e6c1acc3bb57
+    jinja: "{{sentence1}}\n\xBFEs una par\xE1frasis de la siguiente oraci\xF3n?\n\
+      {{sentence2}}?\nSi o no.\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context-question
+    reference: Generalized prompt format, context-question
+  e9d9ff04-52a7-4ff3-b049-1212180196ab: !Template
+    answer_choices: "No ||| S\xED"
+    id: e9d9ff04-52a7-4ff3-b049-1212180196ab
+    jinja: "Oraci\xF3n 1: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\nPregunta: \xBF\
+      La Oraci\xF3n 1 y la Oraci\xF3n 2 expresan el mismo significado?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Meaning-no-label
+    reference: Natural question without label
+  f350d83e-0187-4fad-b83a-7b63c4ab5ca9: !Template
+    answer_choices: "No ||| S\xED"
+    id: f350d83e-0187-4fad-b83a-7b63c4ab5ca9
+    jinja: "Oraci\xF3n 1: {{sentence1}}\nOraci\xF3n 2: {{sentence2}}\nPregunta: \xBF\
+      Podemos reescribir la Oraci\xF3n 1 a la Oraci\xF3n 2?\n||| \n{{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Rewrite-no-label
+    reference: Natural Question without label

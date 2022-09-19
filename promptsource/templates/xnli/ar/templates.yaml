@@ -1,0 +1,266 @@
+dataset: xnli
+subset: ar
+templates:
+  09035328-84c7-4801-8548-d55739cb44be: !Template
+    answer_choices: "\u062F\u0627\u0626\u0645\u0627 ||| \u0641\u064A \u0628\u0639\u0636\
+      \ \u0627\u0644\u0623\u062D\u064A\u0627\u0646 ||| \u0623\u0628\u062F\u0627\u064B"
+    id: 09035328-84c7-4801-8548-d55739cb44be
+    jinja: "{{premise}} \n\n\u0636\u0639 \u0641\u064A \u0627\u0639\u062A\u0628\u0627\
+      \u0631\u0643 \u0627\u0644\u0646\u0635 \u0623\u0639\u0644\u0627\u0647 \u060C\
+      \ \u0636\u0639 \u0641\u064A \u0627\u0639\u062A\u0628\u0627\u0631\u0643: {{hypothesis}}\
+      \ \u0647\u0630\u0627 \u0647\u0648 {{\"always\"}}, {{\"sometimes\"}}, \u0623\u0648\
+      \ {{\"never\"}} \u0635\u062D\u064A\u062D\u061F ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: consider always/sometimes/never
+    reference: Sanh et al. 2021
+  102f9922-82f6-4e43-9487-99307ef90875: !Template
+    answer_choices: "\u0635\u062D\u064A\u062D ||| \u063A\u064A\u0631 \u062D\u0627\u0633\
+      \u0645 ||| \u063A\u064A\u0631 \u0635\u062D\u064A\u062D"
+    id: 102f9922-82f6-4e43-9487-99307ef90875
+    jinja: "{{premise}} \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\
+      \u0648\u0635\u0641 \u0623\u0639\u0644\u0627\u0647 \u0641\u0642\u0637 \u0648\u0645\
+      \u0627 \u062A\u0639\u0631\u0641\u0647 \u0639\u0646 \u0627\u0644\u0639\u0627\u0644\
+      \u0645\u060C \"{{hypothesis}}\" \u0647\u0644 \u0647\u064A \u0628\u0627\u0644\
+      \u062A\u0623\u0643\u064A\u062F \u0635\u062D\u064A\u062D\u0629 \u0623\u0645 \u062E\
+      \u0627\u0637\u0626\u0629 \u0623\u0645 \u063A\u064A\u0631 \u062D\u0627\u0633\u0645\
+      \u0629\u061F ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  138624b9-62c5-474d-a1a7-5de074a769f0: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: 138624b9-62c5-474d-a1a7-5de074a769f0
+    jinja: "\u0628\u0634\u0631\u0637 {{premise}} \u0644\u0630\u0644\u0643 \u060C \u064A\
+      \u062C\u0628 \u0623\u0646 \u064A\u0643\u0648\u0646 \u0630\u0644\u0643 \u0635\
+      \u062D\u064A\u062D\u064B\u0627 \"{{hypothesis}} \u061F \"\u0646\u0639\u0645\
+      \ \u060C \u0644\u0627 \u060C \u0623\u0648 \u0631\u0628\u0645\u0627\u061F |||\
+      \ {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: must be true
+    reference: Sanh et al. 2021
+  1727cd5d-e7ce-4e34-8e2d-e891203e90d3: !Template
+    answer_choices: "\u0635\u062D\u064A\u062D ||| \u063A\u064A\u0631 \u062D\u0627\u0633\
+      \u0645 ||| \u062E\u0637\u0623 \u0634\u0646\u064A\u0639"
+    id: 1727cd5d-e7ce-4e34-8e2d-e891203e90d3
+    jinja: "{{premise}}\u0628\u0646\u0627\u0621\u064B \u0639\u0644\u0649 \u0647\u0630\
+      \u0647 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062A \u060C \u0641\u0625\
+      \u0646 \u0627\u0644\u0645\u0637\u0627\u0644\u0628\u0629: \"{{hypothesis}}\"\
+      \ {{\"true\"}}, {{\"false\"}},\u0623\u0648 {{\"inconclusive\"}}\u061F||| {{\
+      \ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true/false/inconclusive
+    reference: Sanh et al. 2021
+  274b5201-3328-44af-a7bc-38092a542572: !Template
+    answer_choices: "\u062F\u0627\u0626\u0645\u0627 ||| \u0641\u064A \u0628\u0639\u0636\
+      \ \u0627\u0644\u0623\u062D\u064A\u0627\u0646 ||| \u0623\u0628\u062F\u0627\u064B"
+    id: 274b5201-3328-44af-a7bc-38092a542572
+    jinja: "\u0627\u0641\u062A\u0631\u0636 \u0623\u0646 \u0647\u0630\u0627 \u0635\u062D\
+      \u064A\u062D{{premise}} \u062B\u0645 \u0647\u0648 \"{{hypothesis}}\" {{\"always\"\
+      }}, {{\"sometimes\"}}, \u0623\u0648 {{\"never\"}} true? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: always/sometimes/never
+    reference: Sanh et al. 2021
+  2b1296c5-a7d5-481e-8f9e-4e26ee686ca5: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: 2b1296c5-a7d5-481e-8f9e-4e26ee686ca5
+    jinja: "{{premise}} \u0647\u0644 \u0646\u062D\u0646 \u0645\u0628\u0631\u0631\u0648\
+      \u0646 \u0644\u0642\u0648\u0644 \u0630\u0644\u0643\u061F \"{{hypothesis}}\"\
+      \ \u0646\u0639\u0645 \u060C \u0644\u0627 \u060C \u0623\u0648 \u0631\u0628\u0645\
+      \u0627\u061F ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: justified in saying
+    reference: Webson & Pavlick 2021
+  2f89ae6b-386f-4f42-9ba3-6572814fc509: !Template
+    answer_choices: "\u0645\u0636\u0645\u0648\u0646 ||| \u0645\u0645\u0643\u0646 |||\
+      \ \u063A\u064A\u0631 \u0645\u0645\u0643\u0646"
+    id: 2f89ae6b-386f-4f42-9ba3-6572814fc509
+    jinja: "\u0627\u0641\u062A\u0631\u0636 \u0623\u0646 \u0647\u0630\u0627 \u0635\u062D\
+      \u064A\u062D {{premise}} \n\n\u0648\u0628\u0627\u0644\u062A\u0627\u0644\u064A\
+      \u060C\"{{hypothesis}}\" \u0647\u0648 {{\"guaranteed\"}}, {{\"possible\"}},\
+      \ \u0623\u0648 {{\"impossible\"}}\u061F ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed/possible/impossible
+    reference: Sanh et al. 2021
+  400d859f-98da-45b6-b4c9-3816ac1db67b: !Template
+    answer_choices: "\u0635\u062D\u064A\u062D ||| \u0648\u0644\u0627 ||| \u062E\u0637\
+      \u0623 \u0634\u0646\u064A\u0639"
+    id: 400d859f-98da-45b6-b4c9-3816ac1db67b
+    jinja: "{{premise}}\n\u0633\u0624\u0627\u0644: {{hypothesis}} \u0635\u062D \u0623\
+      \u0645 \u062E\u0637\u0623 \u0623\u0645 \u0644\u0627\u061F||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
+  451ebaa2-7520-4cb5-8727-5120c96da391: !Template
+    answer_choices: "\u0635\u062D\u064A\u062D ||| \u063A\u064A\u0631 \u062D\u0627\u0633\
+      \u0645 ||| \u062E\u0637\u0623 \u0634\u0646\u064A\u0639"
+    id: 451ebaa2-7520-4cb5-8727-5120c96da391
+    jinja: "\u062E\u0630 \u0645\u0627 \u064A\u0644\u064A \u0643\u062D\u0642\u064A\u0642\
+      \u0629: {{premise}}\n\u062B\u0645 \u0627\u0644\u0628\u064A\u0627\u0646 \u0627\
+      \u0644\u062A\u0627\u0644\u064A: \"{{hypothesis}}\" \u0647\u0648 {{\"true\"}},\
+      \ {{\"false\"}}, \u0623\u0648 {{\"inconclusive\"}}\u061F ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: take the following as truth
+    reference: Sanh et al. 2021
+  56cae1d9-1967-48b2-b3ec-2d471547c27e: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: 56cae1d9-1967-48b2-b3ec-2d471547c27e
+    jinja: "\u0628\u0634\u0631\u0637 {{premise}} \u0647\u0644 \u064A\u062A\u0628\u0639\
+      \ \u0630\u0644\u0643 {{hypothesis}} \u0646\u0639\u0645 \u060C \u0644\u0627 \u060C\
+      \ \u0623\u0648 \u0631\u0628\u0645\u0627\u061F ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does it follow that
+    reference: Sanh et al. 2021
+  6a2297f4-e620-4ceb-9f8f-db371a85aef0: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: 6a2297f4-e620-4ceb-9f8f-db371a85aef0
+    jinja: "{{premise}}\u0628\u0646\u0627\u0621 \u0639\u0644\u0649 \u0627\u0644\u0641\
+      \u0642\u0631\u0629 \u0627\u0644\u0633\u0627\u0628\u0642\u0629 \u060C \u0647\u0644\
+      \ \u0647\u0630\u0627 \u0635\u062D\u064A\u062D \"{{hypothesis}}\"? \u0646\u0639\
+      \u0645 \u060C \u0644\u0627 \u060C \u0623\u0648 \u0631\u0628\u0645\u0627\u061F\
+      ||| {{ answer_choices[label] }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based on the previous passage
+    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+  75b7e577-20af-4f30-ab80-4ac1cc636600: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: 75b7e577-20af-4f30-ab80-4ac1cc636600
+    jinja: "\u0645\u0639\u0637\u0649 {{premise}} \u0647\u0644 \u064A\u0636\u0645\u0646\
+      \ \u0630\u0644\u0643\u061F\"{{hypothesis}}\" \u0646\u0639\u0645 \u060C \u0644\
+      \u0627 \u060C \u0623\u0648 \u0631\u0628\u0645\u0627\u061F ||| {{ answer_choices[label]\
+      \ }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed true
+    reference: Webson & Pavlick 2021
+  a2821427-7b30-4711-bc5d-f7d5a658ac20: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: a2821427-7b30-4711-bc5d-f7d5a658ac20
+    jinja: "{{premise}} \n\n\u0633\u0626\u0644: \u0647\u0644 \u0647\u0630\u0627 \u064A\
+      \u0639\u0646\u064A \u0630\u0644\u0643\u061F \"{{hypothesis}}\" \u0646\u0639\u0645\
+      \ \u060C \u0644\u0627 \u060C \u0623\u0648 \u0631\u0628\u0645\u0627\u061F |||\
+      \ {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does this imply
+    reference: Sanh et al. 2021
+  a5bfb8f2-7d93-44b8-94d4-28c64a819358: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: a5bfb8f2-7d93-44b8-94d4-28c64a819358
+    jinja: "\u0645\u0639\u0637\u0649 {{premise}} \u064A\u062C\u0628 \u0623\u0646 \u0646\
+      \u0641\u062A\u0631\u0636 \u0630\u0644\u0643 \"{{hypothesis}}\" \u0635\u062D\u064A\
+      \u062D\u061F \u0646\u0639\u0645 \u060C \u0644\u0627 \u060C \u0623\u0648 \u0631\
+      \u0628\u0645\u0627\u061F ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: should assume
+    reference: Webson & Pavlick 2021
+  bc832875-529c-401e-a999-093414663885: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0628\u0645\u0627 ||| \u0631\u0642\
+      \u0645"
+    id: bc832875-529c-401e-a999-093414663885
+    jinja: "\u0627\u0641\u062A\u0631\u0636 {{premise}} \u0647\u0644 \u064A\u0645\u0643\
+      \u0646\u0646\u0627 \u0627\u0633\u062A\u0646\u062A\u0627\u062C \u0630\u0644\u0643\
+      \ \"{{hypothesis}}\"\u061F\u0646\u0639\u0645 \u060C \u0644\u0627 \u060C \u0623\
+      \u0648 \u0631\u0628\u0645\u0627\u061F ||| {{ answer_choices[label] }} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: can we infer
+    reference: Webson & Pavlick 2021
