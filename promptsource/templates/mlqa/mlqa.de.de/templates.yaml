@@ -1,0 +1,90 @@
+dataset: mlqa
+subset: mlqa.de.de
+templates:
+  3933fc46-39f6-4ad6-a381-c4af80b1e537: !Template
+    answer_choices: null
+    id: 3933fc46-39f6-4ad6-a381-c4af80b1e537
+    jinja: "Frage: {{question}}\n    Kontext: {{context}}\n   Antwort aus dem Kontext:\
+      \ ||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: qaanswera
+    reference: ''
+  8f066fc4-1110-4396-8e3c-6b06b8f50fc9: !Template
+    answer_choices: null
+    id: 8f066fc4-1110-4396-8e3c-6b06b8f50fc9
+    jinja: "Beziehen Sie sich auf die folgende Passage und beantworten Sie anschlie\xDF\
+      end die Frage in der gleichen Sprache wie die Passage:\n      Passage: {{context}}\n\
+      \      Frage: {{question}}\n      |||\n      {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: refercqa
+    reference: ''
+  90741a59-22e0-4fa0-8ae5-8509d71e23d3: !Template
+    answer_choices: null
+    id: 90741a59-22e0-4fa0-8ae5-8509d71e23d3
+    jinja: "D: {{context}}\n      Q:{{question}}\n      EIN:||| {{answers[\"text\"\
+      ][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: dqa
+    reference: ''
+  e07fe4fd-5761-484e-a82d-526ce99855de: !Template
+    answer_choices: null
+    id: e07fe4fd-5761-484e-a82d-526ce99855de
+    jinja: "Lesen Sie die folgende Passage und beantworten Sie dann die folgende Frage,\
+      \ indem Sie den richtigen Teil aus der Passage extrahieren:{{context}}\n   \
+      \   {{question}} ||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: exractingcqa
+    reference: ''
+  f680958e-21cd-4907-b8e6-e882f6b55db3: !Template
+    answer_choices: null
+    id: f680958e-21cd-4907-b8e6-e882f6b55db3
+    jinja: "{{context}}\n      Q:{{question}}\n     Unter Bezugnahme auf die obige\
+      \ Passage lautet die richtige Antwort auf die gegebene Frage in der Sprache\
+      \ der Passage\n      ||| {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: cqreferringa
+    reference: ''
+  fc6cf59a-c46f-40d1-ad5f-8ff8f63cdbd6: !Template
+    answer_choices: null
+    id: fc6cf59a-c46f-40d1-ad5f-8ff8f63cdbd6
+    jinja: "{{context}}Unter Bezugnahme auf den obigen Zusammenhang,{{question}} |||\
+      \ \n      {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - de
+      metrics:
+      - Squad
+      original_task: true
+    name: creferenceqa
+    reference: ''

@@ -1,0 +1,89 @@
+dataset: mlqa
+subset: mlqa.es.es
+templates:
+  4defec71-9404-4ac4-8c7c-0323a622c44d: !Template
+    answer_choices: null
+    id: 4defec71-9404-4ac4-8c7c-0323a622c44d
+    jinja: "Pregunta: {{question}}\n    Contexto: {{context}}\n    Respuesta del contexto:|||\
+      \ {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: qaanswera
+    reference: ''
+  698f7cf5-61f3-4e96-ae94-4f40034637d2: !Template
+    answer_choices: null
+    id: 698f7cf5-61f3-4e96-ae94-4f40034637d2
+    jinja: "{{context}}\n      Q: {{question}}\n      Referring to the passage above,\
+      \ the correct answer to the given question in the language of the passage is\n\
+      \      ||| {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: cqreferringa
+    reference: ''
+  a98473fb-4d02-4048-9ba5-1a6adc556cf0: !Template
+    answer_choices: null
+    id: a98473fb-4d02-4048-9ba5-1a6adc556cf0
+    jinja: "D: {{context}}\n      P: {{question}}\n     UNA: ||| {{answers[\"text\"\
+      ][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: dqa
+    reference: ''
+  aa69f48e-1b6f-4ce5-80fb-a6be4a4d1c20: !Template
+    answer_choices: null
+    id: aa69f48e-1b6f-4ce5-80fb-a6be4a4d1c20
+    jinja: "Consulte el pasaje a continuaci\xF3n y luego responda la pregunta en el\
+      \ mismo idioma que el pasaje:\n     Paso: {{context}}\n      Pregunta: {{question}}\n\
+      \      |||\n      {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: refercqa
+    reference: ''
+  cc2e67aa-4738-4463-8d30-26290ddeb14d: !Template
+    answer_choices: null
+    id: cc2e67aa-4738-4463-8d30-26290ddeb14d
+    jinja: "Lea el siguiente pasaje y luego responda la pregunta que sigue extrayendo\
+      \ la parte correcta del pasaje:{{context}}\n      {{question}} ||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: exractingcqa
+    reference: ''
+  dfbb57d2-b5eb-4a16-b894-02a54788151e: !Template
+    answer_choices: null
+    id: dfbb57d2-b5eb-4a16-b894-02a54788151e
+    jinja: "{{context}}Con referencia al contexto anterior, {{question}} ||| \n  \
+      \    {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - es
+      metrics:
+      - Squad
+      original_task: true
+    name: creferenceqa
+    reference: ''

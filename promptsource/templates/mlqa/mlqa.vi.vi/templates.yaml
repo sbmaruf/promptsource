@@ -1,0 +1,93 @@
+dataset: mlqa
+subset: mlqa.vi.vi
+templates:
+  5dbb610f-5961-41f7-abd5-187b1efc8ff3: !Template
+    answer_choices: null
+    id: 5dbb610f-5961-41f7-abd5-187b1efc8ff3
+    jinja: "{{context}}V\u1EDBi b\u1ED1i c\u1EA3nh tr\xEAn,{{question}} ||| \n   \
+      \   {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - vi
+      metrics:
+      - Squad
+      original_task: true
+    name: creferenceqa
+    reference: ''
+  6c313c16-aa2d-4ca1-88b5-efc674804e51: !Template
+    answer_choices: null
+    id: 6c313c16-aa2d-4ca1-88b5-efc674804e51
+    jinja: "\u0110\u1ECDc \u0111o\u1EA1n v\u0103n sau v\xE0 sau \u0111\xF3 tr\u1EA3\
+      \ l\u1EDDi c\xE2u h\u1ECFi ti\u1EBFp theo b\u1EB1ng c\xE1ch tr\xEDch ra ph\u1EA7\
+      n \u0111\xFAng trong \u0111o\u1EA1n v\u0103n:{{context}}\n      {{question}}\
+      \ ||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - vi
+      metrics:
+      - Squad
+      original_task: true
+    name: exractingcqa
+    reference: ''
+  c384acb1-5963-48f6-83d3-dbeb057376f4: !Template
+    answer_choices: null
+    id: c384acb1-5963-48f6-83d3-dbeb057376f4
+    jinja: "D: {{context}}\n      Q: {{question}}\n      M\u1ED8T: ||| {{answers[\"\
+      text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - vi
+      metrics:
+      - Squad
+      original_task: true
+    name: dqa
+    reference: ''
+  d13269d5-70f1-4f3a-9568-d9f5289529eb: !Template
+    answer_choices: null
+    id: d13269d5-70f1-4f3a-9568-d9f5289529eb
+    jinja: "Tham kh\u1EA3o \u0111o\u1EA1n v\u0103n d\u01B0\u1EDBi \u0111\xE2y v\xE0\
+      \ sau \u0111\xF3 tr\u1EA3 l\u1EDDi c\xE2u h\u1ECFi sau \u0111\xF3 b\u1EB1ng\
+      \ ng\xF4n ng\u1EEF t\u01B0\u01A1ng t\u1EF1 nh\u01B0 \u0111o\u1EA1n v\u0103n:\n\
+      \     \u0110o\u1EA1n v\u0103n: {{context}}\n      C\xE2u h\u1ECFi: {{question}}\n\
+      \      |||\n      {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - vi
+      metrics:
+      - Squad
+      original_task: true
+    name: refercqa
+    reference: ''
+  f176c462-af7f-481b-b846-ba345cb81dbd: !Template
+    answer_choices: null
+    id: f176c462-af7f-481b-b846-ba345cb81dbd
+    jinja: "C\xE2u h\u1ECFi: {{question}}\n    \u0110\u1ECBnh ngh\u0129a b\xE0i v\u0103\
+      n: {{context}}\n   C\xE2u tr\u1EA3 l\u1EDDi t\u1EEB b\u1ED1i c\u1EA3nh:||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - vi
+      metrics:
+      - Squad
+      original_task: true
+    name: qaanswera
+    reference: ''
+  ff8df549-efbc-43bd-9a98-e1330553bd8a: !Template
+    answer_choices: null
+    id: ff8df549-efbc-43bd-9a98-e1330553bd8a
+    jinja: "{{context}}\n      Q: {{question}}\n      Referring to the passage above,\
+      \ the correct answer to the given question in the language of the passage is\n\
+      \      ||| {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - vi
+      metrics:
+      - Squad
+      original_task: true
+    name: cqreferringa
+    reference: ''
