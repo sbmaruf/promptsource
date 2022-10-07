@@ -1,0 +1,187 @@
+dataset: xcopa
+subset: it
+templates:
+  013d2973-5b63-4fd1-ae3e-d2c88b22b8db: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 013d2973-5b63-4fd1-ae3e-d2c88b22b8db
+    jinja: "{{ premise }} Qual \xE8 l'opzione migliore?- {{choice1}}- {{choice2}}\n\
+      \      Noi stiamo cercando{% if question == \"cause\" %}una causa {% else %}un\
+      \ effetto\n       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  1c591a57-2de3-4766-8f6c-03aab7069014: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 1c591a57-2de3-4766-8f6c-03aab7069014
+    jinja: "Scegli la continuazione pi\xF9 probabile alla frase seguente:\n      {{\
+      \ premise }} {% if question == \"cause\" %}come conseguenza di: {% else %} come\
+      \ conseguenza:\n      {% endif %}\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''
+  1e9b4eae-7869-41be-8160-6ccf524fbd7d: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 1e9b4eae-7869-41be-8160-6ccf524fbd7d
+    jinja: "Esercizio: scegli l'alternativa pi\xF9 plausibile.\n      {{ premise }}\
+      \ {% if question == \"cause\" %} perch\xE9...{% else %}Cos\xEC... {% endif\n\
+      \      %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{\
+      \ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  24f2bc32-8138-4605-a0ca-231fa5024c3c: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 24f2bc32-8138-4605-a0ca-231fa5024c3c
+    jinja: "{{ premise }} Qual \xE8 l'opzione migliore?- {{choice1}}- {{choice2}}\n\
+      \      We are looking for {% if question == \"cause\" %}una causa{% else %}un\
+      \ effetto\n       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  3d92e80f-49e9-44b8-864c-1428d83db064: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 3d92e80f-49e9-44b8-864c-1428d83db064
+    jinja: "{{ premise }}\n      Seleziona il pi\xF9 plausibile{% if question == \"\
+      cause\" %}causa:{% else %}effetto:\n      {% endif %}\n      - {{choice1}}\n\
+      \      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  4d241d73-b91b-4832-a91a-e642c0015af6: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4d241d73-b91b-4832-a91a-e642c0015af6
+    jinja: "{{ premise }} {% if question == \"cause\" %} Questo \xE8 successo perch\xE9\
+      ... {%\n      else %} As a consequence... {% endif %}\n      Aiutami a scegliere\
+      \ l'opzione pi\xF9 plausibile:\n      - {{choice1}}\n      - {{choice2}} |||\
+      \ {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  4e922387-157b-4389-bb33-d56eebfd0a06: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 4e922387-157b-4389-bb33-d56eebfd0a06
+    jinja: "{% if question == \"cause\" %} {{ premise }} Che potrebbe essere causato\
+      \ da\n      \"{{ answer_choices[0] }}\" o\"{{ answer_choices[1] }}\"? ||| {%\
+      \ if label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  a2fea3ea-f2da-4d60-98d2-9fa79d25069b: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a2fea3ea-f2da-4d60-98d2-9fa79d25069b
+    jinja: "{{ premise }} {% if question == \"cause\" %}perch\xE9... {% else %}Cos\xEC\
+      ...\n      {% endif %}\n      Scegli tra:\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  b09d83c6-51f8-4ad5-9ecf-a997c3b90455: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b09d83c6-51f8-4ad5-9ecf-a997c3b90455
+    jinja: "{{ premise }}Sto esitando tra due opzioni.Aiutami a scegliere\n      il\
+      \ pi\xF9 probabile {% if question == \"cause\" %}causa:{% else %}effect: {%\n\
+      \      endif %}\\n- {{choice1}}\\n- {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  b81abcc9-c38a-4993-a850-b5ed5fad71fd: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b81abcc9-c38a-4993-a850-b5ed5fad71fd
+    jinja: "{% if question == \"effect\" %} {{ premise }} Di conseguenza,\"{{ answer_choices[0]\n\
+      \       }}\" o \"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}\\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result, C1 or C2?
+    reference: ''
+  c18f9e92-41ad-48b6-9adc-e6031f028f2c: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c18f9e92-41ad-48b6-9adc-e6031f028f2c
+    jinja: "\"{{ answer_choices[0] }}\" o \"{{ answer_choices[1] }}\"? {{ premise\
+      \ }}\n      {% if question == \"cause\" %} perch\xE9 {% else %}Cos\xEC {% endif\
+      \ %} ||| {% if label\n      != -1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise, so/because
+    reference: Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021.
+  fb12514f-5df7-4c6b-a9c1-e629ab371e16: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: fb12514f-5df7-4c6b-a9c1-e629ab371e16
+    jinja: "{% if question == \"effect\" %} {{ premise }} Cosa potrebbe succedere\
+      \ dopo,\n      \"{{ answer_choices[0] }}\" o\"{{ answer_choices[1] }}\"? |||\
+      \ {% if label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - it
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next, C1 or C2?
+    reference: ''

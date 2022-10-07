@@ -1,0 +1,188 @@
+dataset: xcopa
+subset: et
+templates:
+  079740d2-eb7a-4443-9d0a-6300eedc06f3: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 079740d2-eb7a-4443-9d0a-6300eedc06f3
+    jinja: "{% if question == \"effect\" %} {{ premise }} Tulemusena,\"{{ answer_choices[0]\n\
+      \       }}\" v\xF5i\"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}\\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result, C1 or C2?
+    reference: ''
+  1723b174-8ff0-4391-855e-764a9527844a: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 1723b174-8ff0-4391-855e-764a9527844a
+    jinja: "{{ premise }} Kahtlen kahe variandi vahel.Aidake mul valida t\xF5en\xE4\
+      olisem {% if question == \"cause\" %}p\xF5hjus: {% else %}effect: {%\n     \
+      \ endif %}\\n- {{choice1}}\\n- {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  290f025b-596c-4963-99cb-1d23e463b3f1: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 290f025b-596c-4963-99cb-1d23e463b3f1
+    jinja: "{{ premise }} Mis on parim variant?{{choice1}}- {{choice2}}\n      We\
+      \ are looking for {% if question == \"cause\" %}p\xF5hjus {% else %}m\xF5ju\n\
+      \       {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  2e2d67b6-0d61-4097-9323-91f5e74f5d16: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 2e2d67b6-0d61-4097-9323-91f5e74f5d16
+    jinja: "{{ premise }}\n      Valige k\xF5ige usutavam {% if question == \"cause\"\
+      \ %}p\xF5hjus: {% else %}efekt:\n      {% endif %}\n      - {{choice1}}\n  \
+      \    - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  2ea3c973-5c70-4d47-a280-9bae119811bc: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 2ea3c973-5c70-4d47-a280-9bae119811bc
+    jinja: "{{ premise }} Mis on parim variant?{{choice1}}- {{choice2}}\n      Me\
+      \ otsime{% if question == \"cause\" %}p\xF5hjus {% else %}m\xF5ju\n       {%\
+      \ endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  3a0f0a27-4cbf-4e29-b61e-452db1f01c7e: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 3a0f0a27-4cbf-4e29-b61e-452db1f01c7e
+    jinja: "{{ premise }} {% if question == \"cause\" %} See juhtus, sest ... {%\n\
+      \      else %} As a consequence... {% endif %}\n      Aidake mul valida usutavam\
+      \ variant:\n      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{\
+      \ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  56bdc399-8c25-4267-89d3-421245751398: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 56bdc399-8c25-4267-89d3-421245751398
+    jinja: "{{ premise }} {% if question == \"cause\" %}sest... {% else %}nii...\n\
+      \      {% endif %}\n      Valige j\xE4rgmiste hulgast:\n      - {{choice1}}\n\
+      \      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  86d31024-cd44-4890-98c4-f7d24830c2db: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 86d31024-cd44-4890-98c4-f7d24830c2db
+    jinja: "\"{{ answer_choices[0] }}\" v\xF5i \"{{ answer_choices[1] }}\"? {{ premise\
+      \ }}\n      {% if question == \"cause\" %} sest {% else %} nii {% endif %} |||\
+      \ {% if label\n      != -1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise, so/because
+    reference: Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021.
+  a1830fae-cb0e-4842-bd4f-0264a3fbc548: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: a1830fae-cb0e-4842-bd4f-0264a3fbc548
+    jinja: "Harjutus: vali k\xF5ige usutavam alternatiiv.\n      {{ premise }} {%\
+      \ if question == \"cause\" %} sest...{% else %} nii...{% endif\n      %}\n \
+      \     - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  c1082281-06d9-4044-8487-2f61297f2e54: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c1082281-06d9-4044-8487-2f61297f2e54
+    jinja: "{% if question == \"cause\" %} {{ premise }} Mis v\xF5ib olla p\xF5hjustatud\n\
+      \      \"{{ answer_choices[0] }}\" v\xF5i\"{{ answer_choices[1] }}\"? ||| {%\
+      \ if label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  c5968225-0438-4c16-8132-10040c925630: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c5968225-0438-4c16-8132-10040c925630
+    jinja: "Valige j\xE4rgmise lause t\xF5en\xE4olisem j\xE4tk:\n      {{ premise\
+      \ }} {% if question == \"cause\" %} tulemusena:{% else %} tagaj\xE4rjena:\n\
+      \      {% endif %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label\
+      \ != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''
+  fe75a670-fe8f-49a7-8974-f9a8de6b1cd2: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: fe75a670-fe8f-49a7-8974-f9a8de6b1cd2
+    jinja: "{% if question == \"effect\" %} {{ premise }} Mis v\xF5ib juhtuda j\xE4\
+      rgmisena,\n      \"{{ answer_choices[0] }}\" v\xF5i\"{{ answer_choices[1] }}\"\
+      ? ||| {% if label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - et
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next, C1 or C2?
+    reference: ''

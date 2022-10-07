@@ -1,0 +1,92 @@
+dataset: mlqa
+subset: mlqa.zh.zh
+templates:
+  30c102dd-d9ac-4d37-9045-6d3cc237b964: !Template
+    answer_choices: null
+    id: 30c102dd-d9ac-4d37-9045-6d3cc237b964
+    jinja: "\u53C2\u8003\u4E0B\u9762\u7684\u6587\u7AE0\uFF0C\u7136\u540E\u7528\u4E0E\
+      \u6587\u7AE0\u76F8\u540C\u7684\u8BED\u8A00\u56DE\u7B54\u95EE\u9898\uFF1A\n \
+      \    \u901A\u9053\uFF1A {{context}}\n      \u95EE\u9898\uFF1A{{question}}\n\
+      \      |||\n      {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: refercqa
+    reference: ''
+  53ab5d8f-5bf8-4e63-9c9c-0a7307a99d78: !Template
+    answer_choices: null
+    id: 53ab5d8f-5bf8-4e63-9c9c-0a7307a99d78
+    jinja: "\u95EE\u9898\uFF1A {{question}}\n   \u8BED\u5883\uFF1A{{context}}\n  \
+      \  \u6765\u81EA\u4E0A\u4E0B\u6587\u7684\u7B54\u6848\uFF1A||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: qaanswera
+    reference: ''
+  5d7af73b-86a2-4415-9421-8a73aaa98209: !Template
+    answer_choices: null
+    id: 5d7af73b-86a2-4415-9421-8a73aaa98209
+    jinja: "\u9605\u8BFB\u4E0B\u9762\u7684\u77ED\u6587\uFF0C\u7136\u540E\u4ECE\u77ED\
+      \u6587\u4E2D\u9009\u51FA\u6B63\u786E\u7684\u90E8\u5206\u6765\u56DE\u7B54\u4E0B\
+      \u9762\u7684\u95EE\u9898\uFF1A{{context}}\n      {{question}} ||| {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: exractingcqa
+    reference: ''
+  7d3c5ae9-8866-4daf-b2b5-ff5221584798: !Template
+    answer_choices: null
+    id: 7d3c5ae9-8866-4daf-b2b5-ff5221584798
+    jinja: "{{context}}\u53C2\u8003\u4E0A\u8FF0\u4E0A\u4E0B\u6587\uFF0C {{question}}\
+      \ ||| \n      {{answers.text[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: creferenceqa
+    reference: ''
+  7dd32648-619b-4824-be55-e943562ef542: !Template
+    answer_choices: null
+    id: 7dd32648-619b-4824-be55-e943562ef542
+    jinja: "\u4E01\uFF1A{{context}}\n   \u95EE\uFF1A {{question}}\n     A\uFF1A |||\
+      \ {{answers[\"text\"][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: dqa
+    reference: ''
+  97573491-4159-49e8-a775-d64d55f47e3a: !Template
+    answer_choices: null
+    id: 97573491-4159-49e8-a775-d64d55f47e3a
+    jinja: "{{context}}\n      \u95EE\uFF1A{{question}}\n      \u53C2\u8003\u4E0A\u9762\
+      \u7684\u6587\u7AE0\uFF0C\u7528\u6587\u7AE0\u7684\u8BED\u8A00\u5BF9\u7ED9\u5B9A\
+      \u95EE\u9898\u7684\u6B63\u786E\u7B54\u6848\u662F\n      ||| {{answers[\"text\"\
+      ][0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - zh
+      metrics:
+      - Squad
+      original_task: true
+    name: cqreferringa
+    reference: ''

@@ -1,0 +1,187 @@
+dataset: xcopa
+subset: sw
+templates:
+  31164792-72ac-4933-9dc4-a2dc6546a482: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 31164792-72ac-4933-9dc4-a2dc6546a482
+    jinja: "{% if question == \"cause\" %} {{ premise }} Ambayo inaweza kusababishwa\
+      \ na\n      \"{{ answer_choices[0] }}\" au \"{{ answer_choices[1] }}\"? |||\
+      \ {% if label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: which may be caused by
+    reference: ''
+  31b80fa2-b53e-47cc-b678-039d7c3cd1a9: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 31b80fa2-b53e-47cc-b678-039d7c3cd1a9
+    jinja: "{{ premise }} Ni chaguo gani bora zaidi?- {{choice1}}- {{choice2}}\n \
+      \     Tunatafuta {% if question == \"cause\" %}sababu {% else %}athari\n   \
+      \    {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: why? C1 or C2
+    reference: ''
+  5b037ec3-8e37-49da-baee-f1c5e56baf10: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 5b037ec3-8e37-49da-baee-f1c5e56baf10
+    jinja: "{{ premise }} {% if question == \"cause\" %} Hii ilitokea kwa sababu ...\
+      \ {%\n      else %} Kama matokeo... {% endif %}\n      Nisaidie kuchagua chaguo\
+      \ linalokubalika zaidi:\n      - {{choice1}}\n      - {{choice2}} ||| {% if\
+      \ label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: plausible_alternatives
+    reference: ''
+  727c6d92-4aed-4ada-8431-f2a0a96aaac8: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 727c6d92-4aed-4ada-8431-f2a0a96aaac8
+    jinja: "{{ premise }} Ni chaguo gani bora? - {{choice1}}- {{choice2}}\n      We\
+      \ are looking for {% if question == \"cause\" %}sababu{% else %}athari\n   \
+      \    {% endif %}||| {% if label != -1 %}{{answer_choices[label]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: best_option
+    reference: ''
+  82682334-6b91-4758-bade-81eb23194fff: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 82682334-6b91-4758-bade-81eb23194fff
+    jinja: "{{ premise }} Ninasitasita kati ya chaguzi mbili. Nisaidie kuchagua\n\
+      \      uwezekano zaidi {% if question == \"cause\" %}sababu: {% else %}athari:\
+      \ {%\n      endif %}- {{choice1}}- {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: i_am_hesitating
+    reference: ''
+  8398c954-5ee4-4c11-bb53-afe266e4c141: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 8398c954-5ee4-4c11-bb53-afe266e4c141
+    jinja: "{{ premise }}\n      Chagua inayokubalika zaidi {% if question == \"cause\"\
+      \ %}sababu: {% else %}athari:\n      {% endif %}\n      - {{choice1}}\n    \
+      \  - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: cause_effect
+    reference: ''
+  94f744b4-11ac-4cda-ad81-8ab00f38bbec: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 94f744b4-11ac-4cda-ad81-8ab00f38bbec
+    jinja: "{{ premise }} {% if question == \"cause\" %}kwa sababu... {% else %}hivyo...\n\
+      \      {% endif %}\n      Chagua kati ya:\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: choose
+    reference: ''
+  954dc777-8ff2-432b-8614-d612002da0d9: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: 954dc777-8ff2-432b-8614-d612002da0d9
+    jinja: "{% if question == \"effect\" %} {{ premise }} Nini kinaweza kutokea baadaye,\n\
+      \      \"{{ answer_choices[0] }}\" au \"{{ answer_choices[1] }}\"? ||| {% if\
+      \ label\n      != -1 %}{{ answer_choices[label] }}{%endif%}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: What could happen next, C1 or C2?
+    reference: ''
+  b4fb1488-77f3-40b9-968f-ec56895d785f: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b4fb1488-77f3-40b9-968f-ec56895d785f
+    jinja: "\"{{ answer_choices[0] }}\"au \"{{ answer_choices[1] }}\"? {{ premise\
+      \ }}\n      {% if question == \"cause\" %}kwa sababu {% else %}hivyo {% endif\
+      \ %} ||| {% if label\n      != -1 %}{{ answer_choices[label] }}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: C1 or C2? premise, so/because
+    reference: Adapted from Perez et al. 2021 and Schick & Sch\xFCtz 2021.
+  b5cf4c6f-d5e2-49af-b6aa-9a8092863162: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b5cf4c6f-d5e2-49af-b6aa-9a8092863162
+    jinja: "Zoezi: chagua mbadala inayowezekana zaidi.\n      {{ premise }} {% if\
+      \ question == \"cause\" %} kwa sababu... {% else %} hivyo... {% endif\n    \
+      \  %}\n      - {{choice1}}\n      - {{choice2}} ||| {% if label != -1 %}{{ answer_choices[label]\
+      \ }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: exercise
+    reference: ''
+  b8c33f4b-b5f5-44bf-b9ad-7b9c27573afa: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: b8c33f4b-b5f5-44bf-b9ad-7b9c27573afa
+    jinja: "Pick the more likely continuation to the following sentence:\n      {{\
+      \ premise }} {% if question == \"cause\" %} as a result of: {% else %} as a\
+      \ consequence:\n      {% endif %}\n      - {{choice1}}\n      - {{choice2}}\
+      \ ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: more likely
+    reference: ''
+  c67e4aab-dcef-42dc-b8e9-06d2db20ec7e: !Template
+    answer_choices: '{{choice1}} ||| {{choice2}}'
+    id: c67e4aab-dcef-42dc-b8e9-06d2db20ec7e
+    jinja: "{% if question == \"effect\" %} {{ premise }} Matokeo yake, \"{{ answer_choices[0]\n\
+      \       }}\"au \"{{ answer_choices[1] }}\"? ||| {% if label != -1 %}{{ answer_choices[label]\n\
+      \      }}{%endif%}\\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: As a result, C1 or C2?
+    reference: ''

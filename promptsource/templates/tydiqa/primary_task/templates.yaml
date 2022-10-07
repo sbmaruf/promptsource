@@ -1,6 +1,200 @@
 dataset: tydiqa
 subset: primary_task
 templates:
+  065566af-4e40-42be-95c2-df01447ec03d: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442 ||| \u041D\u0438\u043A\u0442\
+      \u043E"
+    id: 065566af-4e40-42be-95c2-df01447ec03d
+    jinja: "{% if language == \"english\" %} \n\u0412\u043E\u043F\u0440\u043E\u0441\
+      : {{question_text}}\n\u041E\u0442\u0432\u0435\u0442\u044C\u0442\u0435 \u043D\
+      \u0430 \u0432\u043E\u043F\u0440\u043E\u0441 \u0441 {{\"Yes\"}} \u0438\u043B\u0438\
+      \ \u0436\u0435 {{\"No\"}}. \u0415\u0441\u043B\u0438 \u043D\u0435\u043B\u044C\
+      \u0437\u044F \u0442\u043E \u043E\u0442\u0432\u0435\u0442\u044C {{\"None\"}}.\n\
+      \u041D\u0430\u043C\u0435\u043A\u0430\u0442\u044C: {{document_plaintext}}\n|||\n\
+      {{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_ru
+    reference: ''
+  0708560e-5bfa-420d-abbd-2fc9d2e632dc: !Template
+    answer_choices: Ya ||| Tidak
+    id: 0708560e-5bfa-420d-abbd-2fc9d2e632dc
+    jinja: '{% if language == "english" %}
+
+      {{question_text}}
+
+      Apakah ini pertanyaan "Ya/Tidak"?
+
+      |||
+
+      {% if annotations. yes_no_answer[0] == "NONE" %}
+
+      Tidak
+
+      {% else %}
+
+      Ya
+
+      {% endif %}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_question_id
+    reference: Reading Comprehension
+  07464503-9ebd-4ab6-9a68-40e2c85e46f7: !Template
+    answer_choices: Yes ||| No
+    id: 07464503-9ebd-4ab6-9a68-40e2c85e46f7
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nSeuraavan tekstinp\xE4\
+      tk\xE4n perusteella {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_fi
+    reference: Binary question without mentioning KB
+  09486977-1c66-4764-abc8-e5d754291bfa: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442"
+    id: 09486977-1c66-4764-abc8-e5d754291bfa
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u041D\u0430 \u043E\
+      \u0441\u043D\u043E\u0432\u0435 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\
+      \u0433\u043E \u0444\u0440\u0430\u0433\u043C\u0435\u043D\u0442\u0430 \u0442\u0435\
+      \u043A\u0441\u0442\u0430, {{question_text}} \n{{document_plaintext}}\n||| \n\
+      {{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_ru
+    reference: Binary question without mentioning KB
+  0a670799-a37f-4ca5-b955-a3cc626cdd11: !Template
+    answer_choices: "Kyll\xE4 ||| Ei"
+    id: 0a670799-a37f-4ca5-b955-a3cc626cdd11
+    jinja: "{% if language == \"english\" %}\n{{question_text}}\nOnko t\xE4m\xE4 \"\
+      kyll\xE4/ei\" kysymys?\n|||\n{% if annotations. yes_no_answer[0] == \"NONE\"\
+      \ %}\nEi\n{% else %}\nJoo\n{% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_fi
+    reference: Ask if this is a yes no question
+  0e2d83f9-2b36-40e6-8d42-eefe9351501e: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C15\u0C3E\u0C26\u0C41 ||\
+      \ \u0C0F\u0C26\u0C40 \u0C32\u0C47\u0C26\u0C41"
+    id: 0e2d83f9-2b36-40e6-8d42-eefe9351501e
+    jinja: "{% if language == \"english\" %}\n\u0C15\u0C3F\u0C02\u0C26\u0C3F \u0C2A\
+      \u0C4D\u0C30\u0C36\u0C4D\u0C28\u0C15\u0C41 \u0C38\u0C2E\u0C3E\u0C27\u0C3E\u0C28\
+      \u0C02 \u0C07\u0C35\u0C4D\u0C35\u0C02\u0C21\u0C3F \"{{answer_choices[0]}}\"\
+      \ \u0C32\u0C47\u0C26\u0C3E\"{{answer_choices[1]}}\" \u0C32\u0C47\u0C26\u0C3E\
+      \"{{answer_choices[2]}}\" \u0C2E\u0C4A\u0C26\u0C1F\u0C3F \u0C30\u0C46\u0C02\u0C21\
+      \u0C41 \u0C38\u0C2E\u0C3E\u0C27\u0C3E\u0C28\u0C3E\u0C32\u0C32\u0C4B \u0C0F\u0C26\
+      \u0C40 \u0C35\u0C30\u0C4D\u0C24\u0C3F\u0C02\u0C1A\u0C15\u0C2A\u0C4B\u0C24\u0C47\
+      .\n\u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28: {{question_text}}\n\u0C05\u0C02\u0C36\
+      \u0C02:{{document_title}}\n\u0C35\u0C4D\u0C2F\u0C3E\u0C38\u0C02 {{document_plaintext}}\n\
+      |||\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_te
+    reference: ''
+  0f188322-09ec-4104-956d-b31c4cbbd8a5: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0642\u0645"
+    id: 0f188322-09ec-4104-956d-b31c4cbbd8a5
+    jinja: "{% if language == \"english\" %}\n{{question_text}}\n\u0647\u0644 \u0647\
+      \u0630\u0627 \u0633\u0624\u0627\u0644 \"\u0646\u0639\u0645 / \u0644\u0627\"\u061F\
+      \n|||\n{% if annotations. yes_no_answer[0] == \"NONE\" %}\n\u0631\u0642\u0645\
+      \n{% else %}\n\u0646\u0639\u0645\n{% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_ar
+    reference: Ask if this is a yes no question
+  12ccc909-9491-4b40-845d-bfd46c2f306b: !Template
+    answer_choices: Ya ||| Tidak
+    id: 12ccc909-9491-4b40-845d-bfd46c2f306b
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nJawab pertanyaan\
+      \ tentang {{document_title}}.\nPertanyaan: {{question_text}}. Ya atau tidak?\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_id
+    reference: Ask Yes/No question
+  147f3d73-141e-4901-b9ff-1980c791bd91: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C28\u0C02"
+    id: 147f3d73-141e-4901-b9ff-1980c791bd91
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0C05\u0C28\u0C47\
+      \ \u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28\u0C15\u0C41 \u0C38\u0C2E\u0C3E\u0C27\u0C3E\
+      \u0C28\u0C02 \u0C07\u0C35\u0C4D\u0C35\u0C02\u0C21\u0C3F {{document_title}}.\n\
+      \u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28: {{question_text}}. \u0C05\u0C35\u0C41\u0C28\
+      \u0C41 \u0C32\u0C47\u0C26\u0C3E \u0C15\u0C3E\u0C26\u0C41?\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_te
+    reference: Ask Yes/No question
+  165c1aed-c0b4-4a24-b768-1c07b9a8b55d: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0644\u0627 ||| \u0644\u0627 \u0623\u062D\
+      \u062F"
+    id: 165c1aed-c0b4-4a24-b768-1c07b9a8b55d
+    jinja: "{% if language == \"english\" %} \n\u0633\u0624\u0627\u0644: {{question_text}}\n\
+      \u0623\u062C\u0628 \u0639\u0646 \u0627\u0644\u0633\u0624\u0627\u0644 \u0628\u0640\
+      \ {{\"Yes\"}} \u0623\u0648 {{\"No\"}}. \u0625\u0630\u0627 \u0644\u0645 \u064A\
+      \u0643\u0646 \u0630\u0644\u0643 \u0645\u0645\u0643\u0646\u0627 \u0625\u0630\u0646\
+      \ \u0623\u062C\u0628 {{\"None\"}}.\n\u0645\u0644\u062D\u0648\u0638\u0629: {{document_plaintext}}\n\
+      |||\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_ar
+    reference: ''
   16f11e56-a78d-4e33-bba1-586f9947baf7: !Template
     answer_choices: Yes ||| No ||| None
     id: 16f11e56-a78d-4e33-bba1-586f9947baf7
@@ -31,6 +225,102 @@ templates:
       original_task: true
     name: heres_what_I_found
     reference: ''
+  179d437a-c162-4810-ba35-3abcc9697fd5: !Template
+    answer_choices: Ndiyo ||| Hapana
+    id: 179d437a-c162-4810-ba35-3abcc9697fd5
+    jinja: '{% if language == "english" %}
+
+      {{question_text}}
+
+      Je, hili ni swali la "Ndiyo/Hapana"?
+
+      |||
+
+      {% if annotations. yes_no_answer[0] == "NONE" %}
+
+      Hapana
+
+      {% else %}
+
+      Ndiyo
+
+      {% endif %}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_sw
+    reference: Ask if this is a yes no question
+  197b2f31-0752-4aac-98b8-79b8246302ce: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8"
+    id: 197b2f31-0752-4aac-98b8-79b8246302ce
+    jinja: "{% if language == \"english\" %}\n{{question_text}}\n\"\uC608/\uC544\uB2C8\
+      \uC624\" \uC9C8\uBB38\uC785\uB2C8\uAE4C?\n|||\n{% if annotations. yes_no_answer[0]\
+      \ == \"NONE\" %}\n\uC544\uB2C8\n{% else %}\n\uC608\n{% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_ko
+    reference: Ask if this is a yes no question
+  223376a6-4b5e-4e7d-9192-1df34726cd47: !Template
+    answer_choices: Ya ||| Tidak
+    id: 223376a6-4b5e-4e7d-9192-1df34726cd47
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nJawab pertanyaan\
+      \ tentang {{document_title}}. {{question_text}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}} \n    {% endif %} \n{% endif %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_without_choices_id
+    reference: Answer Yes/No question
+  22f7ac37-fc86-4b7e-bcfe-6e16f49517f0: !Template
+    answer_choices: "Kyll\xE4 ||| Ei ||| Ei mit\xE4\xE4n"
+    id: 22f7ac37-fc86-4b7e-bcfe-6e16f49517f0
+    jinja: "{% if language == \"english\" %} \nKysymys: {{question_text}}\nVastaa\
+      \ kysymykseen {{\"Yes\"}} tai {{\"No\"}}. Jos se ei ole mahdollista, vastaa\
+      \ {{\"None\"}}.\nVihje: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_fi
+    reference: ''
+  23df1a74-f2e8-4e53-b456-7464f3f11719: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C28\u0C02"
+    id: 23df1a74-f2e8-4e53-b456-7464f3f11719
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0C15\u0C3F\u0C02\
+      \u0C26\u0C3F \u0C1F\u0C46\u0C15\u0C4D\u0C38\u0C4D\u0C1F\u0C4D \u0C38\u0C4D\u0C28\
+      \u0C3F\u0C2A\u0C4D\u0C2A\u0C46\u0C1F\u0C4D \u0C06\u0C27\u0C3E\u0C30\u0C02\u0C17\
+      \u0C3E, {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_te
+    reference: Binary question without mentioning KB
   297fc59f-bd92-493b-ae61-3c3adcb46eb3: !Template
     answer_choices: Yes ||| No ||| None
     id: 297fc59f-bd92-493b-ae61-3c3adcb46eb3
@@ -46,6 +336,197 @@ templates:
       - Accuracy
       original_task: true
     name: yes_no_none
+    reference: ''
+  2f05e539-edea-4db8-b32e-046410fa69de: !Template
+    answer_choices: "Kyll\xE4 ||| Ei ||| Ei mit\xE4\xE4n"
+    id: 2f05e539-edea-4db8-b32e-046410fa69de
+    jinja: "{% if language == \"english\" %}\nVastaa seuraavaan kysymykseen \"{{answer_choices[0]}}\"\
+      \ tai \"{{answer_choices[1]}}\" tai \"{{answer_choices[2]}}\" jos mik\xE4\xE4\
+      n kahdesta ensimm\xE4isest\xE4 vastauksesta ei p\xE4de.\nKysymys: {{question_text}}\n\
+      Aihe: {{document_title}}\nArtikla {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_fi
+    reference: ''
+  354d3cc1-5b63-4334-ae00-09965d3e7fe2: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442 ||| \u041D\u0438\u043A\u0442\
+      \u043E"
+    id: 354d3cc1-5b63-4334-ae00-09965d3e7fe2
+    jinja: "{% if language == \"english\" %} \n\uC758\uBB38: {{question_text}}\n\uB85C\
+      \ \uC9C8\uBB38\uC5D0 \uB2F5\uD558\uB2E4 {{\"Yes\"}} \uB610\uB294 {{\"No\"}}.\
+      \ \uBD88\uAC00\uB2A5\uD558\uBA74 \uB300\uB2F5\uD558\uC2ED\uC2DC\uC624. {{\"\
+      None\"}}.\n\uD78C\uD2B8: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_ko
+    reference: ''
+  382900f7-fc05-498c-b98d-53e201746995: !Template
+    answer_choices: Ndiyo ||| Hapana
+    id: 382900f7-fc05-498c-b98d-53e201746995
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nJibu swali kuhusu\
+      \ {{document_title}}. {{question_text}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}} \n    {% endif %} \n{% endif %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_without_choices_sw
+    reference: Answer Yes/No question
+  3a151bf8-27f7-4ff1-8f5c-65c6356e166a: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442"
+    id: 3a151bf8-27f7-4ff1-8f5c-65c6356e166a
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u041F\u0440\u043E\
+      \u0447\u0438\u0442\u0430\u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\
+      \u0439 \u0444\u0440\u0430\u0433\u043C\u0435\u043D\u0442 \u0442\u0435\u043A\u0441\
+      \u0442\u0430 \u0438\u0437 \u0412\u0438\u043A\u0438\u043F\u0435\u0434\u0438\u0438\
+      , \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u043E\u0442\
+      \u0432\u0435\u0442\u044C\u0442\u0435 \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\
+      \u0441: {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_ru
+    reference: Reading Comprehension
+  3efab547-73e0-4095-a80b-0cc9ac7b17d2: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8 ||| \uC5C6\uC74C"
+    id: 3efab547-73e0-4095-a80b-0cc9ac7b17d2
+    jinja: "{% if language == \"english\" %}\n\uAD81\uAE08\uD574 {{question_text}}.\n\
+      \uC774 \uC9C8\uBB38\uC5D0 \uB2F5\uD560 \uC218 \uC788\uB3C4\uB85D \uB3C4\uC640\
+      \uC8FC\uC138\uC694. \"{{answer_choices[0]}}\" \uB610\uB294 \"{{answer_choices[1]}}\"\
+      \ \uB610\uB294 \"{{answer_choices[2]}}\" \uCC98\uC74C \uB450 \uB2F5\uBCC0 \uC911\
+      \ \uC544\uBB34 \uAC83\uB3C4 \uC801\uC6A9\uB418\uC9C0 \uC54A\uB294 \uACBD\uC6B0\
+      .\n\uC774 \uC9C8\uBB38\uC5D0 \uB2F5\uD560 \uC218 \uC788\uB3C4\uB85D \uB3C4\uC640\
+      \uC8FC\uC138\uC694.\n\uC8FC\uC81C: {{document_title}}\n\uAE30\uC0AC: {{document_plaintext}}\n\
+      |||\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_ko
+    reference: ''
+  4510d767-b9fb-4f5a-82e4-8792e3df5bdd: !Template
+    answer_choices: Ya ||| Tidak ||| Tidak ada
+    id: 4510d767-b9fb-4f5a-82e4-8792e3df5bdd
+    jinja: '{% if language == "english" %}
+
+      Jawablah pertanyaan berikut dengan "{{answer_choices[0]}}" atau "{{answer_choices[1]}}"
+      atau "{{answer_choices[2]}}" jika tidak satu pun dari dua jawaban pertama yang
+      berlaku.
+
+      Pertanyaan: {{question_text}}
+
+      Tema: {{document_title}}
+
+      Artikel {{document_plaintext}}
+
+      |||
+
+      {{annotations.yes_no_answer[0] | capitalize}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_id
+    reference: ''
+  4571148a-5b45-4724-b541-8a7c11742712: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C15\u0C3E\u0C26\u0C41 ||\
+      \ \u0C0F\u0C26\u0C40 \u0C32\u0C47\u0C26\u0C41"
+    id: 4571148a-5b45-4724-b541-8a7c11742712
+    jinja: "{% if language == \"english\" %}\n\u0C28\u0C47\u0C28\u0C41 \u0C06\u0C36\
+      \u0C4D\u0C1A\u0C30\u0C4D\u0C2F\u0C2A\u0C4B\u0C24\u0C41\u0C28\u0C4D\u0C28\u0C3E\
+      \u0C28\u0C41 {{question_text}}.\n \"{{answer_choices[0]}}\" \u0C32\u0C47\u0C26\
+      \u0C3E\"{{answer_choices[1]}}\" \u0C32\u0C47\u0C26\u0C3E \"{{answer_choices[2]}}\"\
+      \ \u0C2E\u0C4A\u0C26\u0C1F\u0C3F \u0C30\u0C46\u0C02\u0C21\u0C41 \u0C38\u0C2E\
+      \u0C3E\u0C27\u0C3E\u0C28\u0C3E\u0C32\u0C32\u0C4B \u0C0F\u0C26\u0C40 \u0C35\u0C30\
+      \u0C4D\u0C24\u0C3F\u0C02\u0C1A\u0C15\u0C2A\u0C4B\u0C24\u0C47.\n\u0C28\u0C47\u0C28\
+      \u0C41 \u0C07\u0C02\u0C1F\u0C30\u0C4D\u0C28\u0C46\u0C1F\u0C4D\u200C\u0C32\u0C4B\
+      \ \u0C15\u0C28\u0C41\u0C17\u0C4A\u0C28\u0C4D\u0C28\u0C26\u0C3F \u0C07\u0C15\u0C4D\
+      \u0C15\u0C21 \u0C09\u0C02\u0C26\u0C3F:\n\u0C05\u0C02\u0C36\u0C02: {{document_title}}\n\
+      \u0C35\u0C4D\u0C2F\u0C3E\u0C38\u0C02: {{document_plaintext}}\n|||\u0C08 \u0C2A\
+      \u0C4D\u0C30\u0C36\u0C4D\u0C28\u0C15\u0C41 \u0C38\u0C2E\u0C3E\u0C27\u0C3E\u0C28\
+      \u0C02 \u0C07\u0C35\u0C4D\u0C35\u0C21\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C28\u0C3E\
+      \u0C15\u0C41 \u0C38\u0C39\u0C3E\u0C2F\u0C02 \u0C1A\u0C46\u0C2F\u0C4D\u0C2F\u0C02\
+      \u0C21\u0C3F\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_te
+    reference: ''
+  47ed2b8e-50ae-4811-b7e9-03ebe9302800: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0642\u0645"
+    id: 47ed2b8e-50ae-4811-b7e9-03ebe9302800
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0623\u062C\u0628\
+      \ \u0639\u0646 \u0633\u0624\u0627\u0644 \u062D\u0648\u0644 {{document_title}}.\n\
+      \u0633\u0624\u0627\u0644: {{question_text}}. \u0646\u0639\u0645 \u0627\u0645\
+      \ \u0644\u0627\u061F\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: open_domain_qa_ar
+    reference: Binary question without mentioning KB
+  48f33b36-534a-42dc-bb1e-9764a77aa7b5: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442 ||| \u041D\u0438\u043A\u0442\
+      \u043E"
+    id: 48f33b36-534a-42dc-bb1e-9764a77aa7b5
+    jinja: "{% if language == \"english\" %}\n\u041E\u0442\u0432\u0435\u0442\u044C\
+      \u0442\u0435 \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439\
+      \ \u0432\u043E\u043F\u0440\u043E\u0441 \u0441 \"{{answer_choices[0]}}\" \u0438\
+      \u043B\u0438 \u0436\u0435 \"{{answer_choices[1]}}\" \u0438\u043B\u0438 \u0436\
+      \u0435 \"{{answer_choices[2]}}\" \u0435\u0441\u043B\u0438 \u043D\u0438 \u043E\
+      \u0434\u0438\u043D \u0438\u0437 \u043F\u0435\u0440\u0432\u044B\u0445 \u0434\u0432\
+      \u0443\u0445 \u043E\u0442\u0432\u0435\u0442\u043E\u0432 \u043D\u0435 \u043F\u043E\
+      \u0434\u0445\u043E\u0434\u0438\u0442.\n\u0412\u043E\u043F\u0440\u043E\u0441\
+      :{{question_text}}\n\u0422\u0435\u043C\u0430: {{document_title}}\n\u0421\u0442\
+      \u0430\u0442\u044C\u044F {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_ru
     reference: ''
   4b21e3be-fba4-49b7-beb1-a61de26eb0ac: !Template
     answer_choices: Yes ||| No
@@ -63,6 +544,136 @@ templates:
       original_task: false
     name: open_domain_qa_without_choices
     reference: Answer Yes/No question
+  4f3f6dea-011b-45c8-a775-da028b6d4f2f: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE"
+    id: 4f3f6dea-011b-45c8-a775-da028b6d4f2f
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u09A8\u09BF\u09AE\
+      \u09CD\u09A8\u09B2\u09BF\u0996\u09BF\u09A4 \u09AA\u09BE\u09A0\u09CD\u09AF \u09B8\
+      \u09CD\u09A8\u09BF\u09AA\u09C7\u099F\u09C7\u09B0 \u0989\u09AA\u09B0 \u09AD\u09BF\
+      \u09A4\u09CD\u09A4\u09BF \u0995\u09B0\u09C7, {{question_text}} \n{{document_plaintext}}\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_bn
+    reference: Binary question without mentioning KB
+  514489aa-c181-488c-8c66-736080129e7f: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C28\u0C02"
+    id: 514489aa-c181-488c-8c66-736080129e7f
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0C35\u0C3F\u0C15\
+      \u0C40\u0C2A\u0C40\u0C21\u0C3F\u0C2F\u0C3E \u0C28\u0C41\u0C02\u0C21\u0C3F \u0C15\
+      \u0C4D\u0C30\u0C3F\u0C02\u0C26\u0C3F \u0C1F\u0C46\u0C15\u0C4D\u0C38\u0C4D\u0C1F\
+      \u0C4D \u0C38\u0C4D\u0C28\u0C3F\u0C2A\u0C4D\u0C2A\u0C46\u0C1F\u0C4D \u0C1A\u0C26\
+      \u0C3F\u0C35\u0C3F\u0C28 \u0C24\u0C30\u0C4D\u0C35\u0C3E\u0C24, \u0C26\u0C2F\u0C1A\
+      \u0C47\u0C38\u0C3F \u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28\u0C15\u0C41 \u0C38\u0C2E\
+      \u0C3E\u0C27\u0C3E\u0C28\u0C02 \u0C07\u0C35\u0C4D\u0C35\u0C02\u0C21\u0C3F: {{question_text}}\
+      \ \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_te
+    reference: Reading Comprehension
+  54fe6ce5-2431-4132-ae44-2590a8ad5764: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8"
+    id: 54fe6ce5-2431-4132-ae44-2590a8ad5764
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\uC5D0 \uB300\uD55C\
+      \ \uC9C8\uBB38\uC5D0 \uB2F5\uD558\uB2E4 {{document_title}}.\n\uC758\uBB38: {{question_text}}.\
+      \ \uC608 \uD639\uC740 \uC544\uB2C8\uC624?\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_ko
+    reference: Ask Yes/No question
+  5549fd8d-dfff-46e4-872e-364dc1b112bf: !Template
+    answer_choices: Yes ||| No
+    id: 5549fd8d-dfff-46e4-872e-364dc1b112bf
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nBerdasarkan potongan\
+      \ teks berikut, {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_id
+    reference: Binary question without mentioning KB
+  5fda50e9-47b1-48ef-ba63-b011383e8601: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C15\u0C3E\u0C26\u0C41 ||\
+      \ \u0C0F\u0C26\u0C40 \u0C32\u0C47\u0C26\u0C41"
+    id: 5fda50e9-47b1-48ef-ba63-b011383e8601
+    jinja: "{% if language == \"english\" %} \n\u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28\
+      : {{question_text}}\n\u0C05\u0C28\u0C47 \u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28\
+      \u0C15\u0C41 \u0C38\u0C2E\u0C3E\u0C27\u0C3E\u0C28\u0C02 \u0C07\u0C35\u0C4D\u0C35\
+      \u0C02\u0C21\u0C3F {{\"Yes\"}} \u0C32\u0C47\u0C26\u0C3E {{\"No\"}}. \u0C38\u0C3E\
+      \u0C27\u0C4D\u0C2F\u0C02 \u0C15\u0C3E\u0C15\u0C2A\u0C4B\u0C24\u0C47 \u0C38\u0C2E\
+      \u0C3E\u0C27\u0C3E\u0C28\u0C02 \u0C1A\u0C46\u0C2A\u0C4D\u0C2A\u0C02\u0C21\u0C3F\
+      \ {{\"None\"}}.\n\u0C38\u0C42\u0C1A\u0C28: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_te
+    reference: ''
+  63df4ab2-b688-4539-9335-5a2973b444e8: !Template
+    answer_choices: "Kyll\xE4 ||| Ei"
+    id: 63df4ab2-b688-4539-9335-5a2973b444e8
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nVastaa kysymykseen\
+      \ aiheesta {{document_title}}.\nKysymys: {{question_text}}. Kyll\xE4 vai ei?\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_fi
+    reference: Ask Yes/No question
+  65a052a3-88f5-4c68-b478-028b2654a5be: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE"
+    id: 65a052a3-88f5-4c68-b478-028b2654a5be
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u09B8\u09AE\u09CD\
+      \u09AA\u09B0\u09CD\u0995\u09C7 \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\u09C7\u09B0\
+      \ \u0989\u09A4\u09CD\u09A4\u09B0 \u09A6\u09BF\u09A8 {{document_title}}. {{question_text}}\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}} \n    {% endif %} \n{% endif\
+      \ %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: open_domain_qa_without_choices_bn
+    reference: Reading Comprehension
   6835dd64-96bd-4bf8-9ba5-645d6a7b8472: !Template
     answer_choices: Yes ||| No
     id: 6835dd64-96bd-4bf8-9ba5-645d6a7b8472
@@ -94,6 +705,67 @@ templates:
       original_task: false
     name: yes_no_question
     reference: Ask if this is a yes no question
+  69b0c9e5-fe90-4b54-8e79-0367cfd2bc19: !Template
+    answer_choices: Ya ||| Tidak ||| Tidak ada
+    id: 69b0c9e5-fe90-4b54-8e79-0367cfd2bc19
+    jinja: "{% if language == \"english\" %} \nPertanyaan: {{question_text}}\nJawab\
+      \ pertanyaannya dengan {{\"Yes\"}} atau {{\"No\"}}. Jika tidak mungkin maka\
+      \ jawab {{\"None\"}}.\nPetunjuk: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_id
+    reference: ''
+  6a6fb905-fba5-437a-a5c9-c760f056c82d: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE ||| \u09AA\u09CD\
+      \u09B0\u09AF\u09CB\u099C\u09CD\u09AF \u09A8\u09DF"
+    id: 6a6fb905-fba5-437a-a5c9-c760f056c82d
+    jinja: "{% if language == \"english\" %}\n\u0986\u09AE\u09BF \u0985\u09AC\u09BE\
+      \u0995 {{question_text}}.\n\u0986\u09AE\u09BE\u0995\u09C7 \u098F\u0987 \u09AA\
+      \u09CD\u09B0\u09B6\u09CD\u09A8\u09C7\u09B0 \u0989\u09A4\u09CD\u09A4\u09B0 \u09A6\
+      \u09BF\u09A4\u09C7 \u09B8\u09BE\u09B9\u09BE\u09AF\u09CD\u09AF \u0995\u09B0\u09C1\
+      \u09A8\"{{answer_choices[0]}}\" \u09AC\u09BE \"{{answer_choices[1]}}\" \u09AC\
+      \u09BE \"{{answer_choices[2]}}\" \u09AF\u09A6\u09BF \u09AA\u09CD\u09B0\u09A5\
+      \u09AE \u09A6\u09C1\u099F\u09BF \u0989\u09A4\u09CD\u09A4\u09B0\u09C7\u09B0 \u0995\
+      \u09CB\u09A8\u09CB\u099F\u09BF\u0987 \u09AA\u09CD\u09B0\u09AF\u09CB\u099C\u09CD\
+      \u09AF \u09A8\u09BE \u09B9\u09AF\u09BC\u0964\n\u0986\u09AE\u09BF \u0987\u09A8\
+      \u09CD\u099F\u09BE\u09B0\u09A8\u09C7\u099F\u09C7 \u09AF\u09BE \u09AA\u09C7\u09AF\
+      \u09BC\u09C7\u099B\u09BF \u09A4\u09BE \u098F\u0996\u09BE\u09A8\u09C7:\n\u09AC\
+      \u09BF\u09B7\u09AF\u09BC: {{document_title}}\n\u09AA\u09CD\u09B0\u09AC\u09A8\
+      \u09CD\u09A7: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] |\
+      \ capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_bn
+    reference: ''
+  74a846f0-2bb2-45af-b306-5cc34b905f87: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C28\u0C02"
+    id: 74a846f0-2bb2-45af-b306-5cc34b905f87
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0C05\u0C28\u0C47\
+      \ \u0C2A\u0C4D\u0C30\u0C36\u0C4D\u0C28\u0C15\u0C41 \u0C38\u0C2E\u0C3E\u0C27\u0C3E\
+      \u0C28\u0C02 \u0C07\u0C35\u0C4D\u0C35\u0C02\u0C21\u0C3F {{document_title}}.\
+      \ {{question_text}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}} \n\
+      \    {% endif %} \n{% endif %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_without_choices_te
+    reference: ''
   7b8b7707-dbad-40d2-a5c2-430e6ace10bb: !Template
     answer_choices: Yes ||| No ||| None
     id: 7b8b7707-dbad-40d2-a5c2-430e6ace10bb
@@ -122,6 +794,254 @@ templates:
       original_task: true
     name: read_and_answer
     reference: ''
+  7d43eff2-d6c3-4cd2-89aa-c1a7c96512a3: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8"
+    id: 7d43eff2-d6c3-4cd2-89aa-c1a7c96512a3
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nWikipedia\uC5D0\uC11C\
+      \ \uB2E4\uC74C \uD14D\uC2A4\uD2B8 \uC2A4\uB2C8\uD3AB\uC744 \uC77D\uC740 \uD6C4\
+      \ \uC9C8\uBB38\uC5D0 \uB2F5\uD558\uC2ED\uC2DC\uC624.{{question_text}} \n{{document_plaintext}}\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_ko
+    reference: Reading Comprehension
+  84032c15-8067-4a21-89c5-e9b06cff0656: !Template
+    answer_choices: Ndiyo ||| Hapana ||| Hakuna
+    id: 84032c15-8067-4a21-89c5-e9b06cff0656
+    jinja: "{% if language == \"english\" %} \nSwali: {{question_text}}\nJibu swali\
+      \ na {{\"Yes\"}} au {{\"No\"}}. Ikiwa haiwezekani basi jibu {{\"None\"}}.\n\
+      Kidokezo: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_sw
+    reference: ''
+  878c8c1b-341a-4054-a0b2-d9df102b4526: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE"
+    id: 878c8c1b-341a-4054-a0b2-d9df102b4526
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u09B8\u09AE\u09CD\
+      \u09AA\u09B0\u09CD\u0995\u09C7 \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\u09C7\u09B0\
+      \ \u0989\u09A4\u09CD\u09A4\u09B0 \u09A6\u09BF\u09A8 {{document_title}}.\n\u09AA\
+      \u09CD\u09B0\u09B6\u09CD\u09A8\u0983 {{question_text}}. \u09B9\u09CD\u09AF\u09BE\
+      \u0981 \u09AC\u09BE \u09A8\u09BE?\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: open_domain_qa_bn
+    reference: ''
+  8b44b740-4a41-4f4b-a322-7b3549cd6f7e: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0642\u0645"
+    id: 8b44b740-4a41-4f4b-a322-7b3549cd6f7e
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0628\u0639\u062F\
+      \ \u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0645\u0642\u062A\u0637\u0641\
+      \ \u0627\u0644\u0646\u0635\u064A \u0627\u0644\u062A\u0627\u0644\u064A \u0645\
+      \u0646 \u0648\u064A\u0643\u064A\u0628\u064A\u062F\u064A\u0627 \u060C \u0627\u0644\
+      \u0631\u062C\u0627\u0621 \u0627\u0644\u0625\u062C\u0627\u0628\u0629 \u0639\u0644\
+      \u0649 \u0627\u0644\u0633\u0624\u0627\u0644: {{question_text}} \n{{document_plaintext}}\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_ar
+    reference: Reading Comprehension
+  8cea5626-8621-46b0-a7f8-8871408f1fdd: !Template
+    answer_choices: "Kyll\xE4 ||| Ei"
+    id: 8cea5626-8621-46b0-a7f8-8871408f1fdd
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nVastaa kysymykseen\
+      \ aiheesta {{document_title}}. {{question_text}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}} \n    {% endif %} \n{% endif %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_without_choices_fi
+    reference: Answer Yes/No question
+  8d77f53c-228d-4838-a3ab-e4c0e497e56e: !Template
+    answer_choices: Ndiyo ||| Hapana
+    id: 8d77f53c-228d-4838-a3ab-e4c0e497e56e
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nBaada ya kusoma\
+      \ kijisehemu cha maandishi kifuatacho kutoka Wikipedia, tafadhali jibu swali:\
+      \ {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_sw
+    reference: Reading Comprehension
+  919b47cb-f885-437a-b8a3-5e52553d0cd3: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8 ||| \uC5C6\uC74C"
+    id: 919b47cb-f885-437a-b8a3-5e52553d0cd3
+    jinja: "{% if language == \"english\" %}\n\uB85C \uB2E4\uC74C \uC9C8\uBB38\uC5D0\
+      \ \uB2F5\uD558\uC2ED\uC2DC\uC624. \"{{answer_choices[0]}}\" \uB610\uB294\"{{answer_choices[1]}}\"\
+      \ \uB610\uB294 \"{{answer_choices[2]}}\" \uCC98\uC74C \uB450 \uB2F5\uBCC0 \uC911\
+      \ \uC544\uBB34 \uAC83\uB3C4 \uC801\uC6A9\uB418\uC9C0 \uC54A\uB294 \uACBD\uC6B0\
+      .\n\uC758\uBB38:{{question_text}}\n\uC8FC\uC81C: {{document_title}}\n\uAE30\uC0AC\
+      \ {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_ko
+    reference: ''
+  91ede8e4-9a8a-4fed-b0fc-96bd3e1260d1: !Template
+    answer_choices: Ya ||| Tidak ||| Tidak ada
+    id: 91ede8e4-9a8a-4fed-b0fc-96bd3e1260d1
+    jinja: '{% if language == "english" %}
+
+      aku penasaran {{question_text}}.
+
+      Bantu saya menjawab pertanyaan ini dengan"{{answer_choices[0]}}" atau "{{answer_choices[1]}}"
+      atau "{{answer_choices[2]}}" jika tidak satu pun dari dua jawaban pertama yang
+      berlaku.
+
+      Inilah yang saya temukan di internet:
+
+      Tema: {{document_title}}
+
+      Artikel: {{document_plaintext}}
+
+      |||
+
+      {{annotations.yes_no_answer[0] | capitalize}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_id
+    reference: ''
+  95e0076d-9faf-4f0e-ae4c-56346b63271d: !Template
+    answer_choices: Ndiyo ||| Hapana
+    id: 95e0076d-9faf-4f0e-ae4c-56346b63271d
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nKulingana na kijisehemu\
+      \ kifuatacho cha maandishi, {{question_text}} \n{{document_plaintext}}\n|||\
+      \ \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_sw
+    reference: Binary question without mentioning KB
+  96e77de1-b13e-4661-b238-12a86b4e7efb: !Template
+    answer_choices: Ndiyo ||| Hapana ||| Hakuna
+    id: 96e77de1-b13e-4661-b238-12a86b4e7efb
+    jinja: '{% if language == "english" %}
+
+      Jibu swali lifuatalo na "{{answer_choices[0]}}" au "{{answer_choices[1]}}" au
+      "{{answer_choices[2]}}" ikiwa hakuna jibu kati ya mawili ya kwanza litatumika.
+
+      Swali: {{question_text}}
+
+      Mada: {{document_title}}
+
+      Kifungu {{document_plaintext}}
+
+      |||
+
+      {{annotations.yes_no_answer[0] | capitalize}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_sw
+    reference: ''
+  98cbbd2e-612e-4bba-a515-e0829bfe835c: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE ||| \u0995\u09CB\
+      \u09A8\u09CB\u099F\u09BF\u0987 \u09A8\u09AF\u09BC"
+    id: 98cbbd2e-612e-4bba-a515-e0829bfe835c
+    jinja: "{% if language == \"english\" %}\n\u09A6\u09BF\u09AF\u09BC\u09C7 \u09A8\
+      \u09BF\u099A\u09C7\u09B0 \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\u09C7\u09B0 \u0989\
+      \u09A4\u09CD\u09A4\u09B0 \u09A6\u09BE\u0993\"{{answer_choices[0]}}\" \u09AC\u09BE\
+      \ \"{{answer_choices[1]}}\" \u09AC\u09BE \"{{answer_choices[2]}}\" \u09AF\u09A6\
+      \u09BF \u09AA\u09CD\u09B0\u09A5\u09AE \u09A6\u09C1\u099F\u09BF \u0989\u09A4\u09CD\
+      \u09A4\u09B0\u09C7\u09B0 \u0995\u09CB\u09A8\u09CB\u099F\u09BF\u0987 \u09AA\u09CD\
+      \u09B0\u09AF\u09CB\u099C\u09CD\u09AF \u09A8\u09BE \u09B9\u09AF\u09BC\u0964\n\
+      \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\u0983 {{question_text}}\n\u09AC\u09BF\u09B7\
+      \u09AF\u09BC: {{document_title}}\n\u09AA\u09CD\u09B0\u09AC\u09A8\u09CD\u09A7\
+      : {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_bn
+    reference: ''
+  9b82b85b-c408-4c1d-84bd-214b81d11322: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE ||| \u09AA\u09CD\
+      \u09B0\u09AF\u09CB\u099C\u09CD\u09AF \u09A8\u09DF"
+    id: 9b82b85b-c408-4c1d-84bd-214b81d11322
+    jinja: "{% if language == \"english\" %} \n\u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\
+      : {{question_text}}\n\u098F\u0987 \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\u0997\
+      \u09C1\u09B2\u09CB\u09B0 \u0989\u09A4\u09CD\u09A4\u09B0 \u09A6\u09BF\u09A8 \
+      \ {{\"Yes\"}} \u0985\u09A5\u09AC\u09BE {{\"No\"}}. \u0989\u09A4\u09CD\u09A4\u09B0\
+      \ \u09A6\u09C7\u0993\u09DF\u09BE \u09B8\u09AE\u09CD\u09AD\u09AC \u09A8\u09BE\
+      \ \u09B9\u09B2\u09C7 {{\"None\"}} \u09A8\u09BF\u09B0\u09CD\u09AC\u09BE\u099A\
+      \u09A8 \u0995\u09B0\u09C1\u09A8\u0964\n\u09B8\u09BE\u09B9\u09BE\u09AF\u09CD\u09AF\
+      : {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: yes_no_none_bn
+    reference: ''
   9c42e3fd-d46e-4149-bb60-4b3118104d95: !Template
     answer_choices: Yes ||| No
     id: 9c42e3fd-d46e-4149-bb60-4b3118104d95
@@ -139,6 +1059,41 @@ templates:
       original_task: true
     name: after_reading_the_text
     reference: Reading Comprehension
+  9e6ef0b4-4683-4fed-ba8a-503846bf7ab8: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442"
+    id: 9e6ef0b4-4683-4fed-ba8a-503846bf7ab8
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u041E\u0442\u0432\
+      \u0435\u0442\u044C\u0442\u0435 \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\
+      \ \u043E {{document_title}}.\nQuestion: {{question_text}}. Yes or No?\n||| \n\
+      {{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_without_choices_ru
+    reference: Ask Yes/No question
+  a8e558a6-4fa1-4d9e-8b94-842c7f6bd346: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE"
+    id: a8e558a6-4fa1-4d9e-8b94-842c7f6bd346
+    jinja: "{% if language == \"english\" %}\n{{question_text}}\n\u098F\u099F\u09BE\
+      \ \u0995\u09BF \u098F\u0995\u099F\u09BE \u09B9\u09CD\u09AF\u09BE\u0981/\u09A8\
+      \u09BE \u09A4\u09C7 \u0989\u09A4\u09CD\u09A4\u09B0 \u09A6\u09C7\u0993\u09DF\u09BE\
+      \u09B0 \u09AE\u09A4\u09CB \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8?\n|||\n{% if\
+      \ annotations. yes_no_answer[0] == \"NONE\" %}\n\u09A8\u09BE\n{% else %}\n\u09B9\
+      \u09CD\u09AF\u09BE\u0981\n{% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_bn
+    reference: Ask if this is a yes no question
   b4f7c441-41b1-4665-93f9-f2e875aed92a: !Template
     answer_choices: Yes ||| No
     id: b4f7c441-41b1-4665-93f9-f2e875aed92a
@@ -155,6 +1110,203 @@ templates:
       original_task: false
     name: open_domain_qa
     reference: Ask Yes/No question
+  c218008b-4f95-44ab-baeb-118d97fc0ac4: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0642\u0645"
+    id: c218008b-4f95-44ab-baeb-118d97fc0ac4
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0628\u0646\u0627\
+      \u0621\u064B \u0639\u0644\u0649 \u0627\u0644\u0645\u0642\u062A\u0637\u0641 \u0627\
+      \u0644\u0646\u0635\u064A \u0627\u0644\u062A\u0627\u0644\u064A \u060C {{question_text}}\
+      \ \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_ar
+    reference: Binary question without mentioning KB
+  c900f584-38b6-40c0-8622-fce7b21e34cd: !Template
+    answer_choices: "Kyll\xE4 ||| Ei"
+    id: c900f584-38b6-40c0-8622-fce7b21e34cd
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nKun olet lukenut\
+      \ seuraavan tekstinp\xE4tk\xE4n Wikipediasta, vastaa kysymykseen: {{question_text}}\
+      \ \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_fi
+    reference: Reading Comprehension
+  c9a6444d-3e88-49e0-8ec2-6442ac2fbeea: !Template
+    answer_choices: "\u09B9\u09CD\u09AF\u09BE\u0981 ||| \u09A8\u09BE"
+    id: c9a6444d-3e88-49e0-8ec2-6442ac2fbeea
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0989\u0987\u0995\
+      \u09BF\u09AA\u09BF\u09A1\u09BF\u09AF\u09BC\u09BE \u09A5\u09C7\u0995\u09C7 \u09A8\
+      \u09BF\u09AE\u09CD\u09A8\u09B2\u09BF\u0996\u09BF\u09A4 \u09AA\u09BE\u09A0\u09CD\
+      \u09AF \u09B8\u09CD\u09A8\u09BF\u09AA\u09C7\u099F \u09AA\u09A1\u09BC\u09BE\u09B0\
+      \ \u09AA\u09B0\u09C7, \u0985\u09A8\u09C1\u0997\u09CD\u09B0\u09B9 \u0995\u09B0\
+      \u09C7 \u09AA\u09CD\u09B0\u09B6\u09CD\u09A8\u09C7\u09B0 \u0989\u09A4\u09CD\u09A4\
+      \u09B0 \u09A6\u09BF\u09A8: {{question_text}} \n{{document_plaintext}}\n||| \n\
+      {{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_bn
+    reference: Reading Comprehension
+  cc387b22-422d-475d-94f2-925fb28a0554: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442"
+    id: cc387b22-422d-475d-94f2-925fb28a0554
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u041E\u0442\u0432\
+      \u0435\u0442\u044C\u0442\u0435 \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\
+      \ \u043E{{document_title}}.\n\u0412\u043E\u043F\u0440\u043E\u0441: {{question_text}}.\
+      \ \u0414\u0430 \u0438\u043B\u0438 \u043D\u0435\u0442?\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_ru
+    reference: Ask Yes/No question
+  ce2a3bf2-ba56-4117-bcaf-e2f90110f7c5: !Template
+    answer_choices: Ya ||| Tidak
+    id: ce2a3bf2-ba56-4117-bcaf-e2f90110f7c5
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nSetelah membaca\
+      \ cuplikan teks berikut dari Wikipedia, mohon jawab pertanyaannya:{{question_text}}\
+      \ \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: after_reading_the_text_id
+    reference: Reading Comprehension
+  d6f3b5c5-4613-4429-8bd4-2ded2a57735d: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0644\u0627 ||| \u0644\u0627 \u0623\u062D\
+      \u062F"
+    id: d6f3b5c5-4613-4429-8bd4-2ded2a57735d
+    jinja: "{% if language == \"english\" %}\n\u0627\u0646\u0627 \u0627\u062A\u0639\
+      \u062C\u0628 {{question_text}}.\n\u0633\u0627\u0639\u062F\u0646\u064A \u0641\
+      \u064A \u0627\u0644\u0625\u062C\u0627\u0628\u0629 \u0639\u0644\u0649 \u0647\u0630\
+      \u0627 \u0627\u0644\u0633\u0624\u0627\u0644 \u0645\u0639 \"{{answer_choices[0]}}\"\
+      \ \u0623\u0648 \"{{answer_choices[1]}}\" \u0623\u0648 \"{{answer_choices[2]}}\"\
+      \ \u0625\u0630\u0627 \u0644\u0645 \u062A\u0646\u0637\u0628\u0642 \u0623\u064A\
+      \ \u0645\u0646 \u0623\u0648\u0644 \u0625\u062C\u0627\u0628\u062A\u064A\u0646\
+      .\n\u0647\u0630\u0627 \u0645\u0627 \u0648\u062C\u062F\u062A\u0647 \u0639\u0644\
+      \u0649 \u0627\u0644\u0625\u0646\u062A\u0631\u0646\u062A:\n\u0639\u0646\u0648\
+      \u0627\u0646: {{document_title}}\n\u0645\u0642\u0627\u0644\u0629 - \u0633\u0644\
+      \u0639\u0629: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] |\
+      \ capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_ar
+    reference: ''
+  d6f7f0a3-0108-48a4-a000-9a96b7478ba1: !Template
+    answer_choices: Ndiyo ||| Hapana
+    id: d6f7f0a3-0108-48a4-a000-9a96b7478ba1
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nJibu swali kuhusu{{document_title}}.\n\
+      Swali: {{question_text}}. Ndiyo au Hapana?\n||| \n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_sw
+    reference: Ask Yes/No question
+  d82e2d30-5f9f-46d9-9108-3e83709bdedd: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442"
+    id: d82e2d30-5f9f-46d9-9108-3e83709bdedd
+    jinja: "{% if language == \"english\" %}\n{{question_text}}\n\u042D\u0442\u043E\
+      \ \u0432\u043E\u043F\u0440\u043E\u0441 \"\u0414\u0430/\u041D\u0435\u0442\"?\n\
+      |||\n{% if annotations. yes_no_answer[0] == \"NONE\" %}\n\u041D\u0435\u0442\n\
+      {% else %}\n\u0414\u0430\n{% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_ru
+    reference: Ask if this is a yes no question
+  d8c8965f-1c0b-4de1-b254-82c334330f5f: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0644\u0627 ||| \u0644\u0627 \u0623\u062D\
+      \u062F"
+    id: d8c8965f-1c0b-4de1-b254-82c334330f5f
+    jinja: "{% if language == \"english\" %}\n\u0623\u062C\u0628 \u0639\u0644\u0649\
+      \ \u0627\u0644\u0633\u0624\u0627\u0644 \u0627\u0644\u062A\u0627\u0644\u064A\
+      \ \u0628\u0640 \"{{answer_choices[0]}}\" \u0623\u0648 \"{{answer_choices[1]}}\"\
+      \ \u0623\u0648 \"{{answer_choices[2]}}\" \u0625\u0630\u0627 \u0644\u0645 \u062A\
+      \u0646\u0637\u0628\u0642 \u0623\u064A \u0645\u0646 \u0623\u0648\u0644 \u0625\
+      \u062C\u0627\u0628\u062A\u064A\u0646.\n\u0633\u0624\u0627\u0644: {{question_text}}\n\
+      \u0639\u0646\u0648\u0627\u0646: {{document_title}}\n\u0645\u0642\u0627\u0644\
+      \u0629 - \u0633\u0644\u0639\u0629: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: read_and_answer_ar
+    reference: ''
+  e1e7cf47-b6a2-46d7-8a01-f103bbf9a365: !Template
+    answer_choices: "\u0414\u0430 ||| \u041D\u0435\u0442 ||| \u041D\u0438\u043A\u0442\
+      \u043E"
+    id: e1e7cf47-b6a2-46d7-8a01-f103bbf9a365
+    jinja: "{% if language == \"english\" %}\n\u042F \u0434\u0443\u043C\u0430\u044E\
+      \ {{question_text}}.\n\u041F\u043E\u043C\u043E\u0433\u0438\u0442\u0435 \u043C\
+      \u043D\u0435 \u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C \u043D\u0430 \u044D\
+      \u0442\u043E\u0442 \u0432\u043E\u043F\u0440\u043E\u0441 \u0441 \u043F\u043E\u043C\
+      \u043E\u0449\u044C\u044E\"{{answer_choices[0]}}\"\u0438\u043B\u0438 \u0436\u0435\
+      \ \"{{answer_choices[1]}}\" \u0438\u043B\u0438 \u0436\u0435\"{{answer_choices[2]}}\"\
+      \ \u0435\u0441\u043B\u0438 \u043D\u0438 \u043E\u0434\u0438\u043D \u0438\u0437\
+      \ \u043F\u0435\u0440\u0432\u044B\u0445 \u0434\u0432\u0443\u0445 \u043E\u0442\
+      \u0432\u0435\u0442\u043E\u0432 \u043D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\
+      \u0438\u0442.\n\u0412\u043E\u0442 \u0447\u0442\u043E \u044F \u043D\u0430\u0448\
+      \u0435\u043B \u0432 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442\u0435:\n\
+      \u0422\u0435\u043C\u0430: {{document_title}}\n\u0421\u0442\u0430\u0442\u044C\
+      \u044F: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ru
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_ru
+    reference: ''
   e593017f-9bcf-4442-944d-fcdf2edcb4f7: !Template
     answer_choices: Yes ||| No
     id: e593017f-9bcf-4442-944d-fcdf2edcb4f7
@@ -171,3 +1323,119 @@ templates:
       original_task: true
     name: based_on_the_text
     reference: Binary question without mentioning KB
+  e988607b-3fa9-40a8-bb11-170219f2f64b: !Template
+    answer_choices: "\u0C05\u0C35\u0C41\u0C28\u0C41 || \u0C28\u0C02"
+    id: e988607b-3fa9-40a8-bb11-170219f2f64b
+    jinja: "{% if language == \"english\" %}\n{{question_text}}\n\u0C07\u0C26\u0C3F\
+      \ \"\u0C05\u0C35\u0C41\u0C28\u0C41/\u0C15\u0C3E\u0C26\u0C41\" \u0C2A\u0C4D\u0C30\
+      \u0C36\u0C4D\u0C28\u0C3E?\n|||\n{% if annotations. yes_no_answer[0] == \"NONE\"\
+      \ %}\n\u0C28\u0C02\n{% else %}\n\u0C05\u0C35\u0C41\u0C28\u0C41\n{% endif %}\n\
+      {% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - te
+      metrics:
+      - Accuracy
+      original_task: false
+    name: yes_no_question_te
+    reference: Ask if this is a yes no question
+  ee1e0f9c-7d2a-44ce-8ad7-1d15952a9989: !Template
+    answer_choices: "\u0646\u0639\u0645 ||| \u0631\u0642\u0645"
+    id: ee1e0f9c-7d2a-44ce-8ad7-1d15952a9989
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\u0623\u062C\u0628\
+      \ \u0639\u0646 \u0633\u0624\u0627\u0644 \u062D\u0648\u0644 {{document_title}}.\
+      \ {{question_text}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}} \n\
+      \    {% endif %} \n{% endif %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: open_domain_qa_without_choices_ar
+    reference: Binary question without mentioning KB
+  ef45534f-57d0-4803-a5cc-7b4f8f2ae496: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8"
+    id: ef45534f-57d0-4803-a5cc-7b4f8f2ae496
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\uB2E4\uC74C \uD14D\
+      \uC2A4\uD2B8 \uC2A4\uB2C8\uD3AB\uC744 \uAE30\uBC18\uC73C\uB85C, {{question_text}}\
+      \ \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n\
+      \    {% endif %}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: true
+    name: based_on_the_text_ko
+    reference: Binary question without mentioning KB
+  f53bf7f7-3052-49c0-b9e9-5ddf9043a1f8: !Template
+    answer_choices: "Kyll\xE4 ||| Ei ||| Ei mit\xE4\xE4n"
+    id: f53bf7f7-3052-49c0-b9e9-5ddf9043a1f8
+    jinja: "{% if language == \"english\" %}\nIhmettelen {{question_text}}.\nAuta\
+      \ minua vastaamaan t\xE4h\xE4n kysymykseen\"{{answer_choices[0]}}\" tai\"{{answer_choices[1]}}\"\
+      \ tai\"{{answer_choices[2]}}\" jos mik\xE4\xE4n kahdesta ensimm\xE4isest\xE4\
+      \ vastauksesta ei p\xE4de.\nT\xE4ss\xE4 mit\xE4 l\xF6ysin Internetist\xE4:\n\
+      Aihe: {{document_title}}\nArtikla: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0]\
+      \ | capitalize}}\n{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - fi
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_fi
+    reference: ''
+  fecc596c-7196-4fa8-a29b-b4957c1e92fe: !Template
+    answer_choices: "\uB124 ||| \uC544\uB2C8"
+    id: fecc596c-7196-4fa8-a29b-b4957c1e92fe
+    jinja: "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0]\
+      \ == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \n\uC5D0 \uB300\uD55C\
+      \ \uC9C8\uBB38\uC5D0 \uB2F5\uD558\uB2E4 {{document_title}}. {{question_text}}\n\
+      ||| \n{{annotations.yes_no_answer[0] | capitalize}} \n    {% endif %} \n{% endif\
+      \ %} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - ko
+      metrics:
+      - Accuracy
+      original_task: false
+    name: open_domain_qa_without_choices_ko
+    reference: Answer Yes/No question
+  ffedda99-a7fb-4fd6-8879-1724dc349ac0: !Template
+    answer_choices: Ndiyo ||| Hapana ||| Hakuna
+    id: ffedda99-a7fb-4fd6-8879-1724dc349ac0
+    jinja: '{% if language == "english" %}
+
+      nashangaa {{question_text}}.
+
+      Nisaidie kujibu swali hili na "{{answer_choices[0]}}" au "{{answer_choices[1]}}"
+      au "{{answer_choices[2]}}" ikiwa hakuna jibu kati ya mawili ya kwanza litatumika.
+
+      Hivi ndivyo nilivyopata kwenye mtandao:
+
+      Mada:{{document_title}}
+
+      Kifungu:{{document_plaintext}}
+
+      |||
+
+      {{annotations.yes_no_answer[0] | capitalize}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - sw
+      metrics:
+      - Accuracy
+      original_task: true
+    name: heres_what_I_found_sw
+    reference: ''
