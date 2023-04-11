@@ -128,6 +128,15 @@ def filter_datasets():
     return sorted(filtered_datasets)
 
 
+CUSTOM_DATASET = [
+    'AmazonScience/mintaka', 
+    'mkqa', 
+	'AmazonScience/massive',
+	'shmuhammad/AfriSenti-twitter-sentiment',
+	'indonlp/NusaX-MT',
+	'indonlp/NusaX-senti',
+]
+
 def list_datasets():
     """Get all the datasets to work with."""
     dataset_list = filter_datasets()
