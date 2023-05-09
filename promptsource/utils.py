@@ -496,5 +496,6 @@ def list_datasets():
     """Get all the datasets to work with."""
     dataset_list = filter_datasets()
     dataset_list += CUSTOM_DATASET
+    dataset_list = list(set(dataset_list))
     dataset_list.sort(key=lambda x: x.lower())
     return dataset_list
