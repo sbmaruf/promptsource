@@ -1,0 +1,80 @@
+dataset: shmuhammad/AfriSenti-twitter-sentiment
+subset: amh
+templates:
+  1af8622d-915f-49a1-9354-2aa1c116cda7: !Template
+    answer_choices: "\u0625\u064A\u062C\u0627\u0628\u064A ||| \u062D\u064A\u0627\u062F\
+      \u064A |||\u0633\u0644\u0628\u064A"
+    id: 1af8622d-915f-49a1-9354-2aa1c116cda7
+    jinja: "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0645\u0634\u0627\u0639\u0631 \u0627\
+      \u0644\u0645\u0631\u062A\u0628\u0637\u0629 \u0628\u0647\u0630\u0627 \u0627\u0644\
+      \u062A\u063A\u0631\u064A\u062F\u0629: {{tweet}}\u061F\n|||\n{{answer_choices\
+      \ [label]}}\n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - ar
+      metrics:
+      - Accuracy
+      original_task: true
+    name: simple_sentiment_without_class_ar
+    reference: aisha#5803
+  41737075-f209-4ee2-8cb4-911870929cce: !Template
+    answer_choices: "\u0987\u09A4\u09BF\u09AC\u09BE\u099A\u0995 ||| \u09A8\u09BF\u09B0\
+      \u09AA\u09C7\u0995\u09CD\u09B7 ||| \u09A8\u09C7\u09A4\u09BF\u09AC\u09BE\u099A\
+      \u0995"
+    id: 41737075-f209-4ee2-8cb4-911870929cce
+    jinja: "\u09A8\u09C0\u099A\u09C7\u09B0 \u099F\u09C1\u0987\u099F\u099F\u09BF \u0995\
+      \u09BF \u0987\u09A4\u09BF\u09AC\u09BE\u099A\u0995, \u09A8\u09C7\u09A4\u09BF\u09AC\
+      \u09BE\u099A\u0995 \u09AC\u09BE \u09A8\u09BF\u09B0\u09AA\u09C7\u0995\u09CD\u09B7\
+      \ \u0985\u09A8\u09C1\u09AD\u09C2\u09A4\u09BF \u09AA\u09CD\u09B0\u0995\u09BE\u09B6\
+      \ \u0995\u09B0\u099B\u09C7?\n{{tweet}}\n|||\n\u099F\u09C1\u0987\u099F\u099F\u09BF\
+      \ {{answer_choices[label]}} \u0985\u09A8\u09C1\u09AD\u09C2\u09A4\u09BF \u09AA\
+      \u09CD\u09B0\u0995\u09BE\u09B6 \u0995\u09B0\u099B\u09C7\u0964 "
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - bn
+      metrics:
+      - Accuracy
+      original_task: true
+    name: simple_sentiment_with_class_bn
+    reference: sbmaruf#9215
+  4ded7329-f4f7-4f5a-a9a6-387db920e728: !Template
+    answer_choices: Positive ||| Neutral ||| Negative
+    id: 4ded7329-f4f7-4f5a-a9a6-387db920e728
+    jinja: 'What is the sentiment of the following tweet?
+
+      {{tweet}}
+
+      |||
+
+      {{answer_choices [label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: simple_sentiment_without_class_en
+    reference: aisha#5803
+  7d3db357-095a-4149-812a-b37927ba6a5e: !Template
+    answer_choices: positive ||| neutral ||| negative
+    id: 7d3db357-095a-4149-812a-b37927ba6a5e
+    jinja: 'Is the tweet below expressing a positive, negative or neutral sentiment?
+      {{tweet}}
+
+      |||
+
+      The tweet is expressing {{answer_choices[label]}} sentiment.'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: simple_sentiment_with_class_en
+    reference: ''
