@@ -63,7 +63,7 @@ templates:
   7d3db357-095a-4149-812a-b37927ba6a5e: !Template
     answer_choices: positive ||| neutral ||| negative
     id: 7d3db357-095a-4149-812a-b37927ba6a5e
-    jinja: 'Is the tweet below expressing a positive, negative or neutral sentiment?
+    jinja: 'Is the tweet below expressing a positive, negative, or neutral sentiment?
       {{tweet}}
 
       |||
