@@ -1,0 +1,36 @@
+dataset: exams
+subset: multilingual
+templates:
+  55f15a58-b41e-4372-ac59-0c245fee9c80: !Template
+    answer_choices: null
+    id: 55f15a58-b41e-4372-ac59-0c245fee9c80
+    jinja: 'This exam question is pertaining to which subject?
+
+      {{question[''stem'']}}?
+
+      |||
+
+      This exam question is related to the subject {{info[''subject'']}}.'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Exam_Subject_without_option_en
+    reference: Shivalika#9171
+  c0aa36e7-e2fc-4ba6-80b0-d18071e802b0: !Template
+    answer_choices: null
+    id: c0aa36e7-e2fc-4ba6-80b0-d18071e802b0
+    jinja: "Cette question d'examen concerne quelle mati\xE8re?\n{{question['stem']}}?\n\
+      |||\nCette question d'examen est li\xE9e au sujet {{info['subject']}}."
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - fr
+      metrics:
+      - Accuracy
+      original_task: true
+    name: Exam_Subject_without_option_fr
+    reference: Shivalika#9171

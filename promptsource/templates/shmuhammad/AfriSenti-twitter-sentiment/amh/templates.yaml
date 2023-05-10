@@ -27,9 +27,9 @@ templates:
       \u09BF \u0987\u09A4\u09BF\u09AC\u09BE\u099A\u0995, \u09A8\u09C7\u09A4\u09BF\u09AC\
       \u09BE\u099A\u0995 \u09AC\u09BE \u09A8\u09BF\u09B0\u09AA\u09C7\u0995\u09CD\u09B7\
       \ \u0985\u09A8\u09C1\u09AD\u09C2\u09A4\u09BF \u09AA\u09CD\u09B0\u0995\u09BE\u09B6\
-      \ \u0995\u09B0\u099B\u09C7?\n{{tweet}}\n|||\n\u099F\u09C1\u0987\u099F\u099F\u09BF\
-      \ {{answer_choices[label]}} \u0985\u09A8\u09C1\u09AD\u09C2\u09A4\u09BF \u09AA\
-      \u09CD\u09B0\u0995\u09BE\u09B6 \u0995\u09B0\u099B\u09C7\u0964 "
+      \ \u0995\u09B0\u099B\u09C7?\n\n{{tweet}}\n|||\n\u099F\u09C1\u0987\u099F\u099F\
+      \u09BF {{answer_choices[label]}} \u0985\u09A8\u09C1\u09AD\u09C2\u09A4\u09BF\
+      \ \u09AA\u09CD\u09B0\u0995\u09BE\u09B6 \u0995\u09B0\u099B\u09C7\u0964 "
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -43,6 +43,7 @@ templates:
     answer_choices: Positive ||| Neutral ||| Negative
     id: 4ded7329-f4f7-4f5a-a9a6-387db920e728
     jinja: 'What is the sentiment of the following tweet?
+
 
       {{tweet}}
 
@@ -63,12 +64,8 @@ templates:
   7d3db357-095a-4149-812a-b37927ba6a5e: !Template
     answer_choices: positive ||| neutral ||| negative
     id: 7d3db357-095a-4149-812a-b37927ba6a5e
-    jinja: 'Is the tweet below expressing a positive, negative, or neutral sentiment?
-      {{tweet}}
-
-      |||
-
-      The tweet is expressing {{answer_choices[label]}} sentiment.'
+    jinja: "Is the tweet below expressing a positive, negative, or neutral sentiment?\
+      \ \n\n{{tweet}}\n|||\nThe tweet is expressing {{answer_choices[label]}} sentiment."
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
