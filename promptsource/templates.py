@@ -265,7 +265,7 @@ class Template(yaml.YAMLObject):
 
     yaml_tag = "!Template"
 
-    def __init__(self, name, jinja, reference, metadata=None, answer_choices=None):
+    def __init__(self, name, jinja, reference, metadata=None, answer_choices=None, delimeter="|||"):
         """
         Creates a prompt template.
 
@@ -293,6 +293,7 @@ class Template(yaml.YAMLObject):
         self.reference = reference
         self.metadata = metadata if metadata is not None else Template.Metadata()
         self.answer_choices = answer_choices
+        self.delimeter = delimeter
 
     def get_id(self):
         """
@@ -337,9 +338,9 @@ class Template(yaml.YAMLObject):
             return None
 
         rtemplate = env.from_string(jinja)
-        protected_example = self._escape_pipe(example)
+        protected_example = self._escape_pipe(example, self.delimeter)
         rendered_choices = rtemplate.render(**protected_example)
-        return [self._unescape_pipe(answer_choice.strip()) for answer_choice in rendered_choices.split("|||")]
+        return [self._unescape_pipe(answer_choice.strip(), self.delimeter) for answer_choice in rendered_choices.split(self.delimeter)]
 
     def get_fixed_answer_choices_list(self):
         """
@@ -355,7 +356,7 @@ class Template(yaml.YAMLObject):
         if len(variables) == 0:
             rtemplate = env.from_string(jinja)
             rendered_choices = rtemplate.render()
-            return [answer_choice.strip() for answer_choice in rendered_choices.split("|||")]
+            return [answer_choice.strip() for answer_choice in rendered_choices.split(self.delimeter)]
         else:
             return None
 
@@ -382,7 +383,7 @@ class Template(yaml.YAMLObject):
             jinja = jinja.replace("}}", " | highlight }}")
         rtemplate = env.from_string(jinja)
 
-        protected_example = self._escape_pipe(example)
+        protected_example = self._escape_pipe(example, self.delimeter)
 
         # Adds in answer_choices variable
         if "answer_choices" in protected_example:
@@ -395,24 +396,24 @@ class Template(yaml.YAMLObject):
 
         # Splits on the separator, and then replaces back any occurrences of the
         # separator in the original example
-        return [self._unescape_pipe(part).strip() for part in rendered_example.split("|||")]
+        return [self._unescape_pipe(part, self.delimeter).strip() for part in rendered_example.split(self.delimeter)]
 
     pipe_protector = "3ed2dface8203c4c9dfb1a5dc58e41e0"
 
     @classmethod
-    def _escape_pipe(cls, example):
-        # Replaces any occurrences of the "|||" separator in the example, which
+    def _escape_pipe(cls, example, delimeter):
+        # Replaces any occurrences of the self.delimeter separator in the example, which
         # which will be replaced back after splitting
         protected_example = {
-            key: value.replace("|||", cls.pipe_protector) if isinstance(value, str) else value
+            key: value.replace(delimeter, cls.pipe_protector) if isinstance(value, str) else value
             for key, value in example.items()
         }
         return protected_example
 
     @classmethod
-    def _unescape_pipe(cls, string):
+    def _unescape_pipe(cls, string, delimeter):
         # replaces back any occurrences of the separator in a string
-        return string.replace(cls.pipe_protector, "|||")
+        return string.replace(cls.pipe_protector, delimeter)
 
     class Metadata(yaml.YAMLObject):
         """
