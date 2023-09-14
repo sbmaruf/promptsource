@@ -252,10 +252,24 @@ def most_frequent(items):
     most_frequent_items = [c[0] for c in item_counts if c[1] == max_freq]
     return most_frequent_items
 
+def has_none_or_empty_raise(values):
+    none_found = False
+    if isinstance(values, list):
+        none_found = any(not v for v in values)
+    elif isinstance(values, dict):
+        none_found = any(not v for v in values.values())
+    elif not values:
+        none_found = True
+    if none_found:
+        raise ValueError("Encountered None or empty value!")
+    return values  # This line will only be reached if no empty or None values are found.
+
 
 env.filters["highlight"] = highlight
 env.filters["choice"] = choice
 env.filters["most_frequent"] = most_frequent
+env.filters["no_none"] = has_none_or_empty_raise
+
 
 
 class Template(yaml.YAMLObject):
@@ -360,7 +374,7 @@ class Template(yaml.YAMLObject):
         else:
             return None
 
-    def apply(self, example, truncate=False, highlight_variables=False):
+    def apply(self, example, truncate=False, highlight_variables=False, no_none=True):
         """
         Creates a prompt by applying this template to an example
 
@@ -381,6 +395,8 @@ class Template(yaml.YAMLObject):
         # Highlights text that was substituted for variables, if requested
         if highlight_variables:
             jinja = jinja.replace("}}", " | highlight }}")
+        if no_none:
+            jinja = jinja.replace("}}", " | no_none }}")
         rtemplate = env.from_string(jinja)
 
         protected_example = self._escape_pipe(example, self.delimeter)
